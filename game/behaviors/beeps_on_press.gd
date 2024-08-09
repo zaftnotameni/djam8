@@ -1,5 +1,5 @@
 @tool
-class_name PlaysAudioOnPress extends Node
+class_name BeepsOnPress extends Node
 
 @export var button : BaseButton
 

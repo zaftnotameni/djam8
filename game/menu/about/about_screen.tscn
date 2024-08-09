@@ -1,13 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://btsv0sx8x2e12"]
+[gd_scene load_steps=5 format=3 uid="uid://cqgte28l5b8a1"]
 
-[ext_resource type="PackedScene" uid="uid://dfn8ke6j65brl" path="res://game/menu/options/audio_sliders.tscn" id="1_a7jtx"]
-[ext_resource type="Script" path="res://game/behaviors/closes_menu.gd" id="2_kl0du"]
-[ext_resource type="Script" path="res://game/behaviors/beeps_on_focus.gd" id="3_0hqou"]
-[ext_resource type="Script" path="res://game/behaviors/beeps_on_press.gd" id="4_3810c"]
-[ext_resource type="Script" path="res://game/behaviors/grabs_focus.gd" id="5_0va7r"]
+[ext_resource type="Script" path="res://game/behaviors/closes_menu.gd" id="1_tssms"]
+[ext_resource type="Script" path="res://game/behaviors/beeps_on_focus.gd" id="2_8o7q6"]
+[ext_resource type="Script" path="res://game/behaviors/beeps_on_press.gd" id="3_gpsc7"]
+[ext_resource type="Script" path="res://game/behaviors/grabs_focus.gd" id="4_nig4e"]
 
-[node name="OptionsScreen" type="PanelContainer"]
-process_mode = 3
+[node name="AboutScreen" type="PanelContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -23,31 +21,42 @@ layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-alignment = 1
 
-[node name="AudioSliders" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_a7jtx")]
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
+size_flags_vertical = 3
+text = "Team members:
+
+- [HotNoggin](https://github.com/HotNoggin)
+- [TheNetherPug](https://github.com/TheNetherPug)
+- [ZAFT](https://github.com/zaftnotameni)
+
+Built Using:
+
+- [Godot 4.3-rc3](https://github.com/godotengine/godot-builds/releases/download/4.3-rc3/Godot_v4.3-rc3_win64.exe.zip)
+- [neovim](https://neovim.io/)
+- [butler](https://itch.io/docs/butler/pushing.html)
+"
+fit_content = true
+tab_size = 2
 
 [node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 8
 text = "Back"
 
 [node name="ClosesMenu" type="Node" parent="MarginContainer/VBoxContainer/Back" node_paths=PackedStringArray("menu", "button")]
-script = ExtResource("2_kl0du")
+script = ExtResource("1_tssms")
 menu = NodePath("../../../..")
 button = NodePath("..")
 
 [node name="BeepsOnFocus" type="Node" parent="MarginContainer/VBoxContainer/Back" node_paths=PackedStringArray("button")]
-script = ExtResource("3_0hqou")
+script = ExtResource("2_8o7q6")
 button = NodePath("..")
 
 [node name="BeepsOnPress" type="Node" parent="MarginContainer/VBoxContainer/Back" node_paths=PackedStringArray("button")]
-script = ExtResource("4_3810c")
+script = ExtResource("3_gpsc7")
 button = NodePath("..")
 
 [node name="AutoFocuses" type="Node" parent="MarginContainer/VBoxContainer/Back" node_paths=PackedStringArray("button")]
-script = ExtResource("5_0va7r")
+script = ExtResource("4_nig4e")
 button = NodePath("..")

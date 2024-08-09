@@ -10,7 +10,11 @@ func on_pressed():
 	tween.tween_property(menu, ^'position:x', -2000, 0.3).from(0)
 	tween.tween_callback(menu.queue_free)
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action('ui_cancel'): on_pressed()
+
 func _enter_tree() -> void:
+	process_mode = ProcessMode.PROCESS_MODE_INHERIT if Engine.is_editor_hint() else ProcessMode.PROCESS_MODE_ALWAYS
 	if not menu: menu = owner
 	if not button: button = get_parent()
 	if not button.text or button.text.is_empty(): button.text = 'Back'
