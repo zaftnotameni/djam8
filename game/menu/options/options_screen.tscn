@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://btsv0sx8x2e12"]
+
+[node name="AudioSlider" type="Node2D"]
