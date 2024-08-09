@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://be8skmepdwywx" path="res://assets/audio/Master/volume_tick.ogg" id="7_kopr4"]
 
 [node name="Audio" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_25wme")
 
 [node name="UI_ButtonFocus" type="AudioStreamPlayer" parent="."]

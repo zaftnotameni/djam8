@@ -1,0 +1,83 @@
+[gd_scene load_steps=10 format=3 uid="uid://by65nwkvsugwf"]
+
+[ext_resource type="Script" path="res://game/behaviors/pauses_game_on_enter.gd" id="1_8pill"]
+[ext_resource type="Script" path="res://game/behaviors/game_state_paused.gd" id="1_vu8e4"]
+[ext_resource type="Script" path="res://game/behaviors/unpauses_game_on_exit.gd" id="2_j7n2r"]
+[ext_resource type="Script" path="res://game/behaviors/closes_menu.gd" id="3_1h7yx"]
+[ext_resource type="Script" path="res://game/behaviors/beeps_on_focus.gd" id="4_hqej6"]
+[ext_resource type="Script" path="res://game/behaviors/beeps_on_press.gd" id="5_44js6"]
+[ext_resource type="Script" path="res://game/behaviors/grabs_focus.gd" id="6_japa7"]
+[ext_resource type="Script" path="res://game/behaviors/quits_to_title.gd" id="7_hro6p"]
+[ext_resource type="PackedScene" uid="uid://bmv0fypbncfvm" path="res://game/menu/title/title_screen.tscn" id="8_yfv7s"]
+
+[node name="PauseScreen" type="PanelContainer"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameStatePaused" type="Node" parent="."]
+script = ExtResource("1_vu8e4")
+
+[node name="PausesGameOnEnter" type="Node" parent="."]
+script = ExtResource("1_8pill")
+
+[node name="UnpausesGameOnExit" type="Node" parent="."]
+script = ExtResource("2_j7n2r")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0.18, 0.0954, 0.15744, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="Unpause" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Unpause"
+
+[node name="ClosesMenu" type="Node" parent="MarginContainer/VBoxContainer/Unpause" node_paths=PackedStringArray("menu", "button")]
+script = ExtResource("3_1h7yx")
+menu = NodePath("../../../..")
+button = NodePath("..")
+
+[node name="BeepsOnFocus" type="Node" parent="MarginContainer/VBoxContainer/Unpause" node_paths=PackedStringArray("button")]
+script = ExtResource("4_hqej6")
+button = NodePath("..")
+
+[node name="BeepsOnPress" type="Node" parent="MarginContainer/VBoxContainer/Unpause" node_paths=PackedStringArray("button")]
+script = ExtResource("5_44js6")
+button = NodePath("..")
+
+[node name="GrabsFocus" type="Node" parent="MarginContainer/VBoxContainer/Unpause" node_paths=PackedStringArray("button")]
+script = ExtResource("6_japa7")
+button = NodePath("..")
+
+[node name="QuitToTitle" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit To Title"
+
+[node name="BeepsOnPress" type="Node" parent="MarginContainer/VBoxContainer/QuitToTitle" node_paths=PackedStringArray("button")]
+script = ExtResource("5_44js6")
+button = NodePath("..")
+
+[node name="BeepsOnFocus" type="Node" parent="MarginContainer/VBoxContainer/QuitToTitle" node_paths=PackedStringArray("button")]
+script = ExtResource("4_hqej6")
+button = NodePath("..")
+
+[node name="QuitsToTitle" type="Node" parent="MarginContainer/VBoxContainer/QuitToTitle" node_paths=PackedStringArray("button", "menu")]
+script = ExtResource("7_hro6p")
+scene = ExtResource("8_yfv7s")
+button = NodePath("..")
+menu = NodePath("../../../..")
