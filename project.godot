@@ -30,6 +30,7 @@ buses/default_bus_layout="res://resources/audio/default_bus_layout.tres"
 
 Config="*res://game/autoload/config.gd"
 Audio="*res://game/autoload/audio.tscn"
+State="*res://game/autoload/state.gd"
 
 [debug]
 
