@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://btsv0sx8x2e12"]
+[gd_scene load_steps=6 format=3 uid="uid://btsv0sx8x2e12"]
 
 [ext_resource type="PackedScene" uid="uid://dfn8ke6j65brl" path="res://game/menu/options/audio_sliders.tscn" id="1_a7jtx"]
 [ext_resource type="Script" path="res://game/behaviors/closes_menu.gd" id="2_kl0du"]
 [ext_resource type="Script" path="res://game/behaviors/plays_audio_on_focus.gd" id="3_0hqou"]
 [ext_resource type="Script" path="res://game/behaviors/plays_audio_on_press.gd" id="4_3810c"]
+[ext_resource type="Script" path="res://game/behaviors/auto_focuses.gd" id="5_0va7r"]
 
-[node name="Options" type="PanelContainer"]
+[node name="OptionsScreen" type="PanelContainer"]
 process_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,4 +42,8 @@ button = NodePath("..")
 
 [node name="PlaysAudioOnPress" type="Node" parent="MarginContainer/VBoxContainer/Back" node_paths=PackedStringArray("button")]
 script = ExtResource("4_3810c")
+button = NodePath("..")
+
+[node name="AutoFocuses" type="Node" parent="MarginContainer/VBoxContainer/Back" node_paths=PackedStringArray("button")]
+script = ExtResource("5_0va7r")
 button = NodePath("..")
