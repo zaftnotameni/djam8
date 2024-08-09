@@ -1,3 +1,44 @@
-[gd_scene format=3 uid="uid://btsv0sx8x2e12"]
+[gd_scene load_steps=5 format=3 uid="uid://btsv0sx8x2e12"]
 
-[node name="AudioSlider" type="Node2D"]
+[ext_resource type="PackedScene" uid="uid://dfn8ke6j65brl" path="res://game/menu/options/audio_sliders.tscn" id="1_a7jtx"]
+[ext_resource type="Script" path="res://game/behaviors/closes_menu.gd" id="2_kl0du"]
+[ext_resource type="Script" path="res://game/behaviors/plays_audio_on_focus.gd" id="3_0hqou"]
+[ext_resource type="Script" path="res://game/behaviors/plays_audio_on_press.gd" id="4_3810c"]
+
+[node name="Options" type="PanelContainer"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="AudioSliders" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_a7jtx")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Back"
+
+[node name="ClosesMenu" type="Node" parent="MarginContainer/VBoxContainer/Back" node_paths=PackedStringArray("menu", "button")]
+script = ExtResource("2_kl0du")
+menu = NodePath("../../../..")
+button = NodePath("..")
+
+[node name="PlaysAudioOnFocus" type="Node" parent="MarginContainer/VBoxContainer/Back" node_paths=PackedStringArray("button")]
+script = ExtResource("3_0hqou")
+button = NodePath("..")
+
+[node name="PlaysAudioOnPress" type="Node" parent="MarginContainer/VBoxContainer/Back" node_paths=PackedStringArray("button")]
+script = ExtResource("4_3810c")
+button = NodePath("..")
