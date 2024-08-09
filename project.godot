@@ -22,6 +22,10 @@ config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/image="res://assets/logos/djam8.png"
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://resources/audio/default_bus_layout.tres"
+
 [autoload]
 
 Config="*res://game/autoload/config.gd"
@@ -65,4 +69,4 @@ renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 environment/defaults/default_clear_color=Color(0.129412, 0.113725, 0.219608, 1)
 viewport/hdr_2d=true
-environment/defaults/default_environment="res://default_world_environment.tres"
+environment/defaults/default_environment="res://resources/world/default_world_environment.tres"
