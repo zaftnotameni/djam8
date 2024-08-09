@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://s3ovdi7qgdjn"]
+[gd_scene load_steps=3 format=3 uid="uid://s3ovdi7qgdjn"]
 
 [ext_resource type="Script" path="res://game/main/main.gd" id="1_4xd2q"]
+[ext_resource type="PackedScene" uid="uid://bmv0fypbncfvm" path="res://game/menu/title/title_screen.tscn" id="2_w3x05"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_4xd2q")
+
+[node name="MenuLayer" type="CanvasLayer" parent="."]
+
+[node name="TitleScreen" parent="MenuLayer" instance=ExtResource("2_w3x05")]

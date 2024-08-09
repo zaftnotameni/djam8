@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=3 uid="uid://bmv0fypbncfvm"]
+
+[ext_resource type="Texture2D" uid="uid://b72q6cyu2slvx" path="res://assets/logos/djam8.png" id="1_aobc3"]
+[ext_resource type="Script" path="res://game/behaviors/beeps_on_focus.gd" id="1_fxii2"]
+[ext_resource type="Script" path="res://game/behaviors/beeps_on_press.gd" id="2_gyghh"]
+[ext_resource type="Script" path="res://game/behaviors/opens_submenu.gd" id="3_5ws1a"]
+[ext_resource type="Script" path="res://game/behaviors/grabs_focus.gd" id="4_sgtl8"]
+[ext_resource type="PackedScene" uid="uid://btsv0sx8x2e12" path="res://game/menu/options/options_screen.tscn" id="4_t7mtx"]
+[ext_resource type="PackedScene" uid="uid://cqgte28l5b8a1" path="res://game/menu/about/about_screen.tscn" id="7_onjai"]
+
+[node name="TitleScreen" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_aobc3")
+stretch_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Start" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="BeepsOnFocus" type="Node" parent="MarginContainer/VBoxContainer/VBoxContainer/Start" node_paths=PackedStringArray("button")]
+script = ExtResource("1_fxii2")
+button = NodePath("..")
+
+[node name="BeepsOnPress" type="Node" parent="MarginContainer/VBoxContainer/VBoxContainer/Start" node_paths=PackedStringArray("button")]
+script = ExtResource("2_gyghh")
+button = NodePath("..")
+
+[node name="GrabsFocus" type="Node" parent="MarginContainer/VBoxContainer/VBoxContainer/Start" node_paths=PackedStringArray("button")]
+script = ExtResource("4_sgtl8")
+button = NodePath("..")
+
+[node name="Options" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="BeepsOnFocus" type="Node" parent="MarginContainer/VBoxContainer/VBoxContainer/Options" node_paths=PackedStringArray("button")]
+script = ExtResource("1_fxii2")
+button = NodePath("..")
+
+[node name="BeepsOnPress" type="Node" parent="MarginContainer/VBoxContainer/VBoxContainer/Options" node_paths=PackedStringArray("button")]
+script = ExtResource("2_gyghh")
+button = NodePath("..")
+
+[node name="OpensSubMenu" type="Node" parent="MarginContainer/VBoxContainer/VBoxContainer/Options" node_paths=PackedStringArray("button")]
+script = ExtResource("3_5ws1a")
+scene = ExtResource("4_t7mtx")
+button = NodePath("..")
+
+[node name="About" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "About"
+
+[node name="BeepsOnFocus" type="Node" parent="MarginContainer/VBoxContainer/VBoxContainer/About" node_paths=PackedStringArray("button")]
+script = ExtResource("1_fxii2")
+button = NodePath("..")
+
+[node name="BeepsOnPress" type="Node" parent="MarginContainer/VBoxContainer/VBoxContainer/About" node_paths=PackedStringArray("button")]
+script = ExtResource("2_gyghh")
+button = NodePath("..")
+
+[node name="OpensSubMenu" type="Node" parent="MarginContainer/VBoxContainer/VBoxContainer/About" node_paths=PackedStringArray("button")]
+script = ExtResource("3_5ws1a")
+scene = ExtResource("7_onjai")
+button = NodePath("..")
