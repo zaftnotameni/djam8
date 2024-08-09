@@ -1,0 +1,10 @@
+/exports/web/
+/exports/win/
+/exports/lin/
+
+*.env
+
+# Godot 4+ specific ignores
+*.tmp*
+.godot/
+/android/
