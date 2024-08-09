@@ -26,6 +26,24 @@ Jam Rules:
 - You are allowed to used premade assets (including third-party assets you have the right to use)
 - You can work Solo or in a Team. There is no limit to the amount of members you can have in a team.
 
+## Adding Audio
+
+Put audio files in one of these folders:
+
+- `res://assets/audio/Master`: basically shouldn't be used, only used for the test sound
+- `res://assets/audio/BGM`: music
+- `res://assets/audio/SFX`: sound effects
+- `res://assets/audio/UI`: UI interactions (button clicks, focus/hover, etc)
+
+**Important**: Open the audio scene (`res://game/autoload/audio.tscn`) and save.
+That will update the `NamedAudio` enum based on the files in those folders automatically.
+
+To play audio from anywhere use the `play_named_...` functions:
+
+- `Audio.play_named_ui(NamedAudio.UI.UI_ButtonClick)`
+- `Audio.play_named_bgm(NamedAudio.BGM.BGM_BackgroundMusicName)`
+- `Audio.play_named_sfx(NamedAudio.SFX.SFX_Boom)`
+
 ## Running the Project
 
 If you are on windows and have the correct Godot version with the default name in a folder on your path, you can just run:
