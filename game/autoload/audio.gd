@@ -44,6 +44,8 @@ func play_named(audio_name:String):
 		else:
 			if not audio.playing:
 				audio.play()
+			# if audio.name.begins_with('BGM') and not audio.name.contains('VolumeTick'):
+			# 	audio.finished.connect(play_named.bind(audio_name), CONNECT_ONE_SHOT)
 
 func ignore_next(audio_name:String, how_many:int=1):
 	audio_to_ignore[audio_name] = audio_to_ignore.get_or_add(audio_name, 0) + how_many
@@ -135,7 +137,8 @@ func load_audio_streams_for(audio_bus_name:String) -> Array:
 		audio_stream_player.stream = audio_stream
 		if audio_bus_name != 'Master': audio_stream_player.bus = audio_bus_name
 
-		if audio_bus_name == 'BGM': audio_stream_player.set('parameters/looping', true)
+		if audio_bus_name == 'BGM' and not audio_stream_player.name.contains('VolumeTick'): audio_stream_player.set('parameters/looping', true)
+		if audio_bus_name == 'BGM' and not audio_stream_player.name.contains('VolumeTick'): audio_stream_player.playback_type = AudioServer.PLAYBACK_TYPE_STREAM
 		audio_stream_player.set_meta('created_via_automation', true)
 		add_child.call_deferred(audio_stream_player)
 		await audio_stream_player.ready

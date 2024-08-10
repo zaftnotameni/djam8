@@ -48,13 +48,13 @@ metadata/created_via_automation = true
 [node name="BGM_PixelSpace" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_va70x")
 bus = &"BGM"
+playback_type = 1
 parameters/looping = true
 metadata/created_via_automation = true
 
 [node name="BGM_VolumeTick" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_7k6w4")
 bus = &"BGM"
-parameters/looping = true
 metadata/created_via_automation = true
 
 [node name="Master_VolumeTick" type="AudioStreamPlayer" parent="."]
