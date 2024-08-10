@@ -40,18 +40,21 @@ scale = Vector2(4.559, 4.559)
 texture = ExtResource("1_nae7i")
 
 [node name="Background" type="Parallax2D" parent="ParallaxBackground"]
-scroll_scale = Vector2(0.465, 0.465)
+scroll_scale = Vector2(0.438, 0.438)
+repeat_size = Vector2(3767.25, 0)
+autoscroll = Vector2(-21.9, 0)
 
 [node name="Stars" type="Sprite2D" parent="ParallaxBackground/Background"]
-modulate = Color(2, 0.247, 0.584, 1)
+modulate = Color(1, 0.247059, 0.584314, 1)
 texture_repeat = 2
 position = Vector2(697, 384)
-rotation = 1.5708
-scale = Vector2(1.8, 1.8)
+scale = Vector2(1.83496, 1.83496)
 texture = ExtResource("1_1t2fr")
 
 [node name="Foreground" type="Parallax2D" parent="ParallaxBackground"]
 scroll_scale = Vector2(0.8, 0.8)
+repeat_size = Vector2(6326.12, 0)
+autoscroll = Vector2(-50, 0)
 
 [node name="Stars" type="Sprite2D" parent="ParallaxBackground/Foreground"]
 modulate = Color(2.5, 2.5, 2.5, 1)
