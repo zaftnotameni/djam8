@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://8jae8q7be10q"]
+
+[sub_resource type="Curve" id="Curve_e3rkc"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.103053, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.9587, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_63feq"]
+offsets = PackedFloat32Array(0.0357143, 0.196429, 0.258929, 0.366071, 0.741071, 1)
+colors = PackedColorArray(0, 0, 1, 1, 1, 0.415686, 0, 1, 1, 0.561765, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0.87037, 1, 1, 0, 0)
+
+[node name="PartyJetpackDown" type="CPUParticles2D"]
+emitting = false
+amount = 128
+lifetime = 0.4
+speed_scale = 0.5
+randomness = 1.0
+local_coords = true
+spread = 180.0
+initial_velocity_min = 6.0
+initial_velocity_max = 8.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_e3rkc")
+color_ramp = SubResource("Gradient_63feq")

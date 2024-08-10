@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://cwye5ouuhpt8"]
+
+[ext_resource type="PackedScene" uid="uid://8jae8q7be10q" path="res://game/jepack/jetpack_particles_going_down.tscn" id="1_jv8ap"]
+[ext_resource type="Script" path="res://game/player/enabled_outside_ship.gd" id="1_qs8pb"]
+[ext_resource type="Script" path="res://game/player/emitting_going_up.gd" id="2_tl6u8"]
+[ext_resource type="Script" path="res://game/player/emitting_going_down.gd" id="3_4oggc"]
+[ext_resource type="Script" path="res://game/player/emitting_going_left.gd" id="4_2cin0"]
+[ext_resource type="Script" path="res://game/player/emitting_going_right.gd" id="5_nis54"]
+
+[node name="Jetpack" type="Node2D"]
+
+[node name="PartyJetpackEmitsDown" parent="." instance=ExtResource("1_jv8ap")]
+position = Vector2(0, 8)
+
+[node name="EnabledOutsideShip" type="Node" parent="PartyJetpackEmitsDown"]
+script = ExtResource("1_qs8pb")
+
+[node name="EmittingGoingUp" type="Node" parent="PartyJetpackEmitsDown"]
+script = ExtResource("2_tl6u8")
+
+[node name="PartyJetpackEmitsUp" parent="." instance=ExtResource("1_jv8ap")]
+position = Vector2(0, -8)
+rotation = 3.14159
+
+[node name="EnabledOutsideShip" type="Node" parent="PartyJetpackEmitsUp"]
+script = ExtResource("1_qs8pb")
+
+[node name="EmittingGoingDown" type="Node" parent="PartyJetpackEmitsUp"]
+script = ExtResource("3_4oggc")
+
+[node name="PartyJetpackEmitsRight" parent="." instance=ExtResource("1_jv8ap")]
+position = Vector2(8, 0)
+rotation = -1.5708
+
+[node name="EnabledOutsideShip" type="Node" parent="PartyJetpackEmitsRight"]
+script = ExtResource("1_qs8pb")
+
+[node name="EmittingGoingLeft" type="Node" parent="PartyJetpackEmitsRight"]
+script = ExtResource("4_2cin0")
+
+[node name="PartyJetpackEmitsLeft" parent="." instance=ExtResource("1_jv8ap")]
+position = Vector2(-8, 0)
+rotation = 1.5708
+
+[node name="EnabledOutsideShip" type="Node" parent="PartyJetpackEmitsLeft"]
+script = ExtResource("1_qs8pb")
+
+[node name="EmittingGoingRight" type="Node" parent="PartyJetpackEmitsLeft"]
+script = ExtResource("5_nis54")
