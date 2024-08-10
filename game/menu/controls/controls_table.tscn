@@ -57,6 +57,7 @@ horizontal_alignment = 2
 layout_mode = 2
 
 [node name="GridContainer" type="GridContainer" parent="HBoxContainer"]
+modulate = Color(1, 0.247059, 0.584314, 1)
 layout_mode = 2
 columns = 3
 
@@ -89,6 +90,7 @@ layout_mode = 2
 texture = ExtResource("4_vpend")
 
 [node name="GridContainer2" type="GridContainer" parent="HBoxContainer"]
+modulate = Color(1, 0.247059, 0.584314, 1)
 layout_mode = 2
 columns = 3
 
@@ -121,6 +123,7 @@ layout_mode = 2
 texture = ExtResource("8_pgelo")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="."]
+modulate = Color(1, 0.247059, 0.584314, 1)
 layout_mode = 2
 alignment = 1
 
@@ -130,6 +133,7 @@ texture = ExtResource("9_37nfe")
 stretch_mode = 3
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="."]
+modulate = Color(1, 0.247059, 0.584314, 1)
 layout_mode = 2
 alignment = 1
 
@@ -145,6 +149,7 @@ text = "Repair"
 horizontal_alignment = 2
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="."]
+modulate = Color(1, 0.247059, 0.584314, 1)
 layout_mode = 2
 alignment = 1
 
@@ -154,6 +159,7 @@ texture = ExtResource("11_oxp68")
 stretch_mode = 3
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="."]
+modulate = Color(1, 0.247059, 0.584314, 1)
 layout_mode = 2
 alignment = 1
 
@@ -163,6 +169,7 @@ texture = ExtResource("12_nb4pv")
 stretch_mode = 3
 
 [node name="HBoxContainer6" type="HBoxContainer" parent="."]
+modulate = Color(1, 0.247059, 0.584314, 1)
 layout_mode = 2
 alignment = 1
 
@@ -178,6 +185,7 @@ text = "Pause"
 horizontal_alignment = 2
 
 [node name="HBoxContainer7" type="HBoxContainer" parent="."]
+modulate = Color(1, 0.247059, 0.584314, 1)
 layout_mode = 2
 alignment = 1
 
@@ -187,6 +195,7 @@ texture = ExtResource("14_5bsrh")
 stretch_mode = 3
 
 [node name="HBoxContainer8" type="HBoxContainer" parent="."]
+modulate = Color(1, 0.247059, 0.584314, 1)
 layout_mode = 2
 alignment = 1
 
@@ -196,6 +205,7 @@ texture = ExtResource("15_pjn6g")
 stretch_mode = 3
 
 [node name="HBoxContainer9" type="HBoxContainer" parent="."]
+modulate = Color(1, 0.247059, 0.584314, 1)
 layout_mode = 2
 alignment = 1
 

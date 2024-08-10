@@ -66,6 +66,7 @@ hud_layer=""
 
 [gui]
 
+theme/custom="res://resources/theme/default_theme.tres"
 theme/custom_font="res://assets/fonts/monogram-extended.ttf"
 
 [input]
@@ -118,6 +119,7 @@ pause={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/glow/upscale_mode=0
 environment/defaults/default_clear_color=Color(0.0823529, 0, 0.121569, 1)
 viewport/hdr_2d=true
 environment/defaults/default_environment="res://resources/world/default_world_environment.tres"

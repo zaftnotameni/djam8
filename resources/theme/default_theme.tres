@@ -18,9 +18,15 @@ bg_color = Color(1, 0.247059, 0.584314, 1)
 [resource]
 Button/colors/font_color = Color(1, 0.921569, 0.94902, 1)
 Button/colors/font_pressed_color = Color(1, 0.247059, 0.584314, 1)
+Button/constants/align_to_largest_stylebox = 1
 Button/font_sizes/font_size = 32
 Button/styles/focus = SubResource("StyleBoxFlat_nwwvs")
 Button/styles/hover = SubResource("StyleBoxFlat_o01rh")
 Button/styles/hover_pressed = SubResource("StyleBoxFlat_75bhd")
 Button/styles/normal = SubResource("StyleBoxFlat_0i85p")
 Button/styles/pressed = SubResource("StyleBoxFlat_l82vc")
+Label/colors/font_color = Color(1, 0.247059, 0.584314, 1)
+MarginContainer/constants/margin_bottom = 32
+MarginContainer/constants/margin_left = 32
+MarginContainer/constants/margin_right = 32
+MarginContainer/constants/margin_top = 32
