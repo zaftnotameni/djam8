@@ -12,7 +12,7 @@ var player_inside_ship_gravity_acceleration: float = 10 * player_height # px/s/s
 
 # configuration block for movement outside the ship
 var player_outside_ship_acceleration : float = 10 * player_height # px/s/s
-var player_outside_ship_max_speed : float = 100 * player_height # px/s/s
+var player_outside_ship_max_speed : float = 16 * player_height # px/s
 
 var player_data : PlayerData
 
