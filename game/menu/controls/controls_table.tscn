@@ -25,31 +25,31 @@ columns = 4
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 48
 text = "Action"
 horizontal_alignment = 2
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 48
 text = "Keyboard"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="."]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 48
 text = "Xbox"
 horizontal_alignment = 1
 
 [node name="Label4" type="Label" parent="."]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 48
 text = "Playstation"
 horizontal_alignment = 1
 
 [node name="Label5" type="Label" parent="."]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 48
 text = "Movement"
 horizontal_alignment = 2
 
@@ -140,7 +140,7 @@ stretch_mode = 3
 
 [node name="Label6" type="Label" parent="."]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 48
 text = "Repair"
 horizontal_alignment = 2
 
@@ -173,7 +173,7 @@ stretch_mode = 3
 
 [node name="Label7" type="Label" parent="."]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 48
 text = "Pause"
 horizontal_alignment = 2
 

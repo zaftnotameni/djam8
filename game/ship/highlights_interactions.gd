@@ -36,7 +36,7 @@ func unhighlight(highlight_others:bool=false):
 
 func highlight(unhighlight_others:bool=false):
 	if unhighlight_others:
-		for hi : HighlightsInteractions in get_tree().get_nodes_in_group(HIGHLIGHTS_INTERACTIONS_GROUP_NAME):
+		for hi: HighlightsInteractions in all():
 			if hi: hi.unhighlight()
 	canvas_item.show()
 	current_highlight = owner
@@ -50,6 +50,10 @@ func on_area_exited(other:Area2D):
 	if other.has_meta(source_meta) and other.get_meta(source_meta):
 		# when unhighliting one interaction, potentially restore another interaction if they are overlapping
 		unhighlight(true)
+
+static func all() -> Array:
+	var tree := Engine.get_main_loop() as SceneTree
+	return tree.get_nodes_in_group(HIGHLIGHTS_INTERACTIONS_GROUP_NAME)
 
 func _ready() -> void:
 	if not canvas_item: canvas_item = Resolve.at_by_meta(owner, 'interaction_highlight', true)

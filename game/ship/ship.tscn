@@ -1,88 +1,137 @@
-[gd_scene load_steps=9 format=3 uid="uid://dy663kuitecyv"]
+[gd_scene load_steps=14 format=3 uid="uid://dy663kuitecyv"]
 
 [ext_resource type="PackedScene" uid="uid://b0ll30uq8b5c7" path="res://game/ship/computer.tscn" id="1_qmqw2"]
 [ext_resource type="Script" path="res://game/tool/line_to_collider.gd" id="1_x73tr"]
 [ext_resource type="PackedScene" uid="uid://b202isct7vjpd" path="res://game/ship/thruster.tscn" id="2_x6rwn"]
+[ext_resource type="Script" path="res://game/ship/controls_onboard_display.gd" id="4_rehk4"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_0kqdt"]
-a = Vector2(64, 640)
-b = Vector2(1216, 640)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e22gr"]
+bg_color = Color(0.0823529, 0, 0.121569, 1)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_pu1c4"]
-a = Vector2(1216, 640)
-b = Vector2(1216, 264)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8kldo"]
+bg_color = Color(0.0823529, 0, 0.121569, 1)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_n2alv"]
-a = Vector2(1216, 264)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjj2v"]
+bg_color = Color(0.0823529, 0, 0.121569, 1)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ldyqu"]
+a = Vector2(256, 448)
+b = Vector2(64, 448)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_3t07b"]
+a = Vector2(64, 448)
 b = Vector2(64, 256)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_i0c6w"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_kajn3"]
 a = Vector2(64, 256)
-b = Vector2(64, 520)
+b = Vector2(448, 256)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_dseyx"]
+a = Vector2(448, 256)
+b = Vector2(448, 448)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_riyld"]
+a = Vector2(448, 448)
+b = Vector2(320, 448)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_quhro"]
-size = Vector2(1144, 376)
+size = Vector2(384, 192)
 
 [node name="Ship" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = 64.0
 offset_top = 256.0
-offset_right = 1216.0
-offset_bottom = 640.0
-color = Color(0.234375, 0.233459, 0.233459, 1)
+offset_right = 448.0
+offset_bottom = 450.0
+color = Color(0.258824, 0.0235294, 0.239216, 1)
 
 [node name="Computer" parent="ColorRect" instance=ExtResource("1_qmqw2")]
-position = Vector2(600, 368)
+position = Vector2(352, 176)
+metadata/orbital_bonus = 1.0
+metadata/orbital_decay = 2.0
 
 [node name="Computer2" parent="ColorRect" instance=ExtResource("1_qmqw2")]
-position = Vector2(928, 368)
+position = Vector2(144, 176)
+metadata/orbital_bonus = 2.0
+metadata/orbital_decay = 1.0
 
 [node name="Computer3" parent="ColorRect" instance=ExtResource("1_qmqw2")]
-position = Vector2(384, 368)
+position = Vector2(56, 176)
 metadata/has_problems = true
+metadata/orbital_bonus = 3.0
+metadata/orbital_decay = 1.0
 
 [node name="Thruster" parent="ColorRect" instance=ExtResource("2_x6rwn")]
-position = Vector2(-31, 121)
+position = Vector2(-32, 16)
 metadata/has_problems = true
+metadata/orbital_bonus = 2.0
+metadata/orbital_decay = 3.0
 
 [node name="Thruster2" parent="ColorRect" instance=ExtResource("2_x6rwn")]
-position = Vector2(-31, 177)
+position = Vector2(-32, 72)
+metadata/orbital_bonus = 5.0
+metadata/orbital_decay = 2.0
 
 [node name="Thruster3" parent="ColorRect" instance=ExtResource("2_x6rwn")]
-position = Vector2(-31, 233)
+position = Vector2(-32, 128)
+metadata/orbital_bonus = 1.0
+metadata/orbital_decay = 4.0
+
+[node name="OnboardDisplay" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+offset_left = 168.0
+offset_top = 320.0
+offset_right = 368.0
+offset_bottom = 384.0
+theme_override_colors/default_color = Color(1, 0.247059, 0.584314, 1)
+theme_override_styles/fill = SubResource("StyleBoxFlat_e22gr")
+theme_override_styles/background = SubResource("StyleBoxFlat_8kldo")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gjj2v")
+text = "
+  Orbital Velocity: 8 km/s
+  Orbital Radius: 10000 km
+  Orbital Decay: 1.0 km/s"
+scroll_active = false
 
 [node name="Line2D" type="Line2D" parent="."]
-points = PackedVector2Array(64, 640, 1216, 640, 1216, 264, 64, 256, 64, 520)
-width = 2.0
-default_color = Color(0.28569, 0.308594, 0.308594, 1)
+points = PackedVector2Array(256, 448, 64, 448, 64, 256, 448, 256, 448, 448, 320, 448)
+width = 4.0
+default_color = Color(1, 0.921569, 0.94902, 1)
 
 [node name="LineToCollider" type="Node" parent="Line2D"]
 script = ExtResource("1_x73tr")
 
-[node name="@StaticBody2D@71105" type="StaticBody2D" parent="Line2D"]
+[node name="@StaticBody2D@67886" type="StaticBody2D" parent="Line2D"]
 metadata/created_via_tool_script = true
 
-[node name="@CollisionShape2D@71106" type="CollisionShape2D" parent="Line2D/@StaticBody2D@71105"]
-shape = SubResource("SegmentShape2D_0kqdt")
+[node name="@CollisionShape2D@67887" type="CollisionShape2D" parent="Line2D/@StaticBody2D@67886"]
+shape = SubResource("SegmentShape2D_ldyqu")
 metadata/created_via_tool_script = true
 
-[node name="@CollisionShape2D@71107" type="CollisionShape2D" parent="Line2D/@StaticBody2D@71105"]
-shape = SubResource("SegmentShape2D_pu1c4")
+[node name="@CollisionShape2D@67888" type="CollisionShape2D" parent="Line2D/@StaticBody2D@67886"]
+shape = SubResource("SegmentShape2D_3t07b")
 metadata/created_via_tool_script = true
 
-[node name="@CollisionShape2D@71108" type="CollisionShape2D" parent="Line2D/@StaticBody2D@71105"]
-shape = SubResource("SegmentShape2D_n2alv")
+[node name="@CollisionShape2D@67889" type="CollisionShape2D" parent="Line2D/@StaticBody2D@67886"]
+shape = SubResource("SegmentShape2D_kajn3")
 metadata/created_via_tool_script = true
 
-[node name="@CollisionShape2D@71109" type="CollisionShape2D" parent="Line2D/@StaticBody2D@71105"]
-shape = SubResource("SegmentShape2D_i0c6w")
+[node name="@CollisionShape2D@67890" type="CollisionShape2D" parent="Line2D/@StaticBody2D@67886"]
+shape = SubResource("SegmentShape2D_dseyx")
+metadata/created_via_tool_script = true
+
+[node name="@CollisionShape2D@67891" type="CollisionShape2D" parent="Line2D/@StaticBody2D@67886"]
+shape = SubResource("SegmentShape2D_riyld")
 metadata/created_via_tool_script = true
 
 [node name="ShipInterior" type="Area2D" parent="."]
-position = Vector2(632, 440)
+position = Vector2(256, 344)
 metadata/ship_interior = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShipInterior"]
-position = Vector2(4, 12)
+position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_quhro")
+
+[node name="ControlsOnboardDisplay" type="Node" parent="."]
+script = ExtResource("4_rehk4")

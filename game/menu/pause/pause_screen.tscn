@@ -40,6 +40,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Paused"
 horizontal_alignment = 1
 
@@ -57,6 +58,7 @@ size_flags_stretch_ratio = 1.5
 [node name="Unpause" type="Button" parent="MarginContainer/VBoxContainer"]
 process_mode = 3
 layout_mode = 2
+theme_override_font_sizes/font_size = 48
 text = "Unpause"
 
 [node name="ClosesMenu" type="Node" parent="MarginContainer/VBoxContainer/Unpause" node_paths=PackedStringArray("menu", "button")]
@@ -79,6 +81,7 @@ button = NodePath("..")
 [node name="QuitToTitle" type="Button" parent="MarginContainer/VBoxContainer"]
 process_mode = 3
 layout_mode = 2
+theme_override_font_sizes/font_size = 48
 text = "Quit To Title"
 
 [node name="BeepsOnPress" type="Node" parent="MarginContainer/VBoxContainer/QuitToTitle" node_paths=PackedStringArray("button")]

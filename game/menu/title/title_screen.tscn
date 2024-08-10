@@ -42,6 +42,7 @@ layout_mode = 2
 
 [node name="Start" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Start"
 
 [node name="BeepsOnFocus" type="Node" parent="MarginContainer/VBoxContainer/VBoxContainer/Start" node_paths=PackedStringArray("button")]
@@ -64,6 +65,7 @@ button = NodePath("..")
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Options"
 
 [node name="BeepsOnFocus" type="Node" parent="MarginContainer/VBoxContainer/VBoxContainer/Options" node_paths=PackedStringArray("button")]
@@ -81,6 +83,7 @@ button = NodePath("..")
 
 [node name="About" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "About"
 
 [node name="BeepsOnFocus" type="Node" parent="MarginContainer/VBoxContainer/VBoxContainer/About" node_paths=PackedStringArray("button")]
