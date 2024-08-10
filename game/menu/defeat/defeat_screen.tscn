@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqwf68mfd6hu0"]
+
+[ext_resource type="Script" path="res://game/behaviors/beeps_on_press.gd" id="1_kh1h8"]
+[ext_resource type="Script" path="res://game/behaviors/beeps_on_focus.gd" id="2_mhvec"]
+[ext_resource type="Script" path="res://game/behaviors/quits_to_title.gd" id="3_e1342"]
+[ext_resource type="Script" path="res://game/behaviors/grabs_focus.gd" id="4_2y5ts"]
+[ext_resource type="Script" path="res://game/behaviors/game_state_defeat.gd" id="5_dl0pr"]
+
+[node name="DefeatScreen" type="PanelContainer"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameStateDefeat" type="Node" parent="."]
+script = ExtResource("5_dl0pr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0.0823529, 0, 0.121569, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 64
+text = "Too Bad!
+
+Your Orbit has Decayed!
+
+You will never escape the Blackhole!"
+horizontal_alignment = 1
+
+[node name="QuitToTitle" type="Button" parent="MarginContainer/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Back To Title"
+
+[node name="BeepsOnPress" type="Node" parent="MarginContainer/VBoxContainer/QuitToTitle" node_paths=PackedStringArray("button")]
+script = ExtResource("1_kh1h8")
+button = NodePath("..")
+
+[node name="BeepsOnFocus" type="Node" parent="MarginContainer/VBoxContainer/QuitToTitle" node_paths=PackedStringArray("button")]
+script = ExtResource("2_mhvec")
+button = NodePath("..")
+
+[node name="QuitsToTitle" type="Node" parent="MarginContainer/VBoxContainer/QuitToTitle" node_paths=PackedStringArray("button", "menu")]
+script = ExtResource("3_e1342")
+button = NodePath("..")
+menu = NodePath("../../../..")
+
+[node name="GrabsFocus" type="Node" parent="MarginContainer/VBoxContainer/QuitToTitle" node_paths=PackedStringArray("button")]
+script = ExtResource("4_2y5ts")
+button = NodePath("..")

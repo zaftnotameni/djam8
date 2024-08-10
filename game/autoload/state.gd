@@ -3,7 +3,7 @@ class_name AutoloadState extends Node
 
 signal sig_game_state_changed(new_state:GameState)
 
-enum GameState { INITIAL = 0, LOADING, TITLE, CUTSCENE, GAME, PAUSED }
+enum GameState { INITIAL = 0, LOADING, TITLE, CUTSCENE, GAME, PAUSED, VICTORY, DEFEAT }
 
 var game_state : GameState = GameState.INITIAL
 var game_state_stack : Array[GameState] = [GameState.INITIAL]
@@ -15,6 +15,8 @@ func mark_as_title(): mark_as(GameState.TITLE)
 func mark_as_game(): mark_as(GameState.GAME)
 func mark_as_paused(): mark_as(GameState.PAUSED)
 func mark_as_custscene(): mark_as(GameState.CUTSCENE)
+func mark_as_victory(): mark_as(GameState.VICTORY)
+func mark_as_defeat(): mark_as(GameState.DEFEAT)
 
 # these functions push a state to the stack,
 # useful for showing a pause menu or starting a cutscene and then going back to the previous state
@@ -24,6 +26,8 @@ func push_title(): push_as(GameState.TITLE)
 func push_game(): push_as(GameState.GAME)
 func push_paused(): push_as(GameState.PAUSED)
 func push_cutscene(): push_as(GameState.CUTSCENE)
+func push_victory(): push_as(GameState.VICTORY)
+func push_defeat(): push_as(GameState.DEFEAT)
 
 # go back to the previous state, only works if the current state matches what the function expects
 func pop_initial(): pop_as(GameState.INITIAL)
@@ -32,6 +36,8 @@ func pop_title(): pop_as(GameState.TITLE)
 func pop_game(): pop_as(GameState.GAME)
 func pop_paused(): pop_as(GameState.PAUSED)
 func pop_cutscene(): pop_as(GameState.CUTSCENE)
+func pop_victory(): pop_as(GameState.VICTORY)
+func pop_defeat(): pop_as(GameState.DEFEAT)
 
 func pop_as(expected_current_state:GameState):
 	if expected_current_state != game_state: return
