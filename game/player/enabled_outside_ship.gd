@@ -6,6 +6,9 @@ class_name EnabledOutsideShip extends Node
 
 func update_target_processing(where:InteriorExteriorTracker.InteriorExterior):
 	target.process_mode = Node.PROCESS_MODE_DISABLED if where != InteriorExteriorTracker.InteriorExterior.EXTERIOR else Node.PROCESS_MODE_INHERIT
+	var particles : CPUParticles2D = target as CPUParticles2D
+	if particles:
+		particles.visible = false if where != InteriorExteriorTracker.InteriorExterior.EXTERIOR else true
 
 func _enter_tree() -> void:
 	process_mode = PROCESS_MODE_ALWAYS
