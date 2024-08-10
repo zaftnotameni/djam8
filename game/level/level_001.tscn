@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgfkysxujq0q3"]
+[gd_scene load_steps=7 format=3 uid="uid://cgfkysxujq0q3"]
 
 [ext_resource type="PackedScene" uid="uid://dy663kuitecyv" path="res://game/ship/ship.tscn" id="1_qnvrk"]
 [ext_resource type="PackedScene" uid="uid://dicqwafh2ulnn" path="res://game/player/player.tscn" id="2_rxbei"]
+[ext_resource type="Script" path="res://game/ship/generates_problems.gd" id="3_18yoe"]
 [ext_resource type="PackedScene" uid="uid://i234ni8ue4ih" path="res://game/space/space.tscn" id="3_q4tah"]
 [ext_resource type="Script" path="res://game/menu/pause/allows_pausing.gd" id="4_idsy4"]
 [ext_resource type="Script" path="res://game/behaviors/game_state_game.gd" id="5_wqluw"]
@@ -13,6 +14,9 @@ script = ExtResource("4_idsy4")
 
 [node name="GameStateGame" type="Node" parent="."]
 script = ExtResource("5_wqluw")
+
+[node name="GeneratesProblems" type="Node" parent="."]
+script = ExtResource("3_18yoe")
 
 [node name="Space" parent="." instance=ExtResource("3_q4tah")]
 
