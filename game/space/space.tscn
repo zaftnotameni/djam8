@@ -1,13 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://i234ni8ue4ih"]
+[gd_scene load_steps=5 format=3 uid="uid://i234ni8ue4ih"]
 
 [ext_resource type="Texture2D" uid="uid://cr1kjp3o0vq7e" path="res://assets/textures/space/stars.png" id="1_1t2fr"]
+[ext_resource type="Texture2D" uid="uid://33r1bp8qk1jr" path="res://assets/textures/space/fractalsdithered.png" id="1_josw0"]
 [ext_resource type="Texture2D" uid="uid://dedsv1paeecng" path="res://assets/textures/space/fractals.png" id="1_nae7i"]
 
 [sub_resource type="Environment" id="Environment_jwsmi"]
 background_mode = 3
 tonemap_mode = 3
 glow_enabled = true
-glow_intensity = 0.23
+glow_intensity = 0.5
 glow_bloom = 0.23
 
 [node name="Space" type="Node2D"]
@@ -21,28 +22,28 @@ environment = SubResource("Environment_jwsmi")
 scroll_scale = Vector2(0.08, 0.08)
 
 [node name="Fractals" type="Sprite2D" parent="ParallaxBackground/Nebula_1"]
-modulate = Color(1, 1.48627, 2.54902, 0.0941176)
+modulate = Color(1, 0.247, 0.584, 0.522)
 texture_repeat = 2
 position = Vector2(697, 384)
-scale = Vector2(3.812, 3.812)
-texture = ExtResource("1_nae7i")
+scale = Vector2(2.859, 2.859)
+texture = ExtResource("1_josw0")
 
 [node name="Nebula_2" type="Parallax2D" parent="ParallaxBackground"]
 scroll_scale = Vector2(0.18, 0.18)
 
 [node name="Fractals2" type="Sprite2D" parent="ParallaxBackground/Nebula_2"]
-modulate = Color(1, 0.545098, 0.843137, 0.321569)
+modulate = Color(1, 0.247, 0.584, 1)
 texture_repeat = 2
 position = Vector2(697, 384)
 rotation = 1.5708
-scale = Vector2(8.105, 8.105)
+scale = Vector2(4.559, 4.559)
 texture = ExtResource("1_nae7i")
 
 [node name="Background" type="Parallax2D" parent="ParallaxBackground"]
 scroll_scale = Vector2(0.465, 0.465)
 
 [node name="Stars" type="Sprite2D" parent="ParallaxBackground/Background"]
-modulate = Color(0.467051, 0.467383, 0.55682, 1)
+modulate = Color(2, 0.247, 0.584, 1)
 texture_repeat = 2
 position = Vector2(697, 384)
 rotation = 1.5708
@@ -50,6 +51,7 @@ scale = Vector2(1.8, 1.8)
 texture = ExtResource("1_1t2fr")
 
 [node name="Foreground" type="Parallax2D" parent="ParallaxBackground"]
+scroll_scale = Vector2(0.8, 0.8)
 
 [node name="Stars" type="Sprite2D" parent="ParallaxBackground/Foreground"]
 modulate = Color(2.5, 2.5, 2.5, 1)
