@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://b202isct7vjpd"]
+
+[node name="Thruster" type="Node2D"]

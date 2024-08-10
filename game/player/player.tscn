@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dicqwafh2ulnn"]
+[gd_scene load_steps=19 format=3 uid="uid://dicqwafh2ulnn"]
 
 [ext_resource type="Script" path="res://game/player/interior_exterior_tracker.gd" id="1_4jvsf"]
 [ext_resource type="Script" path="res://game/player/inside_ship_movement.gd" id="1_k7eph"]
@@ -16,6 +16,9 @@
 size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ks3qi"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lg0d6"]
 size = Vector2(16, 16)
 
 [sub_resource type="Gradient" id="Gradient_0nw28"]
@@ -72,6 +75,12 @@ position_smoothing_speed = 100.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteriorDetector"]
 shape = SubResource("RectangleShape2D_ks3qi")
+
+[node name="InteractionDetector" type="Area2D" parent="."]
+metadata/player_interaction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionDetector"]
+shape = SubResource("RectangleShape2D_lg0d6")
 
 [node name="Visual" type="Node2D" parent="."]
 

@@ -15,3 +15,4 @@ script = ExtResource("1_4xd2q")
 script = ExtResource("3_2ckdq")
 named_audio = 4
 plays_on_ready = true
+stops_on_exit = true
