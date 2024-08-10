@@ -1,6 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://cgfkysxujq0q3"]
+[gd_scene load_steps=15 format=3 uid="uid://cgfkysxujq0q3"]
 
+[ext_resource type="Script" path="res://game/level/triggers_victory.gd" id="1_o2mak"]
 [ext_resource type="PackedScene" uid="uid://dy663kuitecyv" path="res://game/ship/ship.tscn" id="1_qnvrk"]
+[ext_resource type="Script" path="res://game/level/triggers_defeat.gd" id="2_i26qr"]
 [ext_resource type="Script" path="res://game/ship/generates_problems.gd" id="3_18yoe"]
 [ext_resource type="PackedScene" uid="uid://i234ni8ue4ih" path="res://game/space/space.tscn" id="3_q4tah"]
 [ext_resource type="Script" path="res://game/layers/hides_background.gd" id="4_er45k"]
@@ -14,6 +16,12 @@
 [ext_resource type="PackedScene" uid="uid://dmr5ge227mtk5" path="res://game/hud/orbit_level_hud.tscn" id="12_0va4y"]
 
 [node name="Level001" type="Node2D"]
+
+[node name="TriggersVictory" type="Node" parent="."]
+script = ExtResource("1_o2mak")
+
+[node name="TriggersDefeat" type="Node" parent="."]
+script = ExtResource("2_i26qr")
 
 [node name="AllowsPausing" type="Node" parent="."]
 script = ExtResource("4_idsy4")
