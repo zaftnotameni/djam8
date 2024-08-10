@@ -64,6 +64,10 @@ game_layer=""
 menu_layer=""
 hud_layer=""
 
+[gui]
+
+theme/custom_font="res://assets/fonts/monogram-extended.ttf"
+
 [input]
 
 player_up={
