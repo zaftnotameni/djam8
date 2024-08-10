@@ -1,3 +1,61 @@
-[gd_scene format=3 uid="uid://b202isct7vjpd"]
+[gd_scene load_steps=8 format=3 uid="uid://b202isct7vjpd"]
+
+[ext_resource type="Script" path="res://game/ship/highlights_problems.gd" id="1_t5iwk"]
+[ext_resource type="Script" path="res://game/ship/highlights_interactions.gd" id="2_cbiyj"]
+
+[sub_resource type="Gradient" id="Gradient_8aege"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pieg6"]
+gradient = SubResource("Gradient_8aege")
+height = 32
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tsy60"]
+blend_mode = 3
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5in4m"]
+blend_mode = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfiap"]
+size = Vector2(80, 48)
 
 [node name="Thruster" type="Node2D"]
+
+[node name="HighlightsProblems" type="Node" parent="." node_paths=PackedStringArray("canvas_item")]
+script = ExtResource("1_t5iwk")
+canvas_item = NodePath("../BrokenHighlight")
+
+[node name="HighlightsInteractions" type="Node" parent="." node_paths=PackedStringArray("area", "canvas_item")]
+script = ExtResource("2_cbiyj")
+area = NodePath("../InteractionZone")
+canvas_item = NodePath("../InteractionHighlight")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_pieg6")
+
+[node name="InteractionHighlight" type="ColorRect" parent="."]
+visible = false
+material = SubResource("CanvasItemMaterial_tsy60")
+offset_left = -32.0
+offset_top = -16.0
+offset_right = 32.0
+offset_bottom = 16.0
+color = Color(0.0150757, 0.898063, 0.964844, 0.592157)
+metadata/interaction_highlight = true
+
+[node name="BrokenHighlight" type="ColorRect" parent="."]
+visible = false
+material = SubResource("CanvasItemMaterial_5in4m")
+offset_left = -32.0
+offset_top = -16.0
+offset_right = 32.0
+offset_bottom = 16.0
+color = Color(0.67, 0.0737, 0.0737, 0.345098)
+metadata/problem_highlight = true
+
+[node name="InteractionZone" type="Area2D" parent="."]
+metadata/object_interaction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionZone"]
+shape = SubResource("RectangleShape2D_qfiap")
