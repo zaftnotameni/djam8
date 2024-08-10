@@ -1,5 +1,7 @@
 class_name Resolve extends RefCounted
 
+### gets an element of type "typ" that is a direct child of "node"
+### must be a custom script element
 static func at(node:Node,typ:Script,ignore_missing:=false) -> Node:
 	assert(node, 'must provide a node')
 	assert(node.is_inside_tree(), 'node must be in the tree')

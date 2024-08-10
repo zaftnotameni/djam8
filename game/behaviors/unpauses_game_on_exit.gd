@@ -1,4 +1,5 @@
 @tool
+### to use with a pause menu, when a scene containing this node leaves, the game is unpaused
 class_name UnpausesGameOnExit extends Node
 
 func _enter_tree() -> void:

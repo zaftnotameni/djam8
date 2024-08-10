@@ -10,6 +10,7 @@ signal sig_volume_changed(which_bus:AudioBus, volume_linear_0_100:float)
 
 var audio_to_ignore = {}
 
+# Main functions to be used to play audio
 func play_named_ui(audio_id_from_enum:NamedAudio.UI): play_named(get_name_ui(audio_id_from_enum))
 func play_named_bgm(audio_id_from_enum:NamedAudio.BGM): play_named(get_name_bgm(audio_id_from_enum))
 func play_named_sfx(audio_id_from_enum:NamedAudio.SFX): play_named(get_name_sfx(audio_id_from_enum))
@@ -29,7 +30,6 @@ func play_named(audio_name:String):
 
 func ignore_next(audio_name:String, how_many:int=1):
 	audio_to_ignore[audio_name] = audio_to_ignore.get_or_add(audio_name, 0) + how_many
-
 
 func update_ui(volume_linear_0_100:float, slider:Slider=null, label:Label=null):
 	if slider: slider.value = volume_linear_0_100
@@ -66,6 +66,7 @@ func read_volume_from_config():
 func _enter_tree() -> void:
 	read_volume_from_config()
 
+### on saving the audio scene, automatically populates the audio stream players and generate the named audio enum
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_EDITOR_PRE_SAVE:
 		if Engine.is_editor_hint():

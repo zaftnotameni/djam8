@@ -1,3 +1,4 @@
+# adds the LOADING state to the state stack when a scene containing this behavior enters, pops the state when leaving
 class_name GameStateLoading extends Node
 
 func _exit_tree() -> void:

@@ -1,10 +1,11 @@
+### Keeps track of which direction the player is facing depending on input and velocity
 class_name PlayerFacing extends Node
 
 signal sig_facing_changed(new_facing:Facing)
 
 enum Facing { RIGHT, LEFT }
 
-@onready var player : CharacterBody2D = owner
+@export var player : CharacterBody2D
 
 var input_x : float
 var velocity_x : float
@@ -15,6 +16,7 @@ func _physics_process(_delta: float) -> void:
 	velocity_x = player.velocity.x
 	compute_facing()
 
+### Prefers facing the direction of input, if there's no input then face the direction of the velocity
 func compute_facing() -> void:
 	if is_player_pressing_left_or_right():
 		update_facing(Facing.RIGHT if input_x > 0 else Facing.LEFT)
@@ -28,4 +30,7 @@ func update_facing(new_facing:Facing):
 	if new_facing == facing: return
 	facing = new_facing
 	sig_facing_changed.emit(facing)
+
+func _enter_tree() -> void:
+	if not player: player = owner
 
