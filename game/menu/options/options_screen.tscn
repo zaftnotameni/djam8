@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://btsv0sx8x2e12"]
+[gd_scene load_steps=7 format=3 uid="uid://btsv0sx8x2e12"]
 
 [ext_resource type="PackedScene" uid="uid://dfn8ke6j65brl" path="res://game/menu/options/audio_sliders.tscn" id="1_a7jtx"]
+[ext_resource type="PackedScene" uid="uid://dho3fgxhce7pk" path="res://game/menu/controls/controls_table.tscn" id="2_inate"]
 [ext_resource type="Script" path="res://game/behaviors/closes_menu.gd" id="2_kl0du"]
 [ext_resource type="Script" path="res://game/behaviors/beeps_on_focus.gd" id="3_0hqou"]
 [ext_resource type="Script" path="res://game/behaviors/beeps_on_press.gd" id="4_3810c"]
@@ -29,6 +30,12 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
+
+[node name="ControlsTable" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_inate")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
 
 [node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

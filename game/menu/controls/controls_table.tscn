@@ -1,0 +1,272 @@
+[gd_scene load_steps=17 format=3 uid="uid://dho3fgxhce7pk"]
+
+[ext_resource type="Texture2D" uid="uid://thkn483sbdur" path="res://assets/input/keyboard_arrow_up_outline.png" id="1_8y60m"]
+[ext_resource type="Texture2D" uid="uid://cujxnovoqlkn6" path="res://assets/input/keyboard_arrow_left_outline.png" id="2_w7dru"]
+[ext_resource type="Texture2D" uid="uid://mpoaljspbqlx" path="res://assets/input/keyboard_arrow_down_outline.png" id="3_m1u18"]
+[ext_resource type="Texture2D" uid="uid://by3vkh2v1t3b4" path="res://assets/input/keyboard_arrow_right_outline.png" id="4_vpend"]
+[ext_resource type="Texture2D" uid="uid://dq7sg24x4ifkt" path="res://assets/input/keyboard_w_outline.png" id="5_4n4ie"]
+[ext_resource type="Texture2D" uid="uid://crfrphwytx0ve" path="res://assets/input/keyboard_a_outline.png" id="6_5o4xu"]
+[ext_resource type="Texture2D" uid="uid://cnhdabuskulp2" path="res://assets/input/keyboard_s_outline.png" id="7_6k8jn"]
+[ext_resource type="Texture2D" uid="uid://d2vryhwi37hmh" path="res://assets/input/keyboard_d_outline.png" id="8_pgelo"]
+[ext_resource type="Texture2D" uid="uid://phj870ytciyi" path="res://assets/input/xbox_dpad_none.png" id="9_37nfe"]
+[ext_resource type="Texture2D" uid="uid://cqem5ewg3lqps" path="res://assets/input/playstation_dpad_none.png" id="10_tuag3"]
+[ext_resource type="Texture2D" uid="uid://34prwcvw34mx" path="res://assets/input/keyboard_e_outline.png" id="11_oxp68"]
+[ext_resource type="Texture2D" uid="uid://be2abjggqyao7" path="res://assets/input/xbox_button_x_outline.png" id="12_nb4pv"]
+[ext_resource type="Texture2D" uid="uid://ce6ea5uh1wlrs" path="res://assets/input/playstation_button_square_outline.png" id="13_wnju2"]
+[ext_resource type="Texture2D" uid="uid://bhwk2q67sevcg" path="res://assets/input/keyboard_p_outline.png" id="14_5bsrh"]
+[ext_resource type="Texture2D" uid="uid://vr8vjiw2saqc" path="res://assets/input/xbox_button_start_icon_outline.png" id="15_pjn6g"]
+[ext_resource type="Texture2D" uid="uid://kwplhi8flfwn" path="res://assets/input/playstation3_button_start_outline.png" id="16_30co4"]
+
+[node name="ControlsTable" type="GridContainer"]
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+columns = 4
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Action"
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Keyboard"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Xbox"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Playstation"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Movement"
+horizontal_alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("1_8y60m")
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("2_w7dru")
+
+[node name="TextureRect5" type="TextureRect" parent="HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("3_m1u18")
+
+[node name="TextureRect6" type="TextureRect" parent="HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("4_vpend")
+
+[node name="GridContainer2" type="GridContainer" parent="HBoxContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/GridContainer2"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/GridContainer2"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("5_4n4ie")
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer/GridContainer2"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="HBoxContainer/GridContainer2"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("6_5o4xu")
+
+[node name="TextureRect5" type="TextureRect" parent="HBoxContainer/GridContainer2"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("7_6k8jn")
+
+[node name="TextureRect6" type="TextureRect" parent="HBoxContainer/GridContainer2"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("8_pgelo")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("9_37nfe")
+stretch_mode = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("10_tuag3")
+stretch_mode = 3
+
+[node name="Label6" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Repair"
+horizontal_alignment = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("11_oxp68")
+stretch_mode = 3
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer5"]
+layout_mode = 2
+texture = ExtResource("12_nb4pv")
+stretch_mode = 3
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer6"]
+layout_mode = 2
+texture = ExtResource("13_wnju2")
+stretch_mode = 3
+
+[node name="Label7" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Pause"
+horizontal_alignment = 2
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer7"]
+layout_mode = 2
+texture = ExtResource("14_5bsrh")
+stretch_mode = 3
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer8"]
+layout_mode = 2
+texture = ExtResource("15_pjn6g")
+stretch_mode = 3
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer9"]
+layout_mode = 2
+texture = ExtResource("16_30co4")
+stretch_mode = 3
+
+[node name="Label8" type="Label" parent="."]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Movement"
+horizontal_alignment = 2
+
+[node name="HBoxContainer10" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer10"]
+layout_mode = 2
+stretch_mode = 3
+
+[node name="HBoxContainer11" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer11"]
+layout_mode = 2
+stretch_mode = 3
+
+[node name="HBoxContainer12" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer12"]
+layout_mode = 2
+stretch_mode = 3
+
+[node name="Label9" type="Label" parent="."]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Movement"
+horizontal_alignment = 2
+
+[node name="HBoxContainer13" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer13"]
+layout_mode = 2
+stretch_mode = 3
+
+[node name="HBoxContainer14" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer14"]
+layout_mode = 2
+stretch_mode = 3
+
+[node name="HBoxContainer15" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer15"]
+layout_mode = 2
+stretch_mode = 3
