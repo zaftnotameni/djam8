@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://btdgb8rj8rrml"]
+[gd_scene load_steps=9 format=3 uid="uid://btdgb8rj8rrml"]
 
 [ext_resource type="Script" path="res://game/autoload/audio.gd" id="1_25wme"]
 [ext_resource type="AudioStream" uid="uid://hxa1muiv66x6" path="res://assets/audio/UI/button_focus.ogg" id="2_oteo4"]
 [ext_resource type="AudioStream" uid="uid://c1an0sjyqkjxf" path="res://assets/audio/UI/button_press.ogg" id="3_8v42w"]
 [ext_resource type="AudioStream" uid="uid://g5itcdf8hvfy" path="res://assets/audio/UI/volume_tick.ogg" id="4_st5n4"]
 [ext_resource type="AudioStream" uid="uid://oli2o8kktjfa" path="res://assets/audio/BGM/volume_tick.ogg" id="5_7k6w4"]
+[ext_resource type="AudioStream" uid="uid://ce4n6v5thexvg" path="res://assets/audio/BGM/pixel_space.mp3" id="5_va70x"]
 [ext_resource type="AudioStream" uid="uid://d0m5glomakv66" path="res://assets/audio/SFX/volume_tick.ogg" id="6_opb5q"]
 [ext_resource type="AudioStream" uid="uid://be8skmepdwywx" path="res://assets/audio/Master/volume_tick.ogg" id="7_kopr4"]
 
@@ -27,14 +28,21 @@ stream = ExtResource("4_st5n4")
 bus = &"UI"
 metadata/created_via_automation = true
 
-[node name="BGM_VolumeTick" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_7k6w4")
-bus = &"BGM"
-metadata/created_via_automation = true
-
 [node name="SFX_VolumeTick" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_opb5q")
 bus = &"SFX"
+metadata/created_via_automation = true
+
+[node name="BGM_PixelSpace" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_va70x")
+bus = &"BGM"
+parameters/looping = true
+metadata/created_via_automation = true
+
+[node name="BGM_VolumeTick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_7k6w4")
+bus = &"BGM"
+parameters/looping = true
 metadata/created_via_automation = true
 
 [node name="Master_VolumeTick" type="AudioStreamPlayer" parent="."]

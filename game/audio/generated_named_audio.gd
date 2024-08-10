@@ -7,6 +7,7 @@ enum UI {
 }
 
 enum BGM {
+	BGM_PixelSpace,
 	BGM_VolumeTick
 }
 
@@ -15,5 +16,15 @@ enum SFX {
 }
 
 enum Master {
+	Master_VolumeTick
+}
+
+enum All {
+	UI_ButtonFocus,
+	UI_ButtonPress,
+	UI_VolumeTick,
+	SFX_VolumeTick,
+	BGM_PixelSpace,
+	BGM_VolumeTick,
 	Master_VolumeTick
 }

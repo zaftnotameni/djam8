@@ -15,13 +15,25 @@ func play_named_ui(audio_id_from_enum:NamedAudio.UI): play_named(get_name_ui(aud
 func play_named_bgm(audio_id_from_enum:NamedAudio.BGM): play_named(get_name_bgm(audio_id_from_enum))
 func play_named_sfx(audio_id_from_enum:NamedAudio.SFX): play_named(get_name_sfx(audio_id_from_enum))
 func play_named_master(audio_id_from_enum:NamedAudio.Master): play_named(get_name_master(audio_id_from_enum))
+func play_named_all(audio_id_from_enum:NamedAudio.All): play_named(get_name_all(audio_id_from_enum))
+
+func stop_named_ui(audio_id_from_enum:NamedAudio.UI): stop_named(get_name_ui(audio_id_from_enum))
+func stop_named_bgm(audio_id_from_enum:NamedAudio.BGM): stop_named(get_name_bgm(audio_id_from_enum))
+func stop_named_sfx(audio_id_from_enum:NamedAudio.SFX): stop_named(get_name_sfx(audio_id_from_enum))
+func stop_named_master(audio_id_from_enum:NamedAudio.Master): stop_named(get_name_master(audio_id_from_enum))
+func stop_named_all(audio_id_from_enum:NamedAudio.All): stop_named(get_name_all(audio_id_from_enum))
 
 func get_name_ui(audio_id_from_enum:NamedAudio.UI) -> String: return NamedAudio.UI.find_key(audio_id_from_enum)
 func get_name_bgm(audio_id_from_enum:NamedAudio.BGM) -> String: return NamedAudio.BGM.find_key(audio_id_from_enum)
 func get_name_sfx(audio_id_from_enum:NamedAudio.SFX) -> String: return NamedAudio.SFX.find_key(audio_id_from_enum)
 func get_name_master(audio_id_from_enum:NamedAudio.Master) -> String: return NamedAudio.Master.find_key(audio_id_from_enum)
+func get_name_all(audio_id_from_enum:NamedAudio.All) -> String: return NamedAudio.All.find_key(audio_id_from_enum)
 
 func get_named(audio_name:String) -> AudioStreamPlayer: return get_node(audio_name)
+
+func stop_named(audio_name:String):
+	get_named(audio_name).stop()
+
 func play_named(audio_name:String):
 	if audio_to_ignore.has(audio_name) and audio_to_ignore[audio_name] > 0:
 		audio_to_ignore[audio_name] = audio_to_ignore.get_or_add(audio_name, 0) - 1
@@ -79,10 +91,15 @@ func setup_local_files():
 			child.queue_free()
 			await child.tree_exited
 	var ui := await load_audio_streams_for('UI')
-	var bgm := await load_audio_streams_for('BGM')
 	var sfx := await load_audio_streams_for('SFX')
+	var bgm := await load_audio_streams_for('BGM')
 	var master := await load_audio_streams_for('Master')
-	generate_named_enum({ 'UI': ui, 'BGM': bgm, 'SFX': sfx, 'Master': master })
+	var all := []
+	all.append_array(ui)
+	all.append_array(sfx)
+	all.append_array(bgm)
+	all.append_array(master)
+	generate_named_enum({ 'UI': ui, 'BGM': bgm, 'SFX': sfx, 'Master': master, 'All': all })
 
 func generate_named_enum(data:Dictionary):
 	var fa := FileAccess.open(AUDIO_CONSTS, FileAccess.WRITE)
@@ -113,6 +130,7 @@ func load_audio_streams_for(audio_bus_name:String) -> Array:
 		audio_stream_player.stream = audio_stream
 		if audio_bus_name != 'Master': audio_stream_player.bus = audio_bus_name
 
+		if audio_bus_name == 'BGM': audio_stream_player.set('parameters/looping', true)
 		audio_stream_player.set_meta('created_via_automation', true)
 		add_child.call_deferred(audio_stream_player)
 		await audio_stream_player.ready
