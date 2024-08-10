@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dicqwafh2ulnn"]
+[gd_scene load_steps=17 format=3 uid="uid://dicqwafh2ulnn"]
 
 [ext_resource type="Script" path="res://game/player/interior_exterior_tracker.gd" id="1_4jvsf"]
 [ext_resource type="Script" path="res://game/player/inside_ship_movement.gd" id="1_k7eph"]
@@ -8,10 +8,14 @@
 [ext_resource type="Script" path="res://game/player/enabled_outside_ship.gd" id="3_mnng7"]
 [ext_resource type="Script" path="res://game/player/enabled_inside_ship.gd" id="5_qfe1p"]
 [ext_resource type="Script" path="res://game/player/fixes_problems.gd" id="7_lrvyx"]
+[ext_resource type="Script" path="res://game/player/touches_kill_planes.gd" id="8_gs7ox"]
 [ext_resource type="PackedScene" uid="uid://cwye5ouuhpt8" path="res://game/jepack/jetpack_4_ways.tscn" id="9_0nusb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1tfsk"]
 size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dlq7k"]
+size = Vector2(32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ks3qi"]
 size = Vector2(16, 16)
@@ -55,6 +59,9 @@ script = ExtResource("2_5aiwe")
 [node name="FixesProblems" type="Node" parent="."]
 script = ExtResource("7_lrvyx")
 
+[node name="TouchesKillPlanes" type="Node" parent="."]
+script = ExtResource("8_gs7ox")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_1tfsk")
 
@@ -63,6 +70,12 @@ zoom = Vector2(3, 3)
 process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 100.0
+
+[node name="KillPlaneDetector" type="Area2D" parent="."]
+metadata/touches_kill_planes = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillPlaneDetector"]
+shape = SubResource("RectangleShape2D_dlq7k")
 
 [node name="InteriorDetector" type="Area2D" parent="."]
 
