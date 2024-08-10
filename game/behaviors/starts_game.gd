@@ -7,7 +7,7 @@ class_name StartsGame extends Node
 
 func on_pressed():
 	var game : Node2D = scene.instantiate()
-	get_tree().current_scene.add_child(game)
+	Layers.game.add_child(game)
 	var tween := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.set_pause_mode(Tween.TweenPauseMode.TWEEN_PAUSE_PROCESS)
 	tween.tween_property(game, ^'position:x', 0, 0.3).from(2000)

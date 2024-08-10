@@ -9,11 +9,12 @@ func wipe_all(children:Array=[]):
 	for child in children: child.queue_free()
 
 func on_pressed():
-	var children_to_wipe := get_tree().current_scene.get_children()
-	var canvas_layer := CanvasLayer.new()
+	var children_to_wipe := []
+	children_to_wipe.append_array(Layers.game.get_children())
+	children_to_wipe.append_array(Layers.hud.get_children())
+	children_to_wipe.append_array(Layers.menu.get_children())
 	var title_screen := scene.instantiate()
-	canvas_layer.add_child(title_screen)
-	get_tree().current_scene.add_child.call_deferred(canvas_layer)
+	Layers.menu.add_child(title_screen)
 
 	var tween := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.set_pause_mode(Tween.TweenPauseMode.TWEEN_PAUSE_PROCESS)
@@ -29,6 +30,7 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
+	if not scene: scene = load('res://game/menu/title/title_screen.tscn')
 	if not scene: push_error('missing scene on %s' % get_path())
 	if not button: push_error('missing button on %s' % get_path())
 	button.pressed.connect(on_pressed)

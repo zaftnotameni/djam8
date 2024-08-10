@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcpugxxyjkg2o"]
+
+[ext_resource type="Script" path="res://game/autoload/layers.gd" id="1_0jv4i"]
+
+[node name="Layers" type="Node2D"]
+script = ExtResource("1_0jv4i")
+
+[node name="Background" type="CanvasLayer" parent="." groups=["background_layer"]]
+
+[node name="Game" type="CanvasLayer" parent="." groups=["game_layer"]]
+follow_viewport_enabled = true
+
+[node name="HUD" type="CanvasLayer" parent="." groups=["hud_layer"]]
+
+[node name="Menu" type="CanvasLayer" parent="." groups=["menu_layer"]]
