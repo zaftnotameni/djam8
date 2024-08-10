@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://by65nwkvsugwf"]
+[gd_scene load_steps=11 format=3 uid="uid://by65nwkvsugwf"]
 
 [ext_resource type="Script" path="res://game/behaviors/pauses_game_on_enter.gd" id="1_8pill"]
 [ext_resource type="Script" path="res://game/behaviors/game_state_paused.gd" id="1_vu8e4"]
 [ext_resource type="Script" path="res://game/behaviors/unpauses_game_on_exit.gd" id="2_j7n2r"]
 [ext_resource type="Script" path="res://game/behaviors/closes_menu.gd" id="3_1h7yx"]
+[ext_resource type="PackedScene" uid="uid://dfn8ke6j65brl" path="res://game/menu/options/audio_sliders.tscn" id="4_3kgjj"]
+[ext_resource type="PackedScene" uid="uid://dho3fgxhce7pk" path="res://game/menu/controls/controls_table.tscn" id="4_7co7r"]
 [ext_resource type="Script" path="res://game/behaviors/beeps_on_focus.gd" id="4_hqej6"]
 [ext_resource type="Script" path="res://game/behaviors/beeps_on_press.gd" id="5_44js6"]
 [ext_resource type="Script" path="res://game/behaviors/grabs_focus.gd" id="6_japa7"]
@@ -38,9 +40,19 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 6
 text = "Paused"
 horizontal_alignment = 1
+
+[node name="AudioSliders" parent="MarginContainer/VBoxContainer" instance=ExtResource("4_3kgjj")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="ControlsTable" parent="MarginContainer/VBoxContainer" instance=ExtResource("4_7co7r")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+size_flags_stretch_ratio = 1.5
 
 [node name="Unpause" type="Button" parent="MarginContainer/VBoxContainer"]
 process_mode = 3

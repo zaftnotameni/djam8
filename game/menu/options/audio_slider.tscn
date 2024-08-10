@@ -9,6 +9,7 @@ script = ExtResource("1_omdm0")
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "Bus Name"
 horizontal_alignment = 2
 
@@ -21,4 +22,5 @@ size_flags_vertical = 1
 [node name="VolumeLabel" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "100"
