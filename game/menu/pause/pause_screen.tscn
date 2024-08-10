@@ -30,7 +30,7 @@ script = ExtResource("2_j7n2r")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 2
-color = Color(0.18, 0.0954, 0.15744, 1)
+color = Color(0.0823529, 0, 0.121569, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
