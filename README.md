@@ -1,8 +1,8 @@
-# DJAM 8 (Pending Game Name)
+# (DJAM 8 - Orbital Decay)[https://zafteer.itch.io/djam8-orbital-decay]
 
 ![](assets/logos/djam8.png)
 
-Theme: TBD
+Theme: Decay
 
 [DJAM8](https://itch.io/jam/discord-jam-8) - [Discord](https://discord.gg/uTaQTzTtBF)
 
@@ -25,6 +25,16 @@ Jam Rules:
 - Basecode is allowed
 - You are allowed to used premade assets (including third-party assets you have the right to use)
 - You can work Solo or in a Team. There is no limit to the amount of members you can have in a team.
+
+## Game
+
+-[] Orbit is decaying, player must fix the ship to keep it going
+-[x] Movement inside ship is left-right only
+-[x] Movement outside ship is 4-way jetpack
+-[] Interactible "devices" inside become defective from time to time
+-[] Interactible "hull" outside become defective from time to time
+-[] Player moves near a defect (inside) and interacts to fix
+-[] Player moves near a defect (outside) and interacts to fix
 
 ## Adding Audio
 

@@ -1,20 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://dy663kuitecyv"]
+[gd_scene load_steps=8 format=3 uid="uid://dy663kuitecyv"]
 
+[ext_resource type="PackedScene" uid="uid://b0ll30uq8b5c7" path="res://game/ship/computer.tscn" id="1_qmqw2"]
 [ext_resource type="Script" path="res://game/tool/line_to_collider.gd" id="1_x73tr"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_tys1f"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_qihe6"]
 a = Vector2(64, 640)
 b = Vector2(1216, 640)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_bv2sk"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_8v0cc"]
 a = Vector2(1216, 640)
 b = Vector2(1216, 264)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_dt8cr"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_6llcl"]
 a = Vector2(1216, 264)
 b = Vector2(64, 256)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_gma7f"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_oqtiy"]
 a = Vector2(64, 256)
 b = Vector2(64, 520)
 
@@ -30,6 +31,16 @@ offset_right = 1216.0
 offset_bottom = 640.0
 color = Color(0.234375, 0.233459, 0.233459, 1)
 
+[node name="Computer" parent="ColorRect" instance=ExtResource("1_qmqw2")]
+position = Vector2(600, 368)
+
+[node name="Computer2" parent="ColorRect" instance=ExtResource("1_qmqw2")]
+position = Vector2(928, 368)
+
+[node name="Computer3" parent="ColorRect" instance=ExtResource("1_qmqw2")]
+position = Vector2(384, 368)
+metadata/has_problems = true
+
 [node name="Line2D" type="Line2D" parent="."]
 points = PackedVector2Array(64, 640, 1216, 640, 1216, 264, 64, 256, 64, 520)
 width = 2.0
@@ -38,23 +49,23 @@ default_color = Color(0.28569, 0.308594, 0.308594, 1)
 [node name="LineToCollider" type="Node" parent="Line2D"]
 script = ExtResource("1_x73tr")
 
-[node name="@StaticBody2D@102081" type="StaticBody2D" parent="Line2D"]
+[node name="@StaticBody2D@55898" type="StaticBody2D" parent="Line2D"]
 metadata/created_via_tool_script = true
 
-[node name="@CollisionShape2D@102082" type="CollisionShape2D" parent="Line2D/@StaticBody2D@102081"]
-shape = SubResource("SegmentShape2D_tys1f")
+[node name="@CollisionShape2D@55899" type="CollisionShape2D" parent="Line2D/@StaticBody2D@55898"]
+shape = SubResource("SegmentShape2D_qihe6")
 metadata/created_via_tool_script = true
 
-[node name="@CollisionShape2D@102083" type="CollisionShape2D" parent="Line2D/@StaticBody2D@102081"]
-shape = SubResource("SegmentShape2D_bv2sk")
+[node name="@CollisionShape2D@55900" type="CollisionShape2D" parent="Line2D/@StaticBody2D@55898"]
+shape = SubResource("SegmentShape2D_8v0cc")
 metadata/created_via_tool_script = true
 
-[node name="@CollisionShape2D@102084" type="CollisionShape2D" parent="Line2D/@StaticBody2D@102081"]
-shape = SubResource("SegmentShape2D_dt8cr")
+[node name="@CollisionShape2D@55901" type="CollisionShape2D" parent="Line2D/@StaticBody2D@55898"]
+shape = SubResource("SegmentShape2D_6llcl")
 metadata/created_via_tool_script = true
 
-[node name="@CollisionShape2D@102085" type="CollisionShape2D" parent="Line2D/@StaticBody2D@102081"]
-shape = SubResource("SegmentShape2D_gma7f")
+[node name="@CollisionShape2D@55902" type="CollisionShape2D" parent="Line2D/@StaticBody2D@55898"]
+shape = SubResource("SegmentShape2D_oqtiy")
 metadata/created_via_tool_script = true
 
 [node name="ShipInterior" type="Area2D" parent="."]
