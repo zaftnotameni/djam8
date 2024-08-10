@@ -4,19 +4,19 @@
 [ext_resource type="Script" path="res://game/tool/line_to_collider.gd" id="1_x73tr"]
 [ext_resource type="PackedScene" uid="uid://b202isct7vjpd" path="res://game/ship/thruster.tscn" id="2_x6rwn"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_tfosr"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_0kqdt"]
 a = Vector2(64, 640)
 b = Vector2(1216, 640)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_l88y3"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_pu1c4"]
 a = Vector2(1216, 640)
 b = Vector2(1216, 264)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_77532"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_n2alv"]
 a = Vector2(1216, 264)
 b = Vector2(64, 256)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_1vyjo"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_i0c6w"]
 a = Vector2(64, 256)
 b = Vector2(64, 520)
 
@@ -43,14 +43,14 @@ position = Vector2(384, 368)
 metadata/has_problems = true
 
 [node name="Thruster" parent="ColorRect" instance=ExtResource("2_x6rwn")]
-position = Vector2(-32, 120)
+position = Vector2(-31, 121)
 metadata/has_problems = true
 
 [node name="Thruster2" parent="ColorRect" instance=ExtResource("2_x6rwn")]
-position = Vector2(-32, 176)
+position = Vector2(-31, 177)
 
 [node name="Thruster3" parent="ColorRect" instance=ExtResource("2_x6rwn")]
-position = Vector2(-32, 232)
+position = Vector2(-31, 233)
 
 [node name="Line2D" type="Line2D" parent="."]
 points = PackedVector2Array(64, 640, 1216, 640, 1216, 264, 64, 256, 64, 520)
@@ -60,23 +60,23 @@ default_color = Color(0.28569, 0.308594, 0.308594, 1)
 [node name="LineToCollider" type="Node" parent="Line2D"]
 script = ExtResource("1_x73tr")
 
-[node name="@StaticBody2D@70975" type="StaticBody2D" parent="Line2D"]
+[node name="@StaticBody2D@71105" type="StaticBody2D" parent="Line2D"]
 metadata/created_via_tool_script = true
 
-[node name="@CollisionShape2D@70976" type="CollisionShape2D" parent="Line2D/@StaticBody2D@70975"]
-shape = SubResource("SegmentShape2D_tfosr")
+[node name="@CollisionShape2D@71106" type="CollisionShape2D" parent="Line2D/@StaticBody2D@71105"]
+shape = SubResource("SegmentShape2D_0kqdt")
 metadata/created_via_tool_script = true
 
-[node name="@CollisionShape2D@70977" type="CollisionShape2D" parent="Line2D/@StaticBody2D@70975"]
-shape = SubResource("SegmentShape2D_l88y3")
+[node name="@CollisionShape2D@71107" type="CollisionShape2D" parent="Line2D/@StaticBody2D@71105"]
+shape = SubResource("SegmentShape2D_pu1c4")
 metadata/created_via_tool_script = true
 
-[node name="@CollisionShape2D@70978" type="CollisionShape2D" parent="Line2D/@StaticBody2D@70975"]
-shape = SubResource("SegmentShape2D_77532")
+[node name="@CollisionShape2D@71108" type="CollisionShape2D" parent="Line2D/@StaticBody2D@71105"]
+shape = SubResource("SegmentShape2D_n2alv")
 metadata/created_via_tool_script = true
 
-[node name="@CollisionShape2D@70979" type="CollisionShape2D" parent="Line2D/@StaticBody2D@70975"]
-shape = SubResource("SegmentShape2D_1vyjo")
+[node name="@CollisionShape2D@71109" type="CollisionShape2D" parent="Line2D/@StaticBody2D@71105"]
+shape = SubResource("SegmentShape2D_i0c6w")
 metadata/created_via_tool_script = true
 
 [node name="ShipInterior" type="Area2D" parent="."]
