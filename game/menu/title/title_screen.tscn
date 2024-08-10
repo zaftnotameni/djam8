@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bmv0fypbncfvm"]
+[gd_scene load_steps=13 format=3 uid="uid://bmv0fypbncfvm"]
 
 [ext_resource type="Texture2D" uid="uid://b72q6cyu2slvx" path="res://assets/logos/djam8.png" id="1_aobc3"]
 [ext_resource type="Script" path="res://game/behaviors/beeps_on_focus.gd" id="1_fxii2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://game/layers/shows_background.gd" id="2_7x73l"]
 [ext_resource type="Script" path="res://game/behaviors/beeps_on_press.gd" id="2_gyghh"]
 [ext_resource type="Script" path="res://game/behaviors/opens_submenu.gd" id="3_5ws1a"]
+[ext_resource type="Theme" uid="uid://p0nwmwqm8l0" path="res://resources/theme/default_theme.tres" id="4_ev47b"]
 [ext_resource type="Script" path="res://game/behaviors/grabs_focus.gd" id="4_sgtl8"]
 [ext_resource type="PackedScene" uid="uid://btsv0sx8x2e12" path="res://game/menu/options/options_screen.tscn" id="4_t7mtx"]
 [ext_resource type="Script" path="res://game/behaviors/starts_game.gd" id="6_o6n8p"]
@@ -42,7 +43,8 @@ layout_mode = 2
 
 [node name="Start" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme = ExtResource("4_ev47b")
+theme_override_font_sizes/font_size = 48
 text = "Start"
 
 [node name="BeepsOnFocus" type="Node" parent="MarginContainer/VBoxContainer/VBoxContainer/Start" node_paths=PackedStringArray("button")]
@@ -65,7 +67,8 @@ button = NodePath("..")
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme = ExtResource("4_ev47b")
+theme_override_font_sizes/font_size = 48
 text = "Options"
 
 [node name="BeepsOnFocus" type="Node" parent="MarginContainer/VBoxContainer/VBoxContainer/Options" node_paths=PackedStringArray("button")]
@@ -83,7 +86,8 @@ button = NodePath("..")
 
 [node name="About" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme = ExtResource("4_ev47b")
+theme_override_font_sizes/font_size = 48
 text = "About"
 
 [node name="BeepsOnFocus" type="Node" parent="MarginContainer/VBoxContainer/VBoxContainer/About" node_paths=PackedStringArray("button")]
