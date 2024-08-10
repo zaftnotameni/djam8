@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bmv0fypbncfvm"]
+[gd_scene load_steps=12 format=3 uid="uid://bmv0fypbncfvm"]
 
 [ext_resource type="Texture2D" uid="uid://b72q6cyu2slvx" path="res://assets/logos/djam8.png" id="1_aobc3"]
 [ext_resource type="Script" path="res://game/behaviors/beeps_on_focus.gd" id="1_fxii2"]
 [ext_resource type="Script" path="res://game/behaviors/game_state_title.gd" id="1_wkty3"]
+[ext_resource type="Script" path="res://game/layers/shows_background.gd" id="2_7x73l"]
 [ext_resource type="Script" path="res://game/behaviors/beeps_on_press.gd" id="2_gyghh"]
 [ext_resource type="Script" path="res://game/behaviors/opens_submenu.gd" id="3_5ws1a"]
 [ext_resource type="Script" path="res://game/behaviors/grabs_focus.gd" id="4_sgtl8"]
@@ -20,6 +21,9 @@ grow_vertical = 2
 
 [node name="GameStateTitle" type="Node" parent="."]
 script = ExtResource("1_wkty3")
+
+[node name="ShowsBackground" type="Node" parent="."]
+script = ExtResource("2_7x73l")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
