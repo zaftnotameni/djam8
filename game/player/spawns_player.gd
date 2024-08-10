@@ -5,9 +5,21 @@ const SPAWNS_PLAYER_GROUP_NAME := 'spawns_player'
 @export var scene : PackedScene
 @export var spawns_on_ready : bool = false
 
+var player : Node2D
+
+func kill_and_respawn_player():
+	if player and not player.is_queued_for_deletion():
+		player.queue_free()
+		await player.tree_exited
+	spawn_player.call_deferred()
+
+func on_player_tree_exiting():
+	player = null
+
 func spawn_player():
-	var player := scene.instantiate() as Node2D
+	player = scene.instantiate() as Node2D
 	player.global_position = global_position
+	player.tree_exiting.connect(on_player_tree_exiting)
 	Layers.game.add_child(player)
 
 func _ready() -> void:

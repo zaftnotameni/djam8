@@ -11,8 +11,8 @@ func on_facing_changed(new_facing):
 
 func _enter_tree() -> void:
 	if not target: target = get_parent()
-	if not facing: facing = Resolve.at(owner, PlayerFacing)
 
 func _ready() -> void:
+	if not facing: facing = Resolve.at(owner, PlayerFacing)
 	facing.sig_facing_changed.connect(on_facing_changed)
 	on_facing_changed(facing.facing)

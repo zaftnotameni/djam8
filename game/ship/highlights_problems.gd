@@ -23,8 +23,8 @@ func _process(_delta: float) -> void:
 
 func _enter_tree() -> void:
 	set_process(not Engine.is_editor_hint())
-	if not canvas_item: canvas_item = Resolve.at_by_meta(owner, 'problem_highlight', true)
 	add_to_group(HIGHLIGHTS_PROBLEMS_GROUP_NAME)
 
 func _ready() -> void:
+	if not canvas_item: canvas_item = Resolve.at_by_meta(owner, 'problem_highlight', true)
 	if Engine.is_editor_hint(): return

@@ -17,8 +17,6 @@ func _exit_tree() -> void:
 		current_highlight = null
 
 func _enter_tree() -> void:
-	if not area: area = Resolve.at_by_meta(owner, 'object_interaction', true)
-	if not canvas_item: canvas_item = Resolve.at_by_meta(owner, 'interaction_highlight', true)
 	add_to_group(HIGHLIGHTS_INTERACTIONS_GROUP_NAME)
 
 func unhighlight(highlight_others:bool=false):
@@ -54,6 +52,8 @@ func on_area_exited(other:Area2D):
 		unhighlight(true)
 
 func _ready() -> void:
+	if not canvas_item: canvas_item = Resolve.at_by_meta(owner, 'interaction_highlight', true)
+	if not area: area = Resolve.at_by_meta(owner, 'object_interaction', true)
 	if Engine.is_editor_hint(): return
 	area.area_entered.connect(on_area_entered)
 	area.area_exited.connect(on_area_exited)

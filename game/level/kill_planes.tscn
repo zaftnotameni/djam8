@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dhktbsl2jh0iv"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_67q3c"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_32ifv"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_buhjv"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3308x"]
+
+[node name="KillPlanes" type="StaticBody2D"]
+metadata/kills_player = true
+
+[node name="Right" type="CollisionShape2D" parent="."]
+position = Vector2(1600, 0)
+shape = SubResource("WorldBoundaryShape2D_67q3c")
+
+[node name="Left" type="CollisionShape2D" parent="."]
+position = Vector2(-1600, 0)
+shape = SubResource("WorldBoundaryShape2D_32ifv")
+
+[node name="Top" type="CollisionShape2D" parent="."]
+position = Vector2(0, -900)
+shape = SubResource("WorldBoundaryShape2D_buhjv")
+
+[node name="Bottom" type="CollisionShape2D" parent="."]
+position = Vector2(0, 900)
+shape = SubResource("WorldBoundaryShape2D_3308x")
