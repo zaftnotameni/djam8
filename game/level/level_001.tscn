@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dy663kuitecyv" path="res://game/ship/ship.tscn" id="1_qnvrk"]
 [ext_resource type="PackedScene" uid="uid://dicqwafh2ulnn" path="res://game/player/player.tscn" id="2_rxbei"]
-[ext_resource type="PackedScene" path="res://resources/world/space.tscn" id="3_q4tah"]
+[ext_resource type="PackedScene" uid="uid://i234ni8ue4ih" path="res://game/space/space.tscn" id="3_q4tah"]
 
 [node name="Level001" type="Node2D"]
 
