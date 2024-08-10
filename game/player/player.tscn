@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dicqwafh2ulnn"]
+[gd_scene load_steps=18 format=3 uid="uid://dicqwafh2ulnn"]
 
 [ext_resource type="Script" path="res://game/player/interior_exterior_tracker.gd" id="1_4jvsf"]
 [ext_resource type="Script" path="res://game/player/inside_ship_movement.gd" id="1_k7eph"]
@@ -29,6 +29,14 @@ height = 16
 fill = 2
 fill_from = Vector2(0.974359, 0.205128)
 fill_to = Vector2(0.188034, 1)
+
+[sub_resource type="Curve" id="Curve_e3rkc"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.103053, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.9587, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_63feq"]
+offsets = PackedFloat32Array(0.0357143, 0.196429, 0.258929, 0.366071, 0.741071, 1)
+colors = PackedColorArray(0, 0, 1, 1, 1, 0.415686, 0, 1, 1, 0.561765, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0.87037, 1, 1, 0, 0)
 
 [node name="Player" type="CharacterBody2D"]
 
@@ -77,6 +85,17 @@ texture = SubResource("GradientTexture2D_wokrn")
 
 [node name="PartyJetpackDown" type="CPUParticles2D" parent="Jetpack"]
 emitting = false
+amount = 128
+lifetime = 0.4
+speed_scale = 0.5
+randomness = 1.0
+spread = 180.0
+initial_velocity_min = 6.0
+initial_velocity_max = 8.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_e3rkc")
+color_ramp = SubResource("Gradient_63feq")
 
 [node name="EnabledOutsideShip" type="Node" parent="Jetpack/PartyJetpackDown"]
 script = ExtResource("3_mnng7")
@@ -86,7 +105,18 @@ script = ExtResource("8_27vdv")
 
 [node name="PartyJetpackUp" type="CPUParticles2D" parent="Jetpack"]
 emitting = false
+amount = 128
+lifetime = 0.4
+speed_scale = 0.5
+randomness = 1.0
+spread = 180.0
 gravity = Vector2(0, -980)
+initial_velocity_min = 6.0
+initial_velocity_max = 8.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_e3rkc")
+color_ramp = SubResource("Gradient_63feq")
 
 [node name="EnabledOutsideShip" type="Node" parent="Jetpack/PartyJetpackUp"]
 script = ExtResource("3_mnng7")
@@ -96,7 +126,18 @@ script = ExtResource("9_8v7eg")
 
 [node name="PartyJetpackRight" type="CPUParticles2D" parent="Jetpack"]
 emitting = false
+amount = 128
+lifetime = 0.4
+speed_scale = 0.5
+randomness = 1.0
+spread = 180.0
 gravity = Vector2(980, 0)
+initial_velocity_min = 6.0
+initial_velocity_max = 8.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_e3rkc")
+color_ramp = SubResource("Gradient_63feq")
 
 [node name="EnabledOutsideShip" type="Node" parent="Jetpack/PartyJetpackRight"]
 script = ExtResource("3_mnng7")
@@ -106,7 +147,18 @@ script = ExtResource("10_s3vci")
 
 [node name="PartyJetpackLeft" type="CPUParticles2D" parent="Jetpack"]
 emitting = false
+amount = 128
+lifetime = 0.4
+speed_scale = 0.5
+randomness = 1.0
+spread = 180.0
 gravity = Vector2(-980, 0)
+initial_velocity_min = 6.0
+initial_velocity_max = 8.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_e3rkc")
+color_ramp = SubResource("Gradient_63feq")
 
 [node name="EnabledOutsideShip" type="Node" parent="Jetpack/PartyJetpackLeft"]
 script = ExtResource("3_mnng7")
