@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://dy663kuitecyv"]
+
+[ext_resource type="Script" path="res://game/tool/line_to_collider.gd" id="1_x73tr"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_bvl1q"]
+a = Vector2(64, 640)
+b = Vector2(1216, 640)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_dmch8"]
+a = Vector2(1216, 640)
+b = Vector2(1216, 264)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_1sje3"]
+a = Vector2(1216, 264)
+b = Vector2(64, 256)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_2ybl5"]
+a = Vector2(64, 256)
+b = Vector2(64, 520)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_quhro"]
+size = Vector2(1144, 376)
+
+[node name="Ship" type="Node2D"]
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(64, 640, 1216, 640, 1216, 264, 64, 256, 64, 520)
+width = 2.0
+default_color = Color(0.28569, 0.308594, 0.308594, 1)
+
+[node name="LineToCollider" type="Node" parent="Line2D"]
+script = ExtResource("1_x73tr")
+
+[node name="@StaticBody2D@60589" type="StaticBody2D" parent="Line2D"]
+metadata/created_via_tool_script = true
+
+[node name="@CollisionShape2D@60590" type="CollisionShape2D" parent="Line2D/@StaticBody2D@60589"]
+shape = SubResource("SegmentShape2D_bvl1q")
+metadata/created_via_tool_script = true
+
+[node name="@CollisionShape2D@60591" type="CollisionShape2D" parent="Line2D/@StaticBody2D@60589"]
+shape = SubResource("SegmentShape2D_dmch8")
+metadata/created_via_tool_script = true
+
+[node name="@CollisionShape2D@60592" type="CollisionShape2D" parent="Line2D/@StaticBody2D@60589"]
+shape = SubResource("SegmentShape2D_1sje3")
+metadata/created_via_tool_script = true
+
+[node name="@CollisionShape2D@60593" type="CollisionShape2D" parent="Line2D/@StaticBody2D@60589"]
+shape = SubResource("SegmentShape2D_2ybl5")
+metadata/created_via_tool_script = true
+
+[node name="ShipInterior" type="Area2D" parent="."]
+position = Vector2(632, 440)
+metadata/ship_interior = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShipInterior"]
+position = Vector2(4, 12)
+shape = SubResource("RectangleShape2D_quhro")
