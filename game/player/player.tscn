@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dicqwafh2ulnn"]
+[gd_scene load_steps=22 format=3 uid="uid://dicqwafh2ulnn"]
 
 [ext_resource type="Script" path="res://game/player/interior_exterior_tracker.gd" id="1_4jvsf"]
 [ext_resource type="Script" path="res://game/player/inside_ship_movement.gd" id="1_k7eph"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://game/player/touches_kill_planes.gd" id="8_gs7ox"]
 [ext_resource type="PackedScene" uid="uid://cwye5ouuhpt8" path="res://game/jepack/jetpack_4_ways.tscn" id="9_0nusb"]
 [ext_resource type="Texture2D" uid="uid://b60dts1ff7haw" path="res://assets/textures/character/crashtronaut.png" id="10_6806w"]
+[ext_resource type="Script" path="res://game/player/animates.gd" id="12_hcs2w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1tfsk"]
 size = Vector2(16, 16)
@@ -23,36 +24,6 @@ size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lg0d6"]
 size = Vector2(16, 16)
-
-[sub_resource type="Animation" id="Animation_mg1tj"]
-resource_name = "walk"
-length = 0.8
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [1, 2, 3, 4]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_d3apm"]
 length = 0.001
@@ -98,10 +69,56 @@ tracks/0/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_mg1tj"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8uawb"]
+resource_name = "jump"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4gxot"]
 _data = {
 "RESET": SubResource("Animation_d3apm"),
 "idle": SubResource("Animation_mf8d7"),
+"jump": SubResource("Animation_8uawb"),
 "walk": SubResource("Animation_mg1tj")
 }
 
@@ -131,6 +148,9 @@ script = ExtResource("7_lrvyx")
 
 [node name="TouchesKillPlanes" type="Node" parent="."]
 script = ExtResource("8_gs7ox")
+
+[node name="PlayerAnimates" type="Node" parent="."]
+script = ExtResource("12_hcs2w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_1tfsk")
@@ -169,6 +189,7 @@ hframes = 5
 frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Visual"]
+unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_4gxot")
 }

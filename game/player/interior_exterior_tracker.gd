@@ -11,6 +11,9 @@ enum InteriorExterior { INTERIOR, EXTERIOR }
 
 var where : InteriorExterior = InteriorExterior.INTERIOR
 
+func is_inside() -> bool: return where == InteriorExterior.INTERIOR
+func is_outside() -> bool: return where == InteriorExterior.EXTERIOR
+
 func update_where(new_where:InteriorExterior):
 	if new_where == where: return
 	where = new_where
