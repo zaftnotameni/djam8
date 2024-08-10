@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmv0fypbncfvm"]
+[gd_scene load_steps=11 format=3 uid="uid://bmv0fypbncfvm"]
 
 [ext_resource type="Texture2D" uid="uid://b72q6cyu2slvx" path="res://assets/logos/djam8.png" id="1_aobc3"]
 [ext_resource type="Script" path="res://game/behaviors/beeps_on_focus.gd" id="1_fxii2"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://game/behaviors/opens_submenu.gd" id="3_5ws1a"]
 [ext_resource type="Script" path="res://game/behaviors/grabs_focus.gd" id="4_sgtl8"]
 [ext_resource type="PackedScene" uid="uid://btsv0sx8x2e12" path="res://game/menu/options/options_screen.tscn" id="4_t7mtx"]
+[ext_resource type="Script" path="res://game/behaviors/starts_game.gd" id="6_o6n8p"]
+[ext_resource type="PackedScene" uid="uid://cgfkysxujq0q3" path="res://game/level/level_001.tscn" id="7_gwsac"]
 [ext_resource type="PackedScene" uid="uid://cqgte28l5b8a1" path="res://game/menu/about/about_screen.tscn" id="7_onjai"]
 
 [node name="TitleScreen" type="PanelContainer"]
@@ -48,6 +50,12 @@ button = NodePath("..")
 
 [node name="GrabsFocus" type="Node" parent="MarginContainer/VBoxContainer/VBoxContainer/Start" node_paths=PackedStringArray("button")]
 script = ExtResource("4_sgtl8")
+button = NodePath("..")
+
+[node name="StartsGame" type="Node" parent="MarginContainer/VBoxContainer/VBoxContainer/Start" node_paths=PackedStringArray("menu", "button")]
+script = ExtResource("6_o6n8p")
+menu = NodePath("../../../../..")
+scene = ExtResource("7_gwsac")
 button = NodePath("..")
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
