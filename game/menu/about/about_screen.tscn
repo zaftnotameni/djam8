@@ -14,10 +14,14 @@ grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 2
-color = Color(0.18, 0.0954, 0.15744, 1)
+color = Color(0.0823529, 0, 0.121569, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -25,17 +29,31 @@ layout_mode = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Team members:
+theme_override_colors/default_color = Color(1, 0.247059, 0.584314, 1)
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 24
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+bbcode_enabled = true
+text = "[u]Team members:[/u]
 
-- [HotNoggin](https://github.com/HotNoggin)
-- [TheNetherPug](https://github.com/TheNetherPug)
-- [ZAFT](https://github.com/zaftnotameni)
+- HotNoggin - https://github.com/HotNoggin
+- TheNetherPug - https://github.com/TheNetherPug
+- ZAFT - https://github.com/zaftnotameni
 
-Built Using:
+[u]Using:[/u]
 
-- [Godot 4.3-rc3](https://github.com/godotengine/godot-builds/releases/download/4.3-rc3/Godot_v4.3-rc3_win64.exe.zip)
-- [neovim](https://neovim.io/)
-- [butler](https://itch.io/docs/butler/pushing.html)
+- Godot 4.3-rc3 - [code]https://github.com/godotengine/godot-builds/releases/download/4.3-rc3/Godot_v4.3-rc3_win64.exe.zip[/code]
+- neovim - https://neovim.io/
+- butler - https://itch.io/docs/butler/pushing.html
+- bfxr - https://www.bfxr.net/
+
+[u]Credits:[/u]
+
+- Kenney Input Prompts - https://kenney.nl/assets/input-prompts
+- Kenney UI Audio - https://kenney.nl/assets/ui-audio
+- Font Monogram - https://datagoblin.itch.io/monogram
 "
 fit_content = true
 tab_size = 2
