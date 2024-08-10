@@ -12,7 +12,7 @@ script = ExtResource("1_4xd2q")
 
 [node name="PlaysNamedAudio" type="Node" parent="."]
 script = ExtResource("3_2ckdq")
-named_audio = 4
+named_audio = 6
 plays_on_ready = true
 stops_on_exit = true
 

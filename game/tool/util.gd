@@ -3,7 +3,7 @@
 class_name ToolUtil extends RefCounted
 
 ### creates a convenience hook for applying tool scripts (on save) instead of using the checkbox hack
-static func on_pre_save(what: int, fn:Callable) -> void: if what == Node.NOTIFICATION_EDITOR_PRE_SAVE: await fn.call()
+static func on_post_save(what: int, fn:Callable) -> void: if what == Node.NOTIFICATION_EDITOR_POST_SAVE: await fn.call()
 
 ### setting process = always is dangerous on tool scripts, this sets it to inherit in the editor
 static func set_process_always_safe_for_tool(node:Node):

@@ -1,9 +1,21 @@
 @tool
 class_name PlaysNamedAudio extends Node
 
-@export var named_audio : NamedAudio.All
+@export var named_audio : NamedAudio.All : set = set_named_audio, get = get_named_audio
 @export var plays_on_ready : bool = false
 @export var stops_on_exit : bool = false
+
+var _named_audio : String
+
+func set_named_audio(new_value:NamedAudio.All):
+	_named_audio = NamedAudio.All.find_key(new_value)
+
+func get_named_audio() -> NamedAudio.All:
+	if NamedAudio.All.has(_named_audio):
+		return NamedAudio.All[_named_audio]
+	else:
+		push_error('invalid audio named %s at %s' % [_named_audio, get_path()])
+		return NamedAudio.All.Master_VolumeTick
 
 func play():
 	Audio.play_named_all(named_audio)

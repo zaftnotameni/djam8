@@ -22,6 +22,7 @@ scroll_scale = Vector2(0.08, 0.08)
 
 [node name="Fractals" type="Sprite2D" parent="ParallaxBackground/Nebula_1"]
 modulate = Color(1, 1.48627, 2.54902, 0.0941176)
+texture_repeat = 2
 position = Vector2(697, 384)
 scale = Vector2(3.812, 3.812)
 texture = ExtResource("1_nae7i")
@@ -31,6 +32,7 @@ scroll_scale = Vector2(0.18, 0.18)
 
 [node name="Fractals2" type="Sprite2D" parent="ParallaxBackground/Nebula_2"]
 modulate = Color(1, 0.545098, 0.843137, 0.321569)
+texture_repeat = 2
 position = Vector2(697, 384)
 rotation = 1.5708
 scale = Vector2(8.105, 8.105)
@@ -41,6 +43,7 @@ scroll_scale = Vector2(0.465, 0.465)
 
 [node name="Stars" type="Sprite2D" parent="ParallaxBackground/Background"]
 modulate = Color(0.467051, 0.467383, 0.55682, 1)
+texture_repeat = 2
 position = Vector2(697, 384)
 rotation = 1.5708
 scale = Vector2(1.8, 1.8)
@@ -50,6 +53,7 @@ texture = ExtResource("1_1t2fr")
 
 [node name="Stars" type="Sprite2D" parent="ParallaxBackground/Foreground"]
 modulate = Color(2.5, 2.5, 2.5, 1)
+texture_repeat = 2
 position = Vector2(697, 384)
 scale = Vector2(3.094, 3.094)
 texture = ExtResource("1_1t2fr")

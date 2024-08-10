@@ -4,7 +4,7 @@ class_name LineToCollider extends Node
 
 var line : Line2D
 
-func on_pre_save():
+func on_post_save():
 	if not ToolUtil.is_owned_by_edited_scene(self): return
 	await ToolUtil.remove_all_children_created_via_tool_from(line)
 	var bod := StaticBody2D.new()
@@ -22,4 +22,4 @@ func on_pre_save():
 func _enter_tree() -> void:
 	line = get_parent()
 
-func _notification(what: int) -> void: ToolUtil.on_pre_save(what, on_pre_save)
+func _notification(what: int) -> void: ToolUtil.on_post_save(what, on_post_save)

@@ -14,6 +14,10 @@ func update_target_processing(where:InteriorExteriorTracker.InteriorExterior):
 		if where != InteriorExteriorTracker.InteriorExterior.EXTERIOR:
 			particles.visible = false
 			particles.emitting = false
+	if where == InteriorExteriorTracker.InteriorExterior.EXTERIOR:
+		if target.has_method('on_enable'): target.on_enable()
+	if where != InteriorExteriorTracker.InteriorExterior.EXTERIOR:
+		if target.has_method('on_disable'): target.on_disable()
 
 func _enter_tree() -> void:
 	process_mode = PROCESS_MODE_ALWAYS
