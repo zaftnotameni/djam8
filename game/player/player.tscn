@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dicqwafh2ulnn"]
+[gd_scene load_steps=20 format=3 uid="uid://dicqwafh2ulnn"]
 
 [ext_resource type="Script" path="res://game/player/interior_exterior_tracker.gd" id="1_4jvsf"]
 [ext_resource type="Script" path="res://game/player/inside_ship_movement.gd" id="1_k7eph"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://game/player/fixes_problems.gd" id="7_lrvyx"]
 [ext_resource type="Script" path="res://game/player/touches_kill_planes.gd" id="8_gs7ox"]
 [ext_resource type="PackedScene" uid="uid://cwye5ouuhpt8" path="res://game/jepack/jetpack_4_ways.tscn" id="9_0nusb"]
+[ext_resource type="Texture2D" uid="uid://b60dts1ff7haw" path="res://assets/textures/character/crashtronaut.png" id="10_6806w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1tfsk"]
 size = Vector2(16, 16)
@@ -23,17 +24,86 @@ size = Vector2(16, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lg0d6"]
 size = Vector2(16, 16)
 
-[sub_resource type="Gradient" id="Gradient_0nw28"]
-offsets = PackedFloat32Array(0, 0.411268, 1)
-colors = PackedColorArray(0, 0.949219, 0.926971, 1, 0.646287, 0.462819, 0.97984, 1, 0.892731, 0.277344, 1, 1)
+[sub_resource type="Animation" id="Animation_mg1tj"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_wokrn"]
-gradient = SubResource("Gradient_0nw28")
-width = 16
-height = 16
-fill = 2
-fill_from = Vector2(0.974359, 0.205128)
-fill_to = Vector2(0.188034, 1)
+[sub_resource type="Animation" id="Animation_d3apm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mf8d7"]
+resource_name = "idle"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4gxot"]
+_data = {
+"RESET": SubResource("Animation_d3apm"),
+"idle": SubResource("Animation_mf8d7"),
+"walk": SubResource("Animation_mg1tj")
+}
 
 [node name="Player" type="CharacterBody2D"]
 
@@ -94,6 +164,13 @@ shape = SubResource("RectangleShape2D_lg0d6")
 script = ExtResource("3_7vp2p")
 
 [node name="Sprite2D" type="Sprite2D" parent="Visual"]
-texture = SubResource("GradientTexture2D_wokrn")
+texture = ExtResource("10_6806w")
+hframes = 5
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual"]
+libraries = {
+"": SubResource("AnimationLibrary_4gxot")
+}
 
 [node name="Jetpack" parent="." instance=ExtResource("9_0nusb")]
