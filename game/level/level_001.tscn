@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cgfkysxujq0q3"]
+[gd_scene load_steps=10 format=3 uid="uid://cgfkysxujq0q3"]
 
 [ext_resource type="PackedScene" uid="uid://dy663kuitecyv" path="res://game/ship/ship.tscn" id="1_qnvrk"]
 [ext_resource type="Script" path="res://game/ship/generates_problems.gd" id="3_18yoe"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://game/behaviors/game_state_game.gd" id="5_wqluw"]
 [ext_resource type="Script" path="res://game/player/spawns_player.gd" id="6_52awo"]
 [ext_resource type="PackedScene" uid="uid://dhktbsl2jh0iv" path="res://game/level/kill_planes.tscn" id="8_lhel8"]
+[ext_resource type="Script" path="res://game/hud/problem_indicators.gd" id="9_dkua2"]
 
 [node name="Level001" type="Node2D"]
 
@@ -30,8 +31,10 @@ position = Vector2(-188, -567)
 position = Vector2(-188, -567)
 
 [node name="SpawnsPlayer" type="Marker2D" parent="."]
-position = Vector2(2, 1)
 script = ExtResource("6_52awo")
 spawns_on_ready = true
 
 [node name="KillPlanes" parent="." instance=ExtResource("8_lhel8")]
+
+[node name="ProblemIndicators" type="Node2D" parent="."]
+script = ExtResource("9_dkua2")
