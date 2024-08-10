@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://game/menu/options/audio_slider.gd" id="1_omdm0"]
 
 [node name="AudioSlider" type="HBoxContainer"]
+process_mode = 3
 script = ExtResource("1_omdm0")
 
 [node name="BusNameLabel" type="Label" parent="."]

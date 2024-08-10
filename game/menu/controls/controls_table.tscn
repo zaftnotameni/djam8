@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://kwplhi8flfwn" path="res://assets/input/playstation3_button_start_outline.png" id="16_30co4"]
 
 [node name="ControlsTable" type="GridContainer"]
+mouse_filter = 2
 theme_override_constants/h_separation = 16
 theme_override_constants/v_separation = 16
 columns = 4
