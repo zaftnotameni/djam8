@@ -6,8 +6,22 @@ class_name PlayerOutsideShipMovement extends Node
 func _enter_tree() -> void:
 	if not player: player = owner
 
+func stop_jetpack_sound():
+	Audio.stop_named_sfx(NamedAudio.SFX.SFX_Jetpack2)
+
+func play_jetpack_sound():
+	Audio.play_named_sfx(NamedAudio.SFX.SFX_Jetpack2)
+
+func on_disable():
+	stop_jetpack_sound()
+
 func _physics_process(delta: float) -> void:
 	var input := PlayerInput.input_wasd_normalized()
+
+	if input.is_zero_approx():
+		stop_jetpack_sound()
+	else:
+		play_jetpack_sound()
 
 	# using acceleration with no damping here, could experiment adding damping but this feels right to me now
 	player.velocity.x += input.x * Config.player_outside_ship_acceleration * delta

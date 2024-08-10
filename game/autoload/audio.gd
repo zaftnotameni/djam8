@@ -38,7 +38,12 @@ func play_named(audio_name:String):
 	if audio_to_ignore.has(audio_name) and audio_to_ignore[audio_name] > 0:
 		audio_to_ignore[audio_name] = audio_to_ignore.get_or_add(audio_name, 0) - 1
 	else:
-		get_named(audio_name).play()
+		var audio := get_named(audio_name) as AudioStreamPlayer
+		if not audio:
+			push_error('could not resolve audio %s at %s' % [audio_name, get_path()])
+		else:
+			if not audio.playing:
+				audio.play()
 
 func ignore_next(audio_name:String, how_many:int=1):
 	audio_to_ignore[audio_name] = audio_to_ignore.get_or_add(audio_name, 0) + how_many
@@ -80,7 +85,7 @@ func _enter_tree() -> void:
 
 ### on saving the audio scene, automatically populates the audio stream players and generate the named audio enum
 func _notification(what: int) -> void:
-	if what == NOTIFICATION_EDITOR_PRE_SAVE:
+	if what == NOTIFICATION_EDITOR_POST_SAVE:
 		if Engine.is_editor_hint():
 			if get_tree().edited_scene_root == self:
 				setup_local_files()
