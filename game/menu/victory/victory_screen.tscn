@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://rsgap6khy6wh"]
+
+[ext_resource type="Script" path="res://game/behaviors/beeps_on_press.gd" id="1_qrm2w"]
+[ext_resource type="Script" path="res://game/behaviors/game_state_victory.gd" id="1_vvkap"]
+[ext_resource type="Script" path="res://game/behaviors/beeps_on_focus.gd" id="2_ustoq"]
+[ext_resource type="Script" path="res://game/behaviors/quits_to_title.gd" id="3_ahfty"]
+[ext_resource type="Script" path="res://game/behaviors/grabs_focus.gd" id="4_hhkqh"]
+
+[node name="VictoryScreen" type="PanelContainer"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameStateVictory" type="Node" parent="."]
+script = ExtResource("1_vvkap")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0.0823529, 0, 0.121569, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 64
+text = "Congratulations!
+
+You've Escaped the Orbital Decay!"
+horizontal_alignment = 1
+
+[node name="QuitToTitle" type="Button" parent="MarginContainer/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Back To Title"
+
+[node name="BeepsOnPress" type="Node" parent="MarginContainer/VBoxContainer/QuitToTitle" node_paths=PackedStringArray("button")]
+script = ExtResource("1_qrm2w")
+button = NodePath("..")
+
+[node name="BeepsOnFocus" type="Node" parent="MarginContainer/VBoxContainer/QuitToTitle" node_paths=PackedStringArray("button")]
+script = ExtResource("2_ustoq")
+button = NodePath("..")
+
+[node name="QuitsToTitle" type="Node" parent="MarginContainer/VBoxContainer/QuitToTitle" node_paths=PackedStringArray("button", "menu")]
+script = ExtResource("3_ahfty")
+button = NodePath("..")
+menu = NodePath("../../../..")
+
+[node name="GrabsFocus" type="Node" parent="MarginContainer/VBoxContainer/QuitToTitle" node_paths=PackedStringArray("button")]
+script = ExtResource("4_hhkqh")
+button = NodePath("..")

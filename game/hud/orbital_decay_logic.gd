@@ -25,6 +25,13 @@ static func first() -> OrbitalDecayLogic:
 	var tree := Engine.get_main_loop() as SceneTree
 	return tree.get_first_node_in_group(ORBITAL_DECAY_LOGIC_GROUP) as OrbitalDecayLogic
 
+func _unhandled_input(event: InputEvent) -> void:
+	var key_event := event as InputEventKey
+	if not key_event: return
+	if not key_event.is_pressed(): return
+	if key_event.keycode == KEY_F7: orbit_height += 1000
+	if key_event.keycode == KEY_F6: orbit_height -= 1000
+
 func _enter_tree() -> void:
 	add_to_group(ORBITAL_DECAY_LOGIC_GROUP)
 
@@ -52,11 +59,11 @@ func _process(delta: float) -> void:
 	marker_top = orbit_height_bar.get_rect().position
 	marker_bottom = marker_top + orbit_height_bar.get_rect().size
 	bar_height = marker_top.y - marker_bottom.y
-	bar_center_x = (marker_top.x + marker_bottom.x) / 2.0
+	bar_center_x = (marker_top.x + orbit_height_bar.get_rect().size.x) + 24
 	orbital_velocity = sqrt(640000.0 / orbit_height)
 
 	var visual_height := remap(orbit_height, min_orbital_height, max_orbital_height, marker_bottom.y, marker_top.y)
-	ship_indicator.global_position = ship_indicator.global_position.move_toward(Vector2(bar_center_x, visual_height), delta)
+	ship_indicator.global_position = ship_indicator.global_position.move_toward(Vector2(bar_center_x, visual_height), delta * 1000)
 
 # escape velocity formula: v = sqrt(2GM/R)
 # orbital velocity formula: v = sqrt(GM/R)

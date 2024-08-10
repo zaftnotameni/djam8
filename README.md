@@ -28,13 +28,19 @@ Jam Rules:
 
 ## Game
 
--[] Orbit is decaying, player must fix the ship to keep it going
--[x] Movement inside ship is left-right only
--[x] Movement outside ship is 4-way jetpack
--[x] Interactible "devices" inside become defective from time to time
--[x] Interactible "hull" outside become defective from time to time
--[x] Player moves near a defect (inside) and interacts to fix
--[x] Player moves near a defect (outside) and interacts to fix
+- [x] Orbit is decaying, player must fix the ship to keep it going
+- [x] Movement inside ship is left-right only
+- [x] Movement outside ship is 4-way jetpack
+- [x] Interactible "devices" inside become defective from time to time
+- [x] Interactible "hull" outside become defective from time to time
+- [x] Player moves near a defect (inside) and interacts to fix
+- [x] Player moves near a defect (outside) and interacts to fix
+- [x] Onboard display shows current stats about the orbit
+- [x] HUD indicating current orbit radius and how far we are from escaping
+- [x] Defective devices cause orbit decay
+- [x] Functioning devices cause orbit ascent
+- [x] Victory Screen
+- [x] Defeat Screen
 
 ## Adding Audio
 
