@@ -31,10 +31,10 @@ Jam Rules:
 -[] Orbit is decaying, player must fix the ship to keep it going
 -[x] Movement inside ship is left-right only
 -[x] Movement outside ship is 4-way jetpack
--[] Interactible "devices" inside become defective from time to time
--[] Interactible "hull" outside become defective from time to time
--[] Player moves near a defect (inside) and interacts to fix
--[] Player moves near a defect (outside) and interacts to fix
+-[x] Interactible "devices" inside become defective from time to time
+-[x] Interactible "hull" outside become defective from time to time
+-[x] Player moves near a defect (inside) and interacts to fix
+-[x] Player moves near a defect (outside) and interacts to fix
 
 ## Adding Audio
 
