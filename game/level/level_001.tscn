@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cgfkysxujq0q3"]
+[gd_scene load_steps=11 format=3 uid="uid://cgfkysxujq0q3"]
 
 [ext_resource type="PackedScene" uid="uid://dy663kuitecyv" path="res://game/ship/ship.tscn" id="1_qnvrk"]
 [ext_resource type="Script" path="res://game/ship/generates_problems.gd" id="3_18yoe"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://game/player/spawns_player.gd" id="6_52awo"]
 [ext_resource type="PackedScene" uid="uid://dhktbsl2jh0iv" path="res://game/level/kill_planes.tscn" id="8_lhel8"]
 [ext_resource type="Script" path="res://game/hud/problem_indicators.gd" id="9_dkua2"]
+[ext_resource type="Script" path="res://game/player/ropes_to_ship.gd" id="10_sm7ex"]
 
 [node name="Level001" type="Node2D"]
 
@@ -38,3 +39,13 @@ spawns_on_ready = true
 
 [node name="ProblemIndicators" type="Node2D" parent="."]
 script = ExtResource("9_dkua2")
+
+[node name="Line2D" type="Line2D" parent="."]
+
+[node name="RopesToShip" type="Node" parent="." node_paths=PackedStringArray("line", "attachment_point")]
+script = ExtResource("10_sm7ex")
+line = NodePath("../Line2D")
+attachment_point = NodePath("../Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-121, 73)
