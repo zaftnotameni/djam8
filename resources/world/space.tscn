@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://i234ni8ue4ih"]
+[gd_scene load_steps=4 format=3 uid="uid://i234ni8ue4ih"]
 
 [ext_resource type="Texture2D" uid="uid://cr1kjp3o0vq7e" path="res://assets/textures/space/stars.png" id="1_1t2fr"]
 [ext_resource type="Texture2D" uid="uid://dedsv1paeecng" path="res://assets/textures/space/fractals.png" id="1_nae7i"]
@@ -9,21 +9,6 @@ tonemap_mode = 3
 glow_enabled = true
 glow_intensity = 0.23
 glow_bloom = 0.23
-
-[sub_resource type="GDScript" id="GDScript_8qh1x"]
-resource_name = "test"
-script/source = "extends Camera2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	position = lerp(position, Vector2(1360, 766), delta * 0.4)
-"
 
 [node name="Space" type="Node2D"]
 
@@ -38,7 +23,7 @@ scroll_scale = Vector2(0.08, 0.08)
 [node name="Fractals" type="Sprite2D" parent="ParallaxBackground/Nebula_1"]
 modulate = Color(1, 1.48627, 2.54902, 0.0941176)
 position = Vector2(697, 384)
-scale = Vector2(6.77734, 6.77734)
+scale = Vector2(3.812, 3.812)
 texture = ExtResource("1_nae7i")
 
 [node name="Nebula_2" type="Parallax2D" parent="ParallaxBackground"]
@@ -48,7 +33,7 @@ scroll_scale = Vector2(0.18, 0.18)
 modulate = Color(1, 0.545098, 0.843137, 0.321569)
 position = Vector2(697, 384)
 rotation = 1.5708
-scale = Vector2(14.408, 14.408)
+scale = Vector2(8.105, 8.105)
 texture = ExtResource("1_nae7i")
 
 [node name="Background" type="Parallax2D" parent="ParallaxBackground"]
@@ -58,7 +43,7 @@ scroll_scale = Vector2(0.465, 0.465)
 modulate = Color(0.467051, 0.467383, 0.55682, 1)
 position = Vector2(697, 384)
 rotation = 1.5708
-scale = Vector2(3.2, 3.2)
+scale = Vector2(1.8, 1.8)
 texture = ExtResource("1_1t2fr")
 
 [node name="Foreground" type="Parallax2D" parent="ParallaxBackground"]
@@ -66,9 +51,5 @@ texture = ExtResource("1_1t2fr")
 [node name="Stars" type="Sprite2D" parent="ParallaxBackground/Foreground"]
 modulate = Color(2.5, 2.5, 2.5, 1)
 position = Vector2(697, 384)
-scale = Vector2(5.5, 5.5)
+scale = Vector2(3.094, 3.094)
 texture = ExtResource("1_1t2fr")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(684, 387)
-script = SubResource("GDScript_8qh1x")
