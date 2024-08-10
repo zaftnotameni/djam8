@@ -1,6 +1,8 @@
 @tool
 class_name HighlightsProblems extends Node
 
+const HIGHLIGHTS_PROBLEMS_GROUP_NAME := 'highlights_problems'
+
 ### the meta tag that the owner needs to carry to indicate a problem
 @export var problem_meta : String = 'has_problems'
 ### what to show/hide if an interacting entity is in range
@@ -16,6 +18,7 @@ func _process(_delta: float) -> void:
 func _enter_tree() -> void:
 	set_process(not Engine.is_editor_hint())
 	if not canvas_item: canvas_item = Resolve.at_by_meta(owner, 'problem_highlight', true)
+	add_to_group(HIGHLIGHTS_PROBLEMS_GROUP_NAME)
 
 func _ready() -> void:
 	if Engine.is_editor_hint(): return

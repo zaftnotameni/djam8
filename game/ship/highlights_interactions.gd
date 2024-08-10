@@ -10,7 +10,11 @@ const HIGHLIGHTS_INTERACTIONS_GROUP_NAME := 'highlights_interactions'
 ### what to show/hide if an interacting entity is in range
 @export var canvas_item : CanvasItem
 
-var is_highlighting : bool = false
+static var current_highlight : Node
+
+func _exit_tree() -> void:
+	if current_highlight == owner:
+		current_highlight = null
 
 func _enter_tree() -> void:
 	if not area: area = Resolve.at_by_meta(owner, 'object_interaction', true)
@@ -28,15 +32,16 @@ func unhighlight(highlight_others:bool=false):
 						hi.highlight()
 						found = true
 						break
-	is_highlighting = false
 	canvas_item.hide()
+	if current_highlight == owner:
+		current_highlight = null
 
 func highlight(unhighlight_others:bool=false):
 	if unhighlight_others:
 		for hi : HighlightsInteractions in get_tree().get_nodes_in_group(HIGHLIGHTS_INTERACTIONS_GROUP_NAME):
 			if hi: hi.unhighlight()
-	is_highlighting = true
 	canvas_item.show()
+	current_highlight = owner
 
 func on_area_entered(other:Area2D):
 	if other.has_meta(source_meta) and other.get_meta(source_meta):

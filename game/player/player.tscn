@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dicqwafh2ulnn"]
+[gd_scene load_steps=20 format=3 uid="uid://dicqwafh2ulnn"]
 
 [ext_resource type="Script" path="res://game/player/interior_exterior_tracker.gd" id="1_4jvsf"]
 [ext_resource type="Script" path="res://game/player/inside_ship_movement.gd" id="1_k7eph"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://game/player/flips_on_facing.gd" id="3_7vp2p"]
 [ext_resource type="Script" path="res://game/player/enabled_outside_ship.gd" id="3_mnng7"]
 [ext_resource type="Script" path="res://game/player/enabled_inside_ship.gd" id="5_qfe1p"]
+[ext_resource type="Script" path="res://game/player/fixes_problems.gd" id="7_lrvyx"]
 [ext_resource type="Script" path="res://game/player/emitting_going_up.gd" id="8_27vdv"]
 [ext_resource type="Script" path="res://game/player/emitting_going_down.gd" id="9_8v7eg"]
 [ext_resource type="Script" path="res://game/player/emitting_going_left.gd" id="10_s3vci"]
@@ -61,6 +62,9 @@ script = ExtResource("5_qfe1p")
 
 [node name="PlayerFacing" type="Node" parent="."]
 script = ExtResource("2_5aiwe")
+
+[node name="FixesProblems" type="Node" parent="."]
+script = ExtResource("7_lrvyx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_1tfsk")
