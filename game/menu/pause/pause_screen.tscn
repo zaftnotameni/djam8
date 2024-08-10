@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://by65nwkvsugwf"]
+[gd_scene load_steps=9 format=3 uid="uid://by65nwkvsugwf"]
 
 [ext_resource type="Script" path="res://game/behaviors/pauses_game_on_enter.gd" id="1_8pill"]
 [ext_resource type="Script" path="res://game/behaviors/game_state_paused.gd" id="1_vu8e4"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" path="res://game/behaviors/beeps_on_press.gd" id="5_44js6"]
 [ext_resource type="Script" path="res://game/behaviors/grabs_focus.gd" id="6_japa7"]
 [ext_resource type="Script" path="res://game/behaviors/quits_to_title.gd" id="7_hro6p"]
-[ext_resource type="PackedScene" uid="uid://bmv0fypbncfvm" path="res://game/menu/title/title_screen.tscn" id="8_yfv7s"]
 
 [node name="PauseScreen" type="PanelContainer"]
 process_mode = 3
@@ -44,6 +43,7 @@ text = "Paused"
 horizontal_alignment = 1
 
 [node name="Unpause" type="Button" parent="MarginContainer/VBoxContainer"]
+process_mode = 3
 layout_mode = 2
 text = "Unpause"
 
@@ -65,6 +65,7 @@ script = ExtResource("6_japa7")
 button = NodePath("..")
 
 [node name="QuitToTitle" type="Button" parent="MarginContainer/VBoxContainer"]
+process_mode = 3
 layout_mode = 2
 text = "Quit To Title"
 
@@ -78,6 +79,5 @@ button = NodePath("..")
 
 [node name="QuitsToTitle" type="Node" parent="MarginContainer/VBoxContainer/QuitToTitle" node_paths=PackedStringArray("button", "menu")]
 script = ExtResource("7_hro6p")
-scene = ExtResource("8_yfv7s")
 button = NodePath("..")
 menu = NodePath("../../../..")
