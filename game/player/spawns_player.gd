@@ -18,9 +18,9 @@ func on_player_tree_exiting():
 
 func spawn_player():
 	player = scene.instantiate() as Node2D
-	player.global_position = global_position
 	player.tree_exiting.connect(on_player_tree_exiting)
-	Layers.game.add_child(player)
+	player.global_position = global_position
+	Layers.game.add_child.call_deferred(player)
 
 func _ready() -> void:
 	if spawns_on_ready:

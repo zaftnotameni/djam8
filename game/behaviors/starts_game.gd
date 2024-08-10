@@ -10,7 +10,6 @@ func on_pressed():
 	Layers.game.add_child(game)
 	var tween := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.set_pause_mode(Tween.TweenPauseMode.TWEEN_PAUSE_PROCESS)
-	tween.tween_property(game, ^'position:x', 0, 0.3).from(2000)
 	tween.parallel().tween_property(menu, ^'position:x', -2000, 0.3).from(0)
 	tween.tween_callback(owner.queue_free)
 
