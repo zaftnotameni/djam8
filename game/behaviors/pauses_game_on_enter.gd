@@ -1,4 +1,5 @@
 @tool
+### to use with a pause menu, when a scene containing this node enters, the game is paused
 class_name PausesGameOnEnter extends Node
 
 func _enter_tree() -> void:

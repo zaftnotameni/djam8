@@ -1,3 +1,4 @@
+### Keeps track of the target area if it enters/leaves an area with meta[ship_interior=true]
 class_name InteriorExteriorTracker extends Node
 
 signal sig_where_changed(new_where:InteriorExterior)
@@ -14,10 +15,12 @@ func update_where(new_where:InteriorExterior):
 	sig_where_changed.emit(where)
 
 func on_area_exited(other:Area2D):
+	# for the sake of simplicity for the jam, using a meta tag instead of layers
 	if other.has_meta('ship_interior'):
 		update_where(InteriorExterior.EXTERIOR)
 
 func on_area_entered(other:Area2D):
+	# for the sake of simplicity for the jam, using a meta tag instead of layers
 	if other.has_meta('ship_interior'):
 		update_where(InteriorExterior.INTERIOR)
 

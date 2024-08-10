@@ -1,4 +1,5 @@
 @tool
+### opens a submenu as a sibling of the owner of the button that triggered it
 class_name OpensSubMenu extends Node
 
 @export var scene : PackedScene
@@ -10,7 +11,9 @@ func on_pressed():
 	var tween := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.set_pause_mode(Tween.TweenPauseMode.TWEEN_PAUSE_PROCESS)
 	tween.tween_property(sub_menu, ^'position:x', 0, 0.3).from(-2000)
+	# after closing a submenu, ignore the next "focus" sound, it just sounds wrong if it plays
 	sub_menu.tree_exiting.connect(Audio.ignore_next.bind(Audio.get_name_ui(NamedAudio.UI.UI_ButtonFocus)))
+	# after a submenu closes, the button that triggered it grabs the focus back
 	sub_menu.tree_exited.connect(button.grab_focus)
 
 func _enter_tree() -> void:

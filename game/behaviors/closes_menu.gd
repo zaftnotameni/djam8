@@ -1,4 +1,5 @@
 @tool
+### closes the target menu
 class_name ClosesMenu extends Node
 
 @export var menu : Control

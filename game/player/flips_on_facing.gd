@@ -1,7 +1,7 @@
+### flips the target on the x axis if the player is facing left
 class_name FlipsOnFacing extends Node
 
-@onready var facing : PlayerFacing = Resolve.at(owner, PlayerFacing)
-
+@export var facing : PlayerFacing
 @export var target : Node2D 
 
 func on_facing_changed(new_facing):
@@ -11,6 +11,8 @@ func on_facing_changed(new_facing):
 
 func _enter_tree() -> void:
 	if not target: target = get_parent()
+	if not facing: facing = Resolve.at(owner, PlayerFacing)
 
 func _ready() -> void:
 	facing.sig_facing_changed.connect(on_facing_changed)
+	on_facing_changed(facing.facing)

@@ -1,3 +1,4 @@
+### toggles the parent particles as emitting if the player is going up
 class_name EmittingGoingUp extends Node
 
 @export var particles : CPUParticles2D

@@ -1,3 +1,4 @@
+### toggles the parent particles as emitting if the player is going down
 class_name EmittingGoingDown extends Node
 
 @export var particles : CPUParticles2D

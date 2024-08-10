@@ -1,4 +1,5 @@
 @tool
+### prototyping tool, creates solid bodies matching line segments, obsolete once we have a proper ship
 class_name LineToCollider extends Node
 
 var line : Line2D
