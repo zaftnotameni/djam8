@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dicqwafh2ulnn"]
+[gd_scene load_steps=16 format=3 uid="uid://dicqwafh2ulnn"]
 
 [ext_resource type="Script" path="res://game/player/interior_exterior_tracker.gd" id="1_4jvsf"]
 [ext_resource type="Script" path="res://game/player/inside_ship_movement.gd" id="1_k7eph"]
@@ -7,6 +7,10 @@
 [ext_resource type="Script" path="res://game/player/flips_on_facing.gd" id="3_7vp2p"]
 [ext_resource type="Script" path="res://game/player/enabled_outside_ship.gd" id="3_mnng7"]
 [ext_resource type="Script" path="res://game/player/enabled_inside_ship.gd" id="5_qfe1p"]
+[ext_resource type="Script" path="res://game/player/emitting_going_up.gd" id="8_27vdv"]
+[ext_resource type="Script" path="res://game/player/emitting_going_down.gd" id="9_8v7eg"]
+[ext_resource type="Script" path="res://game/player/emitting_going_left.gd" id="10_s3vci"]
+[ext_resource type="Script" path="res://game/player/emitting_going_right.gd" id="11_dcty5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1tfsk"]
 size = Vector2(16, 16)
@@ -68,3 +72,44 @@ script = ExtResource("3_7vp2p")
 
 [node name="Sprite2D" type="Sprite2D" parent="Visual"]
 texture = SubResource("GradientTexture2D_wokrn")
+
+[node name="Jetpack" type="Node2D" parent="."]
+
+[node name="PartyJetpackDown" type="CPUParticles2D" parent="Jetpack"]
+emitting = false
+
+[node name="EnabledOutsideShip" type="Node" parent="Jetpack/PartyJetpackDown"]
+script = ExtResource("3_mnng7")
+
+[node name="EmittingGoingUp" type="Node" parent="Jetpack/PartyJetpackDown"]
+script = ExtResource("8_27vdv")
+
+[node name="PartyJetpackUp" type="CPUParticles2D" parent="Jetpack"]
+emitting = false
+gravity = Vector2(0, -980)
+
+[node name="EnabledOutsideShip" type="Node" parent="Jetpack/PartyJetpackUp"]
+script = ExtResource("3_mnng7")
+
+[node name="EmittingGoingDown" type="Node" parent="Jetpack/PartyJetpackUp"]
+script = ExtResource("9_8v7eg")
+
+[node name="PartyJetpackRight" type="CPUParticles2D" parent="Jetpack"]
+emitting = false
+gravity = Vector2(980, 0)
+
+[node name="EnabledOutsideShip" type="Node" parent="Jetpack/PartyJetpackRight"]
+script = ExtResource("3_mnng7")
+
+[node name="EmittingGoingLeft" type="Node" parent="Jetpack/PartyJetpackRight"]
+script = ExtResource("10_s3vci")
+
+[node name="PartyJetpackLeft" type="CPUParticles2D" parent="Jetpack"]
+emitting = false
+gravity = Vector2(-980, 0)
+
+[node name="EnabledOutsideShip" type="Node" parent="Jetpack/PartyJetpackLeft"]
+script = ExtResource("3_mnng7")
+
+[node name="EmittingGoingRight" type="Node" parent="Jetpack/PartyJetpackLeft"]
+script = ExtResource("11_dcty5")
