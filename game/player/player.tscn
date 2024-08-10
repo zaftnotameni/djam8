@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dicqwafh2ulnn"]
+[gd_scene load_steps=15 format=3 uid="uid://dicqwafh2ulnn"]
 
 [ext_resource type="Script" path="res://game/player/interior_exterior_tracker.gd" id="1_4jvsf"]
 [ext_resource type="Script" path="res://game/player/inside_ship_movement.gd" id="1_k7eph"]
@@ -8,10 +8,7 @@
 [ext_resource type="Script" path="res://game/player/enabled_outside_ship.gd" id="3_mnng7"]
 [ext_resource type="Script" path="res://game/player/enabled_inside_ship.gd" id="5_qfe1p"]
 [ext_resource type="Script" path="res://game/player/fixes_problems.gd" id="7_lrvyx"]
-[ext_resource type="Script" path="res://game/player/emitting_going_up.gd" id="8_27vdv"]
-[ext_resource type="Script" path="res://game/player/emitting_going_down.gd" id="9_8v7eg"]
-[ext_resource type="Script" path="res://game/player/emitting_going_left.gd" id="10_s3vci"]
-[ext_resource type="Script" path="res://game/player/emitting_going_right.gd" id="11_dcty5"]
+[ext_resource type="PackedScene" uid="uid://cwye5ouuhpt8" path="res://game/jepack/jetpack_4_ways.tscn" id="9_0nusb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1tfsk"]
 size = Vector2(16, 16)
@@ -33,14 +30,6 @@ height = 16
 fill = 2
 fill_from = Vector2(0.974359, 0.205128)
 fill_to = Vector2(0.188034, 1)
-
-[sub_resource type="Curve" id="Curve_e3rkc"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.103053, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.9587, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="Gradient" id="Gradient_63feq"]
-offsets = PackedFloat32Array(0.0357143, 0.196429, 0.258929, 0.366071, 0.741071, 1)
-colors = PackedColorArray(0, 0, 1, 1, 1, 0.415686, 0, 1, 1, 0.561765, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0.87037, 1, 1, 0, 0)
 
 [node name="Player" type="CharacterBody2D"]
 
@@ -94,87 +83,4 @@ script = ExtResource("3_7vp2p")
 [node name="Sprite2D" type="Sprite2D" parent="Visual"]
 texture = SubResource("GradientTexture2D_wokrn")
 
-[node name="Jetpack" type="Node2D" parent="."]
-
-[node name="PartyJetpackDown" type="CPUParticles2D" parent="Jetpack"]
-emitting = false
-amount = 128
-lifetime = 0.4
-speed_scale = 0.5
-randomness = 1.0
-spread = 180.0
-initial_velocity_min = 6.0
-initial_velocity_max = 8.0
-scale_amount_min = 2.0
-scale_amount_max = 4.0
-scale_amount_curve = SubResource("Curve_e3rkc")
-color_ramp = SubResource("Gradient_63feq")
-
-[node name="EnabledOutsideShip" type="Node" parent="Jetpack/PartyJetpackDown"]
-script = ExtResource("3_mnng7")
-
-[node name="EmittingGoingUp" type="Node" parent="Jetpack/PartyJetpackDown"]
-script = ExtResource("8_27vdv")
-
-[node name="PartyJetpackUp" type="CPUParticles2D" parent="Jetpack"]
-emitting = false
-amount = 128
-lifetime = 0.4
-speed_scale = 0.5
-randomness = 1.0
-spread = 180.0
-gravity = Vector2(0, -980)
-initial_velocity_min = 6.0
-initial_velocity_max = 8.0
-scale_amount_min = 2.0
-scale_amount_max = 4.0
-scale_amount_curve = SubResource("Curve_e3rkc")
-color_ramp = SubResource("Gradient_63feq")
-
-[node name="EnabledOutsideShip" type="Node" parent="Jetpack/PartyJetpackUp"]
-script = ExtResource("3_mnng7")
-
-[node name="EmittingGoingDown" type="Node" parent="Jetpack/PartyJetpackUp"]
-script = ExtResource("9_8v7eg")
-
-[node name="PartyJetpackRight" type="CPUParticles2D" parent="Jetpack"]
-emitting = false
-amount = 128
-lifetime = 0.4
-speed_scale = 0.5
-randomness = 1.0
-spread = 180.0
-gravity = Vector2(980, 0)
-initial_velocity_min = 6.0
-initial_velocity_max = 8.0
-scale_amount_min = 2.0
-scale_amount_max = 4.0
-scale_amount_curve = SubResource("Curve_e3rkc")
-color_ramp = SubResource("Gradient_63feq")
-
-[node name="EnabledOutsideShip" type="Node" parent="Jetpack/PartyJetpackRight"]
-script = ExtResource("3_mnng7")
-
-[node name="EmittingGoingLeft" type="Node" parent="Jetpack/PartyJetpackRight"]
-script = ExtResource("10_s3vci")
-
-[node name="PartyJetpackLeft" type="CPUParticles2D" parent="Jetpack"]
-emitting = false
-amount = 128
-lifetime = 0.4
-speed_scale = 0.5
-randomness = 1.0
-spread = 180.0
-gravity = Vector2(-980, 0)
-initial_velocity_min = 6.0
-initial_velocity_max = 8.0
-scale_amount_min = 2.0
-scale_amount_max = 4.0
-scale_amount_curve = SubResource("Curve_e3rkc")
-color_ramp = SubResource("Gradient_63feq")
-
-[node name="EnabledOutsideShip" type="Node" parent="Jetpack/PartyJetpackLeft"]
-script = ExtResource("3_mnng7")
-
-[node name="EmittingGoingRight" type="Node" parent="Jetpack/PartyJetpackLeft"]
-script = ExtResource("11_dcty5")
+[node name="Jetpack" parent="." instance=ExtResource("9_0nusb")]
