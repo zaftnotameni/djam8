@@ -13,6 +13,8 @@ func _physics_process(delta: float) -> void:
 		player.velocity.x = input.x * Config.player_inside_ship_initial_movement_speed
 
 	if not player.is_on_floor():
+		if abs(input.x) > 0.2:
+			player.velocity.x = input.x * Config.player_inside_ship_initial_movement_speed * 0.2
 		player.velocity.y += Config.player_inside_ship_gravity_acceleration * delta
 
 	player.move_and_slide()
