@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://b0ll30uq8b5c7"]
+[gd_scene load_steps=16 format=3 uid="uid://b0ll30uq8b5c7"]
 
 [ext_resource type="Script" path="res://game/ship/highlights_interactions.gd" id="1_w5spd"]
 [ext_resource type="Script" path="res://game/ship/highlights_problems.gd" id="2_04c7u"]
 [ext_resource type="Texture2D" uid="uid://c52e62uyo0xdp" path="res://assets/textures/ship/ship.png" id="3_aedwj"]
+[ext_resource type="PackedScene" uid="uid://bbwxi7ugqru1d" path="res://game/ship/fix-particle.tscn" id="4_ivar8"]
 [ext_resource type="AudioStream" uid="uid://doqa3fdvvlmei" path="res://assets/audio/SFX/computerNoise_000.ogg" id="4_vfjc4"]
 [ext_resource type="AudioStream" uid="uid://d24glotp3wgjl" path="res://assets/audio/SFX/computerNoise_001.ogg" id="5_540jb"]
 [ext_resource type="AudioStream" uid="uid://dgqq3iqt3si6x" path="res://assets/audio/SFX/computerNoise_002.ogg" id="6_g7ds7"]
@@ -131,3 +132,5 @@ modulate = Color(0.258824, 0.0235294, 0.239216, 1)
 position = Vector2(0, 16)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("9_560cq")
+
+[node name="FixParticle" parent="." instance=ExtResource("4_ivar8")]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://6d02j5m4pm4c"]
+[gd_scene load_steps=9 format=3 uid="uid://6d02j5m4pm4c"]
 
 [ext_resource type="Script" path="res://game/ship/highlights_interactions.gd" id="1_24jkd"]
 [ext_resource type="Script" path="res://game/ship/highlights_problems.gd" id="2_4pi1d"]
 [ext_resource type="Texture2D" uid="uid://c52e62uyo0xdp" path="res://assets/textures/ship/ship.png" id="3_v8fh1"]
+[ext_resource type="PackedScene" uid="uid://bbwxi7ugqru1d" path="res://game/ship/fix-particle.tscn" id="4_obetf"]
 
 [sub_resource type="Animation" id="Animation_yrp67"]
 length = 0.001
@@ -88,3 +89,5 @@ metadata/object_interaction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionZone"]
 shape = SubResource("RectangleShape2D_l7k05")
+
+[node name="FixParticle" parent="." instance=ExtResource("4_obetf")]

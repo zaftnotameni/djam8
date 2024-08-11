@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b202isct7vjpd"]
+[gd_scene load_steps=18 format=3 uid="uid://b202isct7vjpd"]
 
 [ext_resource type="PackedScene" uid="uid://cky72nj0yqcjc" path="res://game/ship/thruster_particles_going_left.tscn" id="1_2qckj"]
 [ext_resource type="PackedScene" uid="uid://dqq76gocpy2ne" path="res://game/ship/thruster_particles_going_left_damaged.tscn" id="1_4n42h"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://game/ship/thruster_sounds.gd" id="4_kpiki"]
 [ext_resource type="Texture2D" uid="uid://c52e62uyo0xdp" path="res://assets/textures/ship/ship.png" id="4_m3krc"]
 [ext_resource type="AudioStream" uid="uid://bxrqwqy074b22" path="res://assets/audio/SFX/thrusterFire_000.ogg" id="5_g0h6a"]
+[ext_resource type="PackedScene" uid="uid://bbwxi7ugqru1d" path="res://game/ship/fix-particle.tscn" id="6_huu61"]
 [ext_resource type="AudioStream" uid="uid://dlkto2dmjrc08" path="res://assets/audio/SFX/thrusterFire_001.ogg" id="6_pglhe"]
 [ext_resource type="AudioStream" uid="uid://ddf2n2px6pcqq" path="res://assets/audio/SFX/thrusterFire_002.ogg" id="7_5f0md"]
 [ext_resource type="AudioStream" uid="uid://dhglndvisri73" path="res://assets/audio/SFX/thrusterFire_003.ogg" id="8_1n56o"]
@@ -123,3 +124,5 @@ unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_bj45p")
 max_distance = 100.0
 bus = &"SFX"
+
+[node name="FixParticle" parent="." instance=ExtResource("6_huu61")]
