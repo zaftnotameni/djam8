@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dqwf68mfd6hu0"]
+[gd_scene load_steps=9 format=3 uid="uid://dqwf68mfd6hu0"]
 
 [ext_resource type="Script" path="res://game/behaviors/beeps_on_press.gd" id="1_kh1h8"]
 [ext_resource type="Script" path="res://game/behaviors/beeps_on_focus.gd" id="2_mhvec"]
 [ext_resource type="PackedScene" uid="uid://nn5fi105o1xv" path="res://game/space/BlackHole/BlackHole.tscn" id="2_syg0s"]
 [ext_resource type="Script" path="res://game/behaviors/quits_to_title.gd" id="3_e1342"]
 [ext_resource type="Script" path="res://game/behaviors/grabs_focus.gd" id="4_2y5ts"]
+[ext_resource type="Script" path="res://game/menu/defeat/button.gd" id="4_qm6k2"]
 [ext_resource type="Script" path="res://game/behaviors/game_state_defeat.gd" id="5_dl0pr"]
 [ext_resource type="Script" path="res://game/audio/plays_title_bgm.gd" id="7_jccvs"]
 
@@ -36,49 +37,76 @@ layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 152.0
-offset_top = 88.0
-offset_right = 152.0
-offset_bottom = 88.0
+offset_left = 616.0
+offset_top = 232.0
+offset_right = 616.0
+offset_bottom = 232.0
+rotation = 1.76278
 scale = Vector2(4, 4)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 64
 text = "Too Bad!
 
 Your Orbit has Decayed!
-
-You will never escape the Blackhole!"
+The Blackhole devours you!"
 horizontal_alignment = 1
 
-[node name="QuitToTitle" type="Button" parent="MarginContainer/VBoxContainer"]
-process_mode = 3
+[node name="CurrentDecayLevel" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_outline_color = Color(0.0823529, 0, 0.121569, 1)
+theme_override_font_sizes/font_size = 64
+text = "Decay Level: 4.5"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
+text = "Try a Lower Decay Level"
+script = ExtResource("4_qm6k2")
+
+[node name="GrabsFocus" type="Node" parent="MarginContainer/MarginContainer/VBoxContainer/Button" node_paths=PackedStringArray("button")]
+script = ExtResource("4_2y5ts")
+button = NodePath("..")
+
+[node name="NextDecayLevel" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_outline_color = Color(0.0823529, 0, 0.121569, 1)
+theme_override_font_sizes/font_size = 64
+text = "Decay Level: 5.0
+Equipment Degrades Slower!"
+horizontal_alignment = 1
+
+[node name="QuitToTitle" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
 text = "Back To Title"
 
-[node name="BeepsOnPress" type="Node" parent="MarginContainer/VBoxContainer/QuitToTitle" node_paths=PackedStringArray("button")]
+[node name="BeepsOnPress" type="Node" parent="MarginContainer/MarginContainer/VBoxContainer/QuitToTitle" node_paths=PackedStringArray("button")]
 script = ExtResource("1_kh1h8")
 button = NodePath("..")
 
-[node name="BeepsOnFocus" type="Node" parent="MarginContainer/VBoxContainer/QuitToTitle" node_paths=PackedStringArray("button")]
+[node name="BeepsOnFocus" type="Node" parent="MarginContainer/MarginContainer/VBoxContainer/QuitToTitle" node_paths=PackedStringArray("button")]
 script = ExtResource("2_mhvec")
 button = NodePath("..")
 
-[node name="QuitsToTitle" type="Node" parent="MarginContainer/VBoxContainer/QuitToTitle" node_paths=PackedStringArray("button", "menu")]
+[node name="QuitsToTitle" type="Node" parent="MarginContainer/MarginContainer/VBoxContainer/QuitToTitle" node_paths=PackedStringArray("button", "menu")]
 script = ExtResource("3_e1342")
 button = NodePath("..")
-menu = NodePath("../../../..")
-
-[node name="GrabsFocus" type="Node" parent="MarginContainer/VBoxContainer/QuitToTitle" node_paths=PackedStringArray("button")]
-script = ExtResource("4_2y5ts")
-button = NodePath("..")
+menu = NodePath("../../../../..")

@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://rsgap6khy6wh"]
+[gd_scene load_steps=9 format=3 uid="uid://rsgap6khy6wh"]
 
 [ext_resource type="Script" path="res://game/behaviors/beeps_on_press.gd" id="1_qrm2w"]
 [ext_resource type="Script" path="res://game/behaviors/game_state_victory.gd" id="1_vvkap"]
 [ext_resource type="Script" path="res://game/audio/plays_title_bgm.gd" id="1_w0104"]
 [ext_resource type="Script" path="res://game/behaviors/beeps_on_focus.gd" id="2_ustoq"]
 [ext_resource type="Script" path="res://game/behaviors/quits_to_title.gd" id="3_ahfty"]
+[ext_resource type="Script" path="res://game/menu/victory/start_next_decay.gd" id="3_ewsr5"]
 [ext_resource type="Script" path="res://game/behaviors/grabs_focus.gd" id="4_hhkqh"]
+[ext_resource type="PackedScene" uid="uid://i234ni8ue4ih" path="res://game/space/space.tscn" id="8_mcmj6"]
 
 [node name="VictoryScreen" type="PanelContainer"]
 process_mode = 3
@@ -26,40 +28,79 @@ script = ExtResource("1_vvkap")
 layout_mode = 2
 color = Color(0.0823529, 0, 0.121569, 1)
 
+[node name="Space" parent="." instance=ExtResource("8_mcmj6")]
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+color = Color(0.0823529, 0, 0.121569, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
+theme_override_colors/font_outline_color = Color(0.0823529, 0, 0.121569, 1)
 theme_override_font_sizes/font_size = 64
 text = "Congratulations!
 
 You've Escaped the Orbital Decay!"
 horizontal_alignment = 1
 
-[node name="QuitToTitle" type="Button" parent="MarginContainer/VBoxContainer"]
-process_mode = 3
+[node name="CurrentDecayLevel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_outline_color = Color(0.0823529, 0, 0.121569, 1)
+theme_override_font_sizes/font_size = 64
+text = "Decay Level: 5.0"
+horizontal_alignment = 1
+
+[node name="StartNextDecay" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
+text = "Attempt Next Decay Level"
+script = ExtResource("3_ewsr5")
+
+[node name="GrabsFocus" type="Node" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/StartNextDecay" node_paths=PackedStringArray("button")]
+script = ExtResource("4_hhkqh")
+button = NodePath("..")
+
+[node name="NextDecayLevel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_outline_color = Color(0.0823529, 0, 0.121569, 1)
+theme_override_font_sizes/font_size = 64
+text = "Decay Level: 4.5
+Equipment Degrades Faster!"
+horizontal_alignment = 1
+
+[node name="QuitToTitle" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
 text = "Back To Title"
 
-[node name="BeepsOnPress" type="Node" parent="MarginContainer/VBoxContainer/QuitToTitle" node_paths=PackedStringArray("button")]
+[node name="BeepsOnPress" type="Node" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/QuitToTitle" node_paths=PackedStringArray("button")]
 script = ExtResource("1_qrm2w")
 button = NodePath("..")
 
-[node name="BeepsOnFocus" type="Node" parent="MarginContainer/VBoxContainer/QuitToTitle" node_paths=PackedStringArray("button")]
+[node name="BeepsOnFocus" type="Node" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/QuitToTitle" node_paths=PackedStringArray("button")]
 script = ExtResource("2_ustoq")
 button = NodePath("..")
 
-[node name="QuitsToTitle" type="Node" parent="MarginContainer/VBoxContainer/QuitToTitle" node_paths=PackedStringArray("button", "menu")]
+[node name="QuitsToTitle" type="Node" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/QuitToTitle" node_paths=PackedStringArray("button", "menu")]
 script = ExtResource("3_ahfty")
 button = NodePath("..")
-menu = NodePath("../../../..")
-
-[node name="GrabsFocus" type="Node" parent="MarginContainer/VBoxContainer/QuitToTitle" node_paths=PackedStringArray("button")]
-script = ExtResource("4_hhkqh")
-button = NodePath("..")
+menu = NodePath("../../../../../..")
