@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://btdgb8rj8rrml"]
+[gd_scene load_steps=27 format=3 uid="uid://btdgb8rj8rrml"]
 
 [ext_resource type="Script" path="res://game/autoload/audio.gd" id="1_25wme"]
 [ext_resource type="AudioStream" uid="uid://hxa1muiv66x6" path="res://assets/audio/UI/button_focus.ogg" id="2_oteo4"]
@@ -23,6 +23,9 @@
 [ext_resource type="AudioStream" uid="uid://ddf2n2px6pcqq" path="res://assets/audio/SFX/thrusterFire_002.ogg" id="13_kxbnc"]
 [ext_resource type="AudioStream" uid="uid://dhglndvisri73" path="res://assets/audio/SFX/thrusterFire_003.ogg" id="14_xl116"]
 [ext_resource type="AudioStream" uid="uid://bljxn6dgpe5p3" path="res://assets/audio/SFX/thrusterFire_004.ogg" id="15_krfl4"]
+[ext_resource type="AudioStream" uid="uid://cbjh2sotd5lu3" path="res://assets/audio/BGM/about_to_win.mp3" id="21_jr0ux"]
+[ext_resource type="AudioStream" uid="uid://nsyniia13sud" path="res://assets/audio/BGM/about_to_lose.mp3" id="21_t2lwy"]
+[ext_resource type="AudioStream" uid="uid://drxbyp7qx7mfo" path="res://assets/audio/BGM/default_space.mp3" id="22_40mjh"]
 
 [node name="Audio" type="Node2D"]
 process_mode = 3
@@ -121,6 +124,27 @@ metadata/created_via_automation = true
 [node name="SFX_VolumeTick" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_opb5q")
 bus = &"SFX"
+metadata/created_via_automation = true
+
+[node name="BGM_AboutToLose" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_t2lwy")
+bus = &"BGM"
+playback_type = 1
+parameters/looping = true
+metadata/created_via_automation = true
+
+[node name="BGM_AboutToWin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_jr0ux")
+bus = &"BGM"
+playback_type = 1
+parameters/looping = true
+metadata/created_via_automation = true
+
+[node name="BGM_DefaultSpace" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_40mjh")
+bus = &"BGM"
+playback_type = 1
+parameters/looping = true
 metadata/created_via_automation = true
 
 [node name="BGM_PixelSpace" type="AudioStreamPlayer" parent="."]

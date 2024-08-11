@@ -4,7 +4,9 @@ class_name TriggersDefeat extends Node
 @export var logic : OrbitalDecayLogic
 
 func wipe_all(children:Array=[]):
-	for child in children: child.queue_free()
+	for child in children:
+		print_verbose('deleting: ', child.get_path())
+		child.queue_free()
 
 func on_defeat():
 	var children_to_wipe := []
@@ -25,6 +27,7 @@ func _process(_delta: float) -> void:
 	if not logic: return
 	if logic.orbit_height <= logic.min_orbital_height:
 		set_process(false)
+		logic.set_process(false)
 		on_defeat()
 
 func _enter_tree() -> void:

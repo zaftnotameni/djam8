@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqwf68mfd6hu0"]
+[gd_scene load_steps=8 format=3 uid="uid://dqwf68mfd6hu0"]
 
 [ext_resource type="Script" path="res://game/behaviors/beeps_on_press.gd" id="1_kh1h8"]
 [ext_resource type="Script" path="res://game/behaviors/beeps_on_focus.gd" id="2_mhvec"]
+[ext_resource type="PackedScene" uid="uid://nn5fi105o1xv" path="res://game/space/BlackHole/BlackHole.tscn" id="2_syg0s"]
 [ext_resource type="Script" path="res://game/behaviors/quits_to_title.gd" id="3_e1342"]
 [ext_resource type="Script" path="res://game/behaviors/grabs_focus.gd" id="4_2y5ts"]
 [ext_resource type="Script" path="res://game/behaviors/game_state_defeat.gd" id="5_dl0pr"]
+[ext_resource type="Script" path="res://game/audio/plays_title_bgm.gd" id="7_jccvs"]
 
 [node name="DefeatScreen" type="PanelContainer"]
 process_mode = 3
@@ -14,12 +16,31 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="PlaysTitleBGM" type="Node" parent="."]
+script = ExtResource("7_jccvs")
+plays_on_ready = true
+
 [node name="GameStateDefeat" type="Node" parent="."]
 script = ExtResource("5_dl0pr")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 2
 color = Color(0.0823529, 0, 0.121569, 1)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Planet" parent="Control" instance=ExtResource("2_syg0s")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 152.0
+offset_top = 88.0
+offset_right = 152.0
+offset_bottom = 88.0
+scale = Vector2(4, 4)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -29,6 +50,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 8
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 64
 text = "Too Bad!

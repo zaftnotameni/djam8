@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://rsgap6khy6wh"]
+[gd_scene load_steps=7 format=3 uid="uid://rsgap6khy6wh"]
 
 [ext_resource type="Script" path="res://game/behaviors/beeps_on_press.gd" id="1_qrm2w"]
 [ext_resource type="Script" path="res://game/behaviors/game_state_victory.gd" id="1_vvkap"]
+[ext_resource type="Script" path="res://game/audio/plays_title_bgm.gd" id="1_w0104"]
 [ext_resource type="Script" path="res://game/behaviors/beeps_on_focus.gd" id="2_ustoq"]
 [ext_resource type="Script" path="res://game/behaviors/quits_to_title.gd" id="3_ahfty"]
 [ext_resource type="Script" path="res://game/behaviors/grabs_focus.gd" id="4_hhkqh"]
@@ -13,6 +14,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="PlaysTitleBGM" type="Node" parent="."]
+script = ExtResource("1_w0104")
+plays_on_ready = true
 
 [node name="GameStateVictory" type="Node" parent="."]
 script = ExtResource("1_vvkap")
