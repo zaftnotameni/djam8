@@ -91,7 +91,9 @@ func _notification(what: int) -> void:
 	if what == NOTIFICATION_EDITOR_POST_SAVE:
 		if Engine.is_editor_hint():
 			if get_tree().edited_scene_root == self:
-				setup_local_files()
+				pass
+			# setup_local_files()
+
 
 func setup_local_files():
 	for child in get_children():
