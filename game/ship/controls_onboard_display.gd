@@ -8,8 +8,8 @@ func _process(_delta: float) -> void:
 	if not logic: return
 	onboard_display.text =\
 """
-    Orbital Velocity: %.1f km/s
-    Orbital Radius: %.1f km
-    Orbital Delta: %.1f km/s
+	Orbital Velocity: %.1f km/s
+	Orbital Radius: %.1f km
+	Orbital Delta: %.1f km/s
 
 """ % [logic.orbital_velocity, logic.orbit_height, logic.saldo]

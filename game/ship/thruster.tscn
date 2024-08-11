@@ -3,11 +3,9 @@
 [ext_resource type="Script" path="res://game/ship/highlights_problems.gd" id="1_t5iwk"]
 [ext_resource type="Script" path="res://game/ship/highlights_interactions.gd" id="2_cbiyj"]
 [ext_resource type="Texture2D" uid="uid://brrtu81ueyx68" path="res://assets/textures/ship/ship.png" id="3_2lv3r"]
+[ext_resource type="Texture2D" uid="uid://c52e62uyo0xdp" path="res://assets/textures/character/ship.png" id="4_m3krc"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tsy60"]
-blend_mode = 3
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5in4m"]
 blend_mode = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfiap"]
@@ -17,7 +15,7 @@ size = Vector2(16, 16)
 
 [node name="HighlightsProblems" type="Node" parent="." node_paths=PackedStringArray("canvas_item")]
 script = ExtResource("1_t5iwk")
-canvas_item = NodePath("../BrokenHighlight")
+canvas_item = NodePath("../BrokenSprite")
 
 [node name="HighlightsInteractions" type="Node" parent="." node_paths=PackedStringArray("area", "canvas_item")]
 script = ExtResource("2_cbiyj")
@@ -30,6 +28,13 @@ hframes = 4
 vframes = 4
 frame = 9
 
+[node name="BrokenSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_m3krc")
+hframes = 4
+vframes = 4
+frame = 13
+
 [node name="InteractionHighlight" type="ColorRect" parent="."]
 visible = false
 material = SubResource("CanvasItemMaterial_tsy60")
@@ -39,16 +44,6 @@ offset_right = 32.0
 offset_bottom = 16.0
 color = Color(0.0150757, 0.898063, 0.964844, 0.592157)
 metadata/interaction_highlight = true
-
-[node name="BrokenHighlight" type="ColorRect" parent="."]
-visible = false
-material = SubResource("CanvasItemMaterial_5in4m")
-offset_left = -32.0
-offset_top = -16.0
-offset_right = 32.0
-offset_bottom = 16.0
-color = Color(0.67, 0.0737, 0.0737, 0.345098)
-metadata/problem_highlight = true
 
 [node name="InteractionZone" type="Area2D" parent="."]
 metadata/object_interaction = true
