@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://b202isct7vjpd"]
+[gd_scene load_steps=17 format=3 uid="uid://b202isct7vjpd"]
 
 [ext_resource type="PackedScene" uid="uid://cky72nj0yqcjc" path="res://game/ship/thruster_particles_going_left.tscn" id="1_2qckj"]
+[ext_resource type="PackedScene" uid="uid://dqq76gocpy2ne" path="res://game/ship/thruster_particles_going_left_damaged.tscn" id="1_4n42h"]
 [ext_resource type="Script" path="res://game/ship/highlights_problems.gd" id="1_t5iwk"]
 [ext_resource type="Script" path="res://game/ship/highlights_interactions.gd" id="2_cbiyj"]
 [ext_resource type="Script" path="res://game/ship/thruster_sounds.gd" id="4_kpiki"]
@@ -62,6 +63,11 @@ stream_4/stream = ExtResource("9_87h4o")
 
 [node name="Thruster" type="Node2D"]
 metadata/thruster = true
+
+[node name="PartyThrusterLeftDamaged" parent="." instance=ExtResource("1_4n42h")]
+unique_name_in_owner = true
+position = Vector2(-8, 0)
+emitting = false
 
 [node name="PartyThrusterLeft" parent="." instance=ExtResource("1_2qckj")]
 unique_name_in_owner = true
