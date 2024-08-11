@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cgfkysxujq0q3"]
+[gd_scene load_steps=15 format=3 uid="uid://cgfkysxujq0q3"]
 
 [ext_resource type="Script" path="res://game/level/triggers_victory.gd" id="1_o2mak"]
 [ext_resource type="PackedScene" uid="uid://dy663kuitecyv" path="res://game/ship/ship.tscn" id="1_qnvrk"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://game/player/ropes_to_ship.gd" id="10_sm7ex"]
 [ext_resource type="Script" path="res://game/layers/at_hud.gd" id="11_imudc"]
 [ext_resource type="PackedScene" uid="uid://dmr5ge227mtk5" path="res://game/hud/orbit_level_hud.tscn" id="12_0va4y"]
+[ext_resource type="PackedScene" uid="uid://nn5fi105o1xv" path="res://game/space/BlackHole/BlackHole.tscn" id="14_d3u2w"]
 
 [node name="Level001" type="Node2D"]
 
@@ -63,3 +64,15 @@ position = Vector2(144, 32)
 [node name="AtHUD" type="Node" parent="."]
 script = ExtResource("11_imudc")
 scene = ExtResource("12_0va4y")
+
+[node name="Planet" parent="." instance=ExtResource("14_d3u2w")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 30.0
+offset_top = 739.0
+offset_right = 30.0
+offset_bottom = 739.0
+scale = Vector2(4, 4)

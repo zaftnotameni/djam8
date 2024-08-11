@@ -38,9 +38,9 @@ theme_override_font_sizes/bold_font_size = 32
 bbcode_enabled = true
 text = "[u]Team members:[/u]
 
-- ZAFT - Programming/Build/UI/SFX - [code]https://zafteer.itch.io/[/code]
+- ZAFT - Programming/Build/UI/SFX/VFX - [code]https://zafteer.itch.io/[/code]
 - HotNoggin - Art - [code]https://www.hotnogginstudios.com/[/code]
-- TheNetherPug - Music/Art - [code]https://github.com/TheNetherPug[/code]
+- TheNetherPug - Music/Art/VFX - [code]https://github.com/TheNetherPug[/code]
 
 [u]Using:[/u]
 
@@ -55,6 +55,7 @@ text = "[u]Team members:[/u]
 - Kenney UI Audio - [code]https://kenney.nl/assets/ui-audio[/code]
 - Kenney Sci-Fi Sounds - [code]https://kenney.nl/assets/sci-fi-sounds[/code]
 - Font Monogram - [code]https://datagoblin.itch.io/monogram[/code]
+- Black Hole - Pixel Planets [code]https://github.com/Deep-Fold/PixelPlanets[/code]
 "
 tab_size = 2
 
