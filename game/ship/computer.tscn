@@ -1,16 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://b0ll30uq8b5c7"]
+[gd_scene load_steps=7 format=3 uid="uid://b0ll30uq8b5c7"]
 
 [ext_resource type="Script" path="res://game/ship/highlights_interactions.gd" id="1_w5spd"]
 [ext_resource type="Script" path="res://game/ship/highlights_problems.gd" id="2_04c7u"]
-
-[sub_resource type="Gradient" id="Gradient_gfnl4"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ih083"]
-gradient = SubResource("Gradient_gfnl4")
-width = 32
-height = 32
-fill_from = Vector2(0, 1)
-fill_to = Vector2(0, 0)
+[ext_resource type="Texture2D" uid="uid://c52e62uyo0xdp" path="res://assets/textures/character/ship.png" id="3_aedwj"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mohn2"]
 blend_mode = 3
@@ -19,7 +11,7 @@ blend_mode = 3
 blend_mode = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l7k05"]
-size = Vector2(48, 48)
+size = Vector2(16, 16)
 
 [node name="Computer" type="Node2D"]
 
@@ -33,7 +25,10 @@ script = ExtResource("2_04c7u")
 canvas_item = NodePath("../BrokenHighlight")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("GradientTexture2D_ih083")
+texture = ExtResource("3_aedwj")
+hframes = 4
+vframes = 4
+frame = 11
 
 [node name="InteractionHighlight" type="ColorRect" parent="."]
 visible = false
