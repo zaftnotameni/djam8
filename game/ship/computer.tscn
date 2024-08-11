@@ -59,6 +59,17 @@ stream_3/stream = ExtResource("7_o4sbd")
 
 [node name="Computer" type="Node2D"]
 
+[node name="Label" type="Label" parent="."]
+offset_left = -24.0
+offset_top = -40.0
+offset_right = 24.0
+offset_bottom = -8.0
+theme_override_constants/line_spacing = -4
+text = "10000
+km/s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="HighlightsInteractions" type="Node" parent="." node_paths=PackedStringArray("area", "canvas_item")]
 script = ExtResource("1_w5spd")
 area = NodePath("../InteractionZone")
@@ -105,6 +116,7 @@ shape = SubResource("RectangleShape2D_l7k05")
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_es7v4")
 max_distance = 100.0
+bus = &"SFX"
 
 [node name="ComputerSounds" type="Node" parent="."]
 script = ExtResource("8_4b74p")

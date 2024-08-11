@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://b202isct7vjpd"]
+[gd_scene load_steps=16 format=3 uid="uid://b202isct7vjpd"]
 
+[ext_resource type="PackedScene" uid="uid://cky72nj0yqcjc" path="res://game/ship/thruster_particles_going_left.tscn" id="1_2qckj"]
 [ext_resource type="Script" path="res://game/ship/highlights_problems.gd" id="1_t5iwk"]
 [ext_resource type="Script" path="res://game/ship/highlights_interactions.gd" id="2_cbiyj"]
 [ext_resource type="Script" path="res://game/ship/thruster_sounds.gd" id="4_kpiki"]
@@ -60,6 +61,10 @@ stream_3/stream = ExtResource("8_1n56o")
 stream_4/stream = ExtResource("9_87h4o")
 
 [node name="Thruster" type="Node2D"]
+
+[node name="PartyThrusterLeft" parent="." instance=ExtResource("1_2qckj")]
+unique_name_in_owner = true
+position = Vector2(-8, 0)
 
 [node name="HighlightsProblems" type="Node" parent="." node_paths=PackedStringArray("canvas_item")]
 script = ExtResource("1_t5iwk")
