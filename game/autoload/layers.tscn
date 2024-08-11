@@ -6,6 +6,7 @@
 script = ExtResource("1_0jv4i")
 
 [node name="Background" type="CanvasLayer" parent="." groups=["background_layer"]]
+follow_viewport_enabled = true
 
 [node name="Game" type="CanvasLayer" parent="." groups=["game_layer"]]
 follow_viewport_enabled = true
