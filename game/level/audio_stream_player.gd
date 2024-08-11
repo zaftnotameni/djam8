@@ -3,6 +3,7 @@ extends AudioStreamPlayer
 var logic : OrbitalDecayLogic
 
 func _ready() -> void:
+	unmute(0)
 	if not logic : logic = OrbitalDecayLogic.first()
 
 

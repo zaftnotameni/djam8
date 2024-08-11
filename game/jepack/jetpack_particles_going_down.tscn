@@ -14,6 +14,7 @@ lifetime = 0.2
 speed_scale = 0.5
 randomness = 1.0
 local_coords = true
+draw_order = 1
 spread = 180.0
 initial_velocity_min = 6.0
 initial_velocity_max = 8.0

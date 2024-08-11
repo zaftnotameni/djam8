@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dicqwafh2ulnn"]
+[gd_scene load_steps=23 format=3 uid="uid://dicqwafh2ulnn"]
 
 [ext_resource type="Script" path="res://game/player/interior_exterior_tracker.gd" id="1_4jvsf"]
 [ext_resource type="Script" path="res://game/player/inside_ship_movement.gd" id="1_k7eph"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://game/player/touches_kill_planes.gd" id="8_gs7ox"]
 [ext_resource type="PackedScene" uid="uid://cwye5ouuhpt8" path="res://game/jepack/jetpack_4_ways.tscn" id="9_0nusb"]
 [ext_resource type="Texture2D" uid="uid://b60dts1ff7haw" path="res://assets/textures/character/crashtronaut.png" id="10_6806w"]
+[ext_resource type="Script" path="res://game/player/camera-2d.gd" id="10_xrh45"]
 [ext_resource type="Script" path="res://game/player/animates.gd" id="12_hcs2w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1tfsk"]
@@ -158,8 +159,8 @@ shape = SubResource("RectangleShape2D_1tfsk")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
 process_callback = 0
-position_smoothing_enabled = true
-position_smoothing_speed = 100.0
+position_smoothing_speed = 20.0
+script = ExtResource("10_xrh45")
 
 [node name="KillPlaneDetector" type="Area2D" parent="."]
 metadata/touches_kill_planes = true

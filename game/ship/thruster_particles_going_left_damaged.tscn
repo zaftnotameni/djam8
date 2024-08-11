@@ -1,17 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://cky72nj0yqcjc"]
+[gd_scene load_steps=3 format=3 uid="uid://dqq76gocpy2ne"]
 
 [sub_resource type="Curve" id="Curve_n685t"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.103053, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.154709), -1.9587, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="Gradient" id="Gradient_bq0be"]
-offsets = PackedFloat32Array(0.0357143, 0.366071, 1)
-colors = PackedColorArray(1, 0.921569, 0.94902, 1, 1, 0.247059, 0.584314, 1, 1, 0.247059, 0.584314, 1)
+[sub_resource type="Gradient" id="Gradient_d3yca"]
+offsets = PackedFloat32Array(0, 0.214286, 1)
+colors = PackedColorArray(1, 0.247059, 0.584314, 1, 0.258824, 0.0235294, 0.239216, 1, 0.0823529, 0, 0.121569, 1)
 
-[node name="PartyThrusterLeft" type="CPUParticles2D"]
-amount = 16
+[node name="PartyThrusterLeftDamaged" type="CPUParticles2D"]
+amount = 4
 lifetime = 0.2
-speed_scale = 0.5
+speed_scale = 0.19
+explosiveness = 0.5
 randomness = 1.0
 local_coords = true
 draw_order = 1
@@ -22,4 +23,4 @@ initial_velocity_max = 8.0
 scale_amount_min = 8.0
 scale_amount_max = 12.0
 scale_amount_curve = SubResource("Curve_n685t")
-color_ramp = SubResource("Gradient_bq0be")
+color_ramp = SubResource("Gradient_d3yca")
