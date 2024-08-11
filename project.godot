@@ -65,6 +65,7 @@ game_layer=""
 menu_layer=""
 hud_layer=""
 ship_tiles=""
+tutorial_sprites=""
 
 [gui]
 
