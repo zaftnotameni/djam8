@@ -43,6 +43,7 @@ func play_named(audio_name:String):
 			push_error('could not resolve audio %s at %s' % [audio_name, get_path()])
 		else:
 			if not audio.playing:
+				print_verbose('play: ',audio_name)
 				audio.play()
 			# if audio.name.begins_with('BGM') and not audio.name.contains('VolumeTick'):
 			# 	audio.finished.connect(play_named.bind(audio_name), CONNECT_ONE_SHOT)

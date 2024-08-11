@@ -25,6 +25,7 @@ func _process(_delta: float) -> void:
 	if not logic: return
 	if logic.orbit_height >= logic.max_orbital_height:
 		set_process(false)
+		logic.set_process(false)
 		on_victory()
 
 func _enter_tree() -> void:

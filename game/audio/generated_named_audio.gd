@@ -7,6 +7,9 @@ enum UI {
 }
 
 enum BGM {
+	BGM_AboutToLose,
+	BGM_AboutToWin,
+	BGM_DefaultSpace,
 	BGM_PixelSpace,
 	BGM_VolumeTick
 }
@@ -54,6 +57,9 @@ enum All {
 	SFX_ThrusterFire003,
 	SFX_ThrusterFire004,
 	SFX_VolumeTick,
+	BGM_AboutToLose,
+	BGM_AboutToWin,
+	BGM_DefaultSpace,
 	BGM_PixelSpace,
 	BGM_VolumeTick,
 	Master_VolumeTick
