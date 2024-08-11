@@ -61,6 +61,7 @@ stream_3/stream = ExtResource("8_1n56o")
 stream_4/stream = ExtResource("9_87h4o")
 
 [node name="Thruster" type="Node2D"]
+metadata/thruster = true
 
 [node name="PartyThrusterLeft" parent="." instance=ExtResource("1_2qckj")]
 unique_name_in_owner = true

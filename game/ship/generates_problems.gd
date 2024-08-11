@@ -21,6 +21,12 @@ func generate_problem():
 	if problem_highlighter:
 		problem_highlighter.owner.set_meta('has_problems', true)
 
+		if problem_highlighter.owner.has_meta('thruster') and problem_highlighter.owner.get_meta('thruster'):
+			if randf() > 0.5:
+				Audio.play_named_sfx(NamedAudio.SFX.SFX_LowFrequencyExplosion000)
+			else:
+				Audio.play_named_sfx(NamedAudio.SFX.SFX_LowFrequencyExplosion001)
+
 func _process(delta: float) -> void:
 	if not logic : logic = OrbitalDecayLogic.first()
 	var adjusted_every_n_seconds : float = every_n_seconds
