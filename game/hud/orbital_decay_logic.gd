@@ -70,4 +70,3 @@ func _process(delta: float) -> void:
 
 # escape velocity formula: v = sqrt(2GM/R)
 # orbital velocity formula: v = sqrt(GM/R)
-
