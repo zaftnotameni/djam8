@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bmv0fypbncfvm"]
+[gd_scene load_steps=14 format=3 uid="uid://bmv0fypbncfvm"]
 
 [ext_resource type="Script" path="res://game/behaviors/beeps_on_focus.gd" id="1_fxii2"]
 [ext_resource type="PackedScene" uid="uid://nn5fi105o1xv" path="res://game/space/BlackHole/BlackHole.tscn" id="1_otccm"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://btsv0sx8x2e12" path="res://game/menu/options/options_screen.tscn" id="4_t7mtx"]
 [ext_resource type="PackedScene" uid="uid://cqgte28l5b8a1" path="res://game/menu/about/about_screen.tscn" id="7_onjai"]
 [ext_resource type="PackedScene" uid="uid://bi8jwk4bgw3mv" path="res://game/menu/title/logo.tscn" id="12_6bo7p"]
+[ext_resource type="Script" path="res://game/audio/plays_title_bgm.gd" id="13_gdbso"]
 [ext_resource type="Script" path="res://game/menu/title/title_animation.gd" id="14_5u2qo"]
 
 [node name="TitleScreen" type="PanelContainer"]
@@ -132,3 +133,8 @@ position = Vector2(0, -100)
 
 [node name="TitleAnimation" type="Node" parent="."]
 script = ExtResource("14_5u2qo")
+
+[node name="PlaysTitleBGM" type="Node" parent="."]
+script = ExtResource("13_gdbso")
+plays_on_ready = true
+stops_on_exit = true

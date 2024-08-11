@@ -59,21 +59,7 @@ func _process(delta: float) -> void:
 	orbit_height += saldo * delta
 	percentage = orbit_height / (max_orbital_height - min_orbital_height)
 
-	if percentage > 0.75:
-		Audio.play_named_bgm(NamedAudio.BGM.BGM_AboutToWin)
-		Audio.stop_named_bgm(NamedAudio.BGM.BGM_DefaultSpace)
-		Audio.stop_named_bgm(NamedAudio.BGM.BGM_AboutToLose)
-		Audio.stop_named_bgm(NamedAudio.BGM.BGM_PixelSpace)
-	elif percentage < 0.25:
-		Audio.stop_named_bgm(NamedAudio.BGM.BGM_AboutToWin)
-		Audio.stop_named_bgm(NamedAudio.BGM.BGM_DefaultSpace)
-		Audio.play_named_bgm(NamedAudio.BGM.BGM_AboutToLose)
-		Audio.stop_named_bgm(NamedAudio.BGM.BGM_PixelSpace)
-	else:
-		Audio.stop_named_bgm(NamedAudio.BGM.BGM_AboutToWin)
-		Audio.play_named_bgm(NamedAudio.BGM.BGM_DefaultSpace)
-		Audio.stop_named_bgm(NamedAudio.BGM.BGM_AboutToLose)
-		Audio.stop_named_bgm(NamedAudio.BGM.BGM_PixelSpace)
+	Audio.stop_named_bgm(NamedAudio.BGM.BGM_PixelSpace)
 
 	bar_height = abs(marker_top.global_position.y - marker_bottom.global_position.y)
 	bar_center_x = marker_top.global_position.x
@@ -84,4 +70,3 @@ func _process(delta: float) -> void:
 
 # escape velocity formula: v = sqrt(2GM/R)
 # orbital velocity formula: v = sqrt(GM/R)
-
