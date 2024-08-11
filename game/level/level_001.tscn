@@ -39,10 +39,9 @@ script = ExtResource("4_er45k")
 position = Vector2(-188, -567)
 
 [node name="Ship" parent="." instance=ExtResource("1_qnvrk")]
-position = Vector2(-188, -567)
 
 [node name="SpawnsPlayer" type="Marker2D" parent="."]
-position = Vector2(163, -161)
+position = Vector2(96, 120)
 script = ExtResource("6_52awo")
 spawns_on_ready = true
 
