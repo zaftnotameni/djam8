@@ -8,6 +8,7 @@ const ORBITAL_DECAY_LOGIC_GROUP := 'orbital_decay_logic'
 @onready var ship_indicator : Node2D = %ShipHudIndicator
 @onready var marker_top : Marker2D = %Top
 @onready var marker_bottom : Marker2D = %Bottom
+@onready var orbital_decay_label : RichTextLabel = %OrbitalDecayLabel
 
 @export var orbit_height : float = 11000.0 # in km
 @export var multiplier: float = 50.0
@@ -67,6 +68,8 @@ func _process(delta: float) -> void:
 
 	var visual_height := remap(orbit_height, min_orbital_height, max_orbital_height, marker_bottom.global_position.y, marker_top.global_position.y)
 	ship_indicator.global_position = ship_indicator.global_position.move_toward(Vector2(bar_center_x, visual_height), delta * 1000)
+
+	orbital_decay_label.visible = saldo < 0
 
 # escape velocity formula: v = sqrt(2GM/R)
 # orbital velocity formula: v = sqrt(GM/R)
