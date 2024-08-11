@@ -7,6 +7,8 @@ const PLAYER_DATA_FILE := 'user://player_data.tres'
 @export var audio_sfx_volume_linear_0_100 : float = 50.0
 @export var audio_ui_volume_linear_0_100 : float = 50.0
 
+@export var decay_level: float = 5.0
+
 @export var player_name : String = 'no name'
 
 func save() -> PlayerData:
@@ -21,7 +23,11 @@ func update_from_audio_server():
 
 static func load_from_file_or_create_file() -> PlayerData:
 	if ResourceLoader.exists(PLAYER_DATA_FILE):
-		return ResourceLoader.load(PLAYER_DATA_FILE)
+		var loaded : PlayerData = ResourceLoader.load(PLAYER_DATA_FILE)
+		if not loaded.decay_level or loaded.decay_level <= 0:
+			loaded.decay_level = 5.0
+			loaded.save()
+		return loaded
 	else:
 		PlayerData.new().save()
 		return ResourceLoader.load(PLAYER_DATA_FILE)
