@@ -1,5 +1,6 @@
 class_name BlackHoleApproaches extends Node
 
+@onready var blackhole : Control = %Planet
 var logic : OrbitalDecayLogic
 
 func _ready() -> void:
@@ -8,6 +9,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if not logic : logic = OrbitalDecayLogic.first()
 	if not logic: return
+	if not blackhole: return
 
-	owner.position.x = 100 + (500 * logic.percentage)
+	blackhole.position.y = 0 + (500 * logic.percentage)
 	

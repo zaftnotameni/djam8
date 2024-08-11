@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://btdgb8rj8rrml"]
+[gd_scene load_steps=36 format=3 uid="uid://btdgb8rj8rrml"]
 
 [ext_resource type="Script" path="res://game/autoload/audio.gd" id="1_25wme"]
 [ext_resource type="AudioStream" uid="uid://hxa1muiv66x6" path="res://assets/audio/UI/button_focus.ogg" id="2_oteo4"]
@@ -18,12 +18,16 @@
 [ext_resource type="AudioStream" uid="uid://dgqq3iqt3si6x" path="res://assets/audio/SFX/computerNoise_002.ogg" id="7_wummq"]
 [ext_resource type="AudioStream" uid="uid://be5ln2qc4smhx" path="res://assets/audio/SFX/step_inside_ship.ogg" id="8_bsmxk"]
 [ext_resource type="AudioStream" uid="uid://cc34nmulbcqqa" path="res://assets/audio/SFX/computerNoise_003.ogg" id="8_nuj7y"]
+[ext_resource type="AudioStream" uid="uid://dx8ly4mh2h23r" path="res://assets/audio/SFX/explosionCrunch_003.ogg" id="9_4kt24"]
 [ext_resource type="AudioStream" uid="uid://t86ehdpn4cpb" path="res://assets/audio/SFX/fix_thing.wav" id="9_w2jp1"]
+[ext_resource type="AudioStream" uid="uid://xdp2syv7o8jx" path="res://assets/audio/SFX/explosionCrunch_004.ogg" id="10_m0pdb"]
 [ext_resource type="AudioStream" uid="uid://bxrqwqy074b22" path="res://assets/audio/SFX/thrusterFire_000.ogg" id="11_xpk4a"]
 [ext_resource type="AudioStream" uid="uid://dlkto2dmjrc08" path="res://assets/audio/SFX/thrusterFire_001.ogg" id="12_wtwy4"]
 [ext_resource type="AudioStream" uid="uid://ddf2n2px6pcqq" path="res://assets/audio/SFX/thrusterFire_002.ogg" id="13_kxbnc"]
 [ext_resource type="AudioStream" uid="uid://dhglndvisri73" path="res://assets/audio/SFX/thrusterFire_003.ogg" id="14_xl116"]
 [ext_resource type="AudioStream" uid="uid://bljxn6dgpe5p3" path="res://assets/audio/SFX/thrusterFire_004.ogg" id="15_krfl4"]
+[ext_resource type="AudioStream" uid="uid://cvf4fb7dfsx30" path="res://assets/audio/SFX/lowFrequency_explosion_000.ogg" id="17_nnu7f"]
+[ext_resource type="AudioStream" uid="uid://bgejfh0etcxww" path="res://assets/audio/SFX/lowFrequency_explosion_001.ogg" id="18_pia1p"]
 [ext_resource type="AudioStream" uid="uid://cbjh2sotd5lu3" path="res://assets/audio/BGM/about_to_win.mp3" id="21_jr0ux"]
 [ext_resource type="AudioStream" uid="uid://nsyniia13sud" path="res://assets/audio/BGM/about_to_lose.mp3" id="21_t2lwy"]
 [ext_resource type="AudioStream" uid="uid://drxbyp7qx7mfo" path="res://assets/audio/BGM/default_space.mp3" id="22_40mjh"]
@@ -71,6 +75,16 @@ stream = ExtResource("8_nuj7y")
 bus = &"SFX"
 metadata/created_via_automation = true
 
+[node name="SFX_ExplosionCrunch003" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_4kt24")
+bus = &"SFX"
+metadata/created_via_automation = true
+
+[node name="SFX_ExplosionCrunch004" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_m0pdb")
+bus = &"SFX"
+metadata/created_via_automation = true
+
 [node name="SFX_FixThing" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_w2jp1")
 bus = &"SFX"
@@ -98,6 +112,16 @@ metadata/created_via_automation = true
 
 [node name="SFX_LandingOnShip" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_oi6bn")
+bus = &"SFX"
+metadata/created_via_automation = true
+
+[node name="SFX_LowFrequencyExplosion000" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_nnu7f")
+bus = &"SFX"
+metadata/created_via_automation = true
+
+[node name="SFX_LowFrequencyExplosion001" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_pia1p")
 bus = &"SFX"
 metadata/created_via_automation = true
 
