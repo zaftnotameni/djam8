@@ -82,12 +82,12 @@ script = ExtResource("4_rehk4")
 [node name="Computer" parent="." instance=ExtResource("1_qmqw2")]
 position = Vector2(72, 120)
 metadata/orbital_bonus = 1.0
-metadata/orbital_decay = 2.0
+metadata/orbital_decay = 3.0
 
 [node name="Computer2" parent="." instance=ExtResource("1_qmqw2")]
 position = Vector2(200, 120)
 metadata/orbital_bonus = 2.0
-metadata/orbital_decay = 1.0
+metadata/orbital_decay = 4.0
 
 [node name="Computer3" parent="." instance=ExtResource("1_qmqw2")]
 position = Vector2(232, 120)
@@ -98,7 +98,7 @@ metadata/orbital_decay = 1.0
 [node name="Thruster" parent="." instance=ExtResource("2_x6rwn")]
 position = Vector2(24, 24)
 metadata/has_problems = true
-metadata/orbital_bonus = 2.0
+metadata/orbital_bonus = 5.0
 metadata/orbital_decay = 3.0
 
 [node name="Thruster2" parent="." instance=ExtResource("2_x6rwn")]
@@ -108,5 +108,5 @@ metadata/orbital_decay = 2.0
 
 [node name="Thruster3" parent="." instance=ExtResource("2_x6rwn")]
 position = Vector2(24, 120)
-metadata/orbital_bonus = 1.0
-metadata/orbital_decay = 4.0
+metadata/orbital_bonus = 2.0
+metadata/orbital_decay = 5.0

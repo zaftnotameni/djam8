@@ -8,6 +8,7 @@ const ORBITAL_DECAY_LOGIC_GROUP := 'orbital_decay_logic'
 @onready var ship_indicator : Node2D = %ShipHudIndicator
 
 @export var orbit_height : float = 11000.0 # in km
+@export var multiplier: float = 50.0
 
 var max_orbital_height : float = 21000.0 # in km
 var min_orbital_height : float = 1000.0 # in km
@@ -51,8 +52,8 @@ func _process(delta: float) -> void:
 		if not hi.owner.has_meta('has_problems') or not hi.owner.get_meta('has_problems'):
 			step_bonus += hi.owner.get_meta('orbital_bonus') if hi.owner.has_meta('orbital_bonus') else 0.0
 
-	bonus = step_bonus
-	decay = step_decay
+	bonus = step_bonus * multiplier
+	decay = step_decay * multiplier
 	saldo = (bonus - decay)
 	orbit_height += saldo * delta
 
