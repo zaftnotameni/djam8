@@ -29,4 +29,3 @@ func draw_triangle_indicator(indicator_position: Vector2, direction: Vector2):
 	var p3: Vector2 = indicator_position - direction.rotated(PI/4) * size
 
 	draw_polygon([p1, p2, p3], [indicator_color])
-

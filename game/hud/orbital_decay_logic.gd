@@ -60,7 +60,7 @@ func _process(delta: float) -> void:
 	marker_top = orbit_height_bar.get_rect().position
 	marker_bottom = marker_top + orbit_height_bar.get_rect().size
 	bar_height = marker_top.y - marker_bottom.y
-	bar_center_x = (marker_top.x + orbit_height_bar.get_rect().size.x) + 24
+	bar_center_x = (marker_top.x + orbit_height_bar.get_rect().size.x) + 30
 	orbital_velocity = sqrt(640000.0 / orbit_height)
 
 	var visual_height := remap(orbit_height, min_orbital_height, max_orbital_height, marker_bottom.y, marker_top.y)
