@@ -53,6 +53,7 @@ joint_mode = 2
 
 [node name="RopesToShip" type="Node" parent="." node_paths=PackedStringArray("line", "attachment_point")]
 script = ExtResource("10_sm7ex")
+rope_length = 300.0
 line = NodePath("../Rope")
 attachment_point = NodePath("../RopeAttachement")
 

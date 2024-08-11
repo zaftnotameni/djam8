@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://dy663kuitecyv"]
+[gd_scene load_steps=10 format=4 uid="uid://dy663kuitecyv"]
 
 [ext_resource type="TileSet" uid="uid://ordc1sflf0kt" path="res://game/ship/ship.tres" id="1_8kv3h"]
 [ext_resource type="PackedScene" uid="uid://b0ll30uq8b5c7" path="res://game/ship/computer.tscn" id="1_qmqw2"]
 [ext_resource type="PackedScene" uid="uid://b202isct7vjpd" path="res://game/ship/thruster.tscn" id="2_x6rwn"]
 [ext_resource type="Script" path="res://game/ship/controls_onboard_display.gd" id="4_rehk4"]
+[ext_resource type="PackedScene" uid="uid://6d02j5m4pm4c" path="res://game/ship/solar_panel.tscn" id="5_y062f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e22gr"]
 bg_color = Color(0.0823529, 0, 0.121569, 1)
@@ -81,3 +82,14 @@ metadata/orbital_decay = 2.0
 position = Vector2(24, 120)
 metadata/orbital_bonus = 2.0
 metadata/orbital_decay = 5.0
+
+[node name="SolarPanel" parent="." instance=ExtResource("5_y062f")]
+position = Vector2(168, -40)
+metadata/orbital_bonus = 4.0
+metadata/orbital_decay = 2.0
+
+[node name="SolarPanel2" parent="." instance=ExtResource("5_y062f")]
+position = Vector2(56, -72)
+metadata/orbital_bonus = 2.0
+metadata/orbital_decay = 4.0
+metadata/has_problems = true
