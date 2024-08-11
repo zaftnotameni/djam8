@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cgfkysxujq0q3"]
+[gd_scene load_steps=22 format=3 uid="uid://cgfkysxujq0q3"]
 
 [ext_resource type="Script" path="res://game/level/triggers_victory.gd" id="1_o2mak"]
 [ext_resource type="PackedScene" uid="uid://dy663kuitecyv" path="res://game/ship/ship.tscn" id="1_qnvrk"]
@@ -19,13 +19,14 @@
 [ext_resource type="AudioStream" uid="uid://ctnu2lo7cqn4x" path="res://assets/audio/BGM/darkness_3.wav" id="17_3nn7g"]
 [ext_resource type="AudioStream" uid="uid://c0f1uf06kp5ty" path="res://assets/audio/BGM/darkness_2.wav" id="18_er7g2"]
 [ext_resource type="AudioStream" uid="uid://bklrcp8ly2eto" path="res://assets/audio/BGM/darkness_1.wav" id="19_d2xsj"]
+[ext_resource type="Script" path="res://game/level/audio_stream_player.gd" id="20_syuwf"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_73818"]
 stream_count = 5
 stream_0/stream = ExtResource("15_j6113")
 stream_0/volume = 0.0
 stream_1/stream = ExtResource("16_tmxrs")
-stream_1/volume = -0.34
+stream_1/volume = 0.0
 stream_2/stream = ExtResource("17_3nn7g")
 stream_2/volume = -60.0
 stream_3/stream = ExtResource("18_er7g2")
@@ -97,4 +98,7 @@ scale = Vector2(4, 4)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamSynchronized_73818")
+autoplay = true
 bus = &"BGM"
+playback_type = 1
+script = ExtResource("20_syuwf")
