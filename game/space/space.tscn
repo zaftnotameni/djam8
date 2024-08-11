@@ -60,5 +60,5 @@ autoscroll = Vector2(-50, 0)
 modulate = Color(2.5, 2.5, 2.5, 1)
 texture_repeat = 2
 position = Vector2(697, 384)
-scale = Vector2(3.094, 3.094)
+scale = Vector2(2.321, 2.321)
 texture = ExtResource("1_1t2fr")
