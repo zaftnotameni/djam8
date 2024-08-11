@@ -85,15 +85,9 @@ func read_volume_from_config():
 
 func _enter_tree() -> void:
 	read_volume_from_config()
-
-### on saving the audio scene, automatically populates the audio stream players and generate the named audio enum
-func _notification(what: int) -> void:
-	if what == NOTIFICATION_EDITOR_POST_SAVE:
-		if Engine.is_editor_hint():
-			if get_tree().edited_scene_root == self:
-				pass
-			# setup_local_files()
-
+	if Engine.is_editor_hint():
+		if get_tree().edited_scene_root == self:
+			setup_local_files()
 
 func setup_local_files():
 	for child in get_children():

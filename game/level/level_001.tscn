@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cgfkysxujq0q3"]
+[gd_scene load_steps=23 format=3 uid="uid://cgfkysxujq0q3"]
 
 [ext_resource type="Script" path="res://game/level/triggers_victory.gd" id="1_o2mak"]
 [ext_resource type="PackedScene" uid="uid://dy663kuitecyv" path="res://game/ship/ship.tscn" id="1_qnvrk"]
@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://c0f1uf06kp5ty" path="res://assets/audio/BGM/darkness_2.wav" id="18_er7g2"]
 [ext_resource type="AudioStream" uid="uid://bklrcp8ly2eto" path="res://assets/audio/BGM/darkness_1.wav" id="19_d2xsj"]
 [ext_resource type="Script" path="res://game/level/audio_stream_player.gd" id="20_syuwf"]
+[ext_resource type="Script" path="res://game/space/BlackHole/black_hole_approaches.gd" id="21_88p38"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_73818"]
 stream_count = 5
@@ -85,15 +86,16 @@ script = ExtResource("11_imudc")
 scene = ExtResource("12_0va4y")
 
 [node name="Planet" parent="." instance=ExtResource("14_d3u2w")]
+unique_name_in_owner = true
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 46.0
-offset_top = 800.0
-offset_right = 46.0
-offset_bottom = 800.0
+offset_left = 241.0
+offset_top = 713.0
+offset_right = 241.0
+offset_bottom = 713.0
 scale = Vector2(4, 4)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -106,5 +108,8 @@ script = ExtResource("20_syuwf")
 [node name="Timer" type="Timer" parent="AudioStreamPlayer"]
 wait_time = 6.4
 autostart = true
+
+[node name="BlackHoleApproaches" type="Node" parent="."]
+script = ExtResource("21_88p38")
 
 [connection signal="timeout" from="AudioStreamPlayer/Timer" to="AudioStreamPlayer" method="_on_timer_timeout"]
