@@ -1,8 +1,28 @@
-[gd_scene load_steps=8 format=3 uid="uid://b0ll30uq8b5c7"]
+[gd_scene load_steps=14 format=3 uid="uid://b0ll30uq8b5c7"]
 
 [ext_resource type="Script" path="res://game/ship/highlights_interactions.gd" id="1_w5spd"]
 [ext_resource type="Script" path="res://game/ship/highlights_problems.gd" id="2_04c7u"]
 [ext_resource type="Texture2D" uid="uid://c52e62uyo0xdp" path="res://assets/textures/ship/ship.png" id="3_aedwj"]
+[ext_resource type="AudioStream" uid="uid://doqa3fdvvlmei" path="res://assets/audio/SFX/computerNoise_000.ogg" id="4_vfjc4"]
+[ext_resource type="AudioStream" uid="uid://d24glotp3wgjl" path="res://assets/audio/SFX/computerNoise_001.ogg" id="5_540jb"]
+[ext_resource type="AudioStream" uid="uid://dgqq3iqt3si6x" path="res://assets/audio/SFX/computerNoise_002.ogg" id="6_g7ds7"]
+[ext_resource type="AudioStream" uid="uid://cc34nmulbcqqa" path="res://assets/audio/SFX/computerNoise_003.ogg" id="7_o4sbd"]
+[ext_resource type="Script" path="res://game/ship/computer_sounds.gd" id="8_4b74p"]
+
+[sub_resource type="Animation" id="Animation_yrp67"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_m8hgr"]
 resource_name = "hover"
@@ -21,21 +41,6 @@ tracks/0/keys = {
 "values": [Vector2(1.5, 1.5), Vector2(1.5, 1.5), Vector2(1, 1), Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_yrp67"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_28234"]
 _data = {
 "RESET": SubResource("Animation_yrp67"),
@@ -44,6 +49,13 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l7k05"]
 size = Vector2(16, 16)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_es7v4"]
+streams_count = 4
+stream_0/stream = ExtResource("4_vfjc4")
+stream_1/stream = ExtResource("5_540jb")
+stream_2/stream = ExtResource("6_g7ds7")
+stream_3/stream = ExtResource("7_o4sbd")
 
 [node name="Computer" type="Node2D"]
 
@@ -88,3 +100,11 @@ metadata/object_interaction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionZone"]
 shape = SubResource("RectangleShape2D_l7k05")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_es7v4")
+max_distance = 100.0
+
+[node name="ComputerSounds" type="Node" parent="."]
+script = ExtResource("8_4b74p")
