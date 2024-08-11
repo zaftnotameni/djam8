@@ -2,19 +2,13 @@
 
 [ext_resource type="Script" path="res://game/main/main.gd" id="1_4xd2q"]
 [ext_resource type="PackedScene" uid="uid://bmv0fypbncfvm" path="res://game/menu/title/title_screen.tscn" id="2_w3x05"]
-[ext_resource type="Script" path="res://game/behaviors/plays_named_audio.gd" id="3_2ckdq"]
 [ext_resource type="Script" path="res://game/layers/at_menu.gd" id="3_kljer"]
 [ext_resource type="Script" path="res://game/layers/at_background.gd" id="5_lfkji"]
+[ext_resource type="Script" path="res://game/audio/plays_title_bgm.gd" id="6_am6yc"]
 [ext_resource type="PackedScene" uid="uid://i234ni8ue4ih" path="res://game/space/space.tscn" id="6_wnuno"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_4xd2q")
-
-[node name="PlaysNamedAudio" type="Node" parent="."]
-script = ExtResource("3_2ckdq")
-named_audio = 6
-plays_on_ready = true
-stops_on_exit = true
 
 [node name="AtMenu" type="Node" parent="."]
 script = ExtResource("3_kljer")
@@ -23,3 +17,8 @@ scene = ExtResource("2_w3x05")
 [node name="AtBackground" type="Node" parent="."]
 script = ExtResource("5_lfkji")
 scene = ExtResource("6_wnuno")
+
+[node name="PlaysTitleBGM" type="Node" parent="."]
+script = ExtResource("6_am6yc")
+plays_on_ready = true
+stops_on_exit = true

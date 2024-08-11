@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://btdgb8rj8rrml"]
+[gd_scene load_steps=13 format=3 uid="uid://btdgb8rj8rrml"]
 
 [ext_resource type="Script" path="res://game/autoload/audio.gd" id="1_25wme"]
 [ext_resource type="AudioStream" uid="uid://hxa1muiv66x6" path="res://assets/audio/UI/button_focus.ogg" id="2_oteo4"]
@@ -10,6 +10,8 @@
 [ext_resource type="AudioStream" uid="uid://blgidyuft5tx0" path="res://assets/audio/SFX/jetpack_2.wav" id="6_4gfys"]
 [ext_resource type="AudioStream" uid="uid://d0m5glomakv66" path="res://assets/audio/SFX/volume_tick.ogg" id="6_opb5q"]
 [ext_resource type="AudioStream" uid="uid://be8skmepdwywx" path="res://assets/audio/Master/volume_tick.ogg" id="7_kopr4"]
+[ext_resource type="AudioStream" uid="uid://cwuljo0sbobt4" path="res://assets/audio/SFX/landing_on_ship.ogg" id="7_oi6bn"]
+[ext_resource type="AudioStream" uid="uid://be5ln2qc4smhx" path="res://assets/audio/SFX/step_inside_ship.ogg" id="8_bsmxk"]
 
 [node name="Audio" type="Node2D"]
 process_mode = 3
@@ -37,6 +39,16 @@ metadata/created_via_automation = true
 
 [node name="SFX_Jetpack2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_4gfys")
+bus = &"SFX"
+metadata/created_via_automation = true
+
+[node name="SFX_LandingOnShip" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_oi6bn")
+bus = &"SFX"
+metadata/created_via_automation = true
+
+[node name="SFX_StepInsideShip" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_bsmxk")
 bus = &"SFX"
 metadata/created_via_automation = true
 

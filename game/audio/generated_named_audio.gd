@@ -14,6 +14,8 @@ enum BGM {
 enum SFX {
 	SFX_Jetpack1,
 	SFX_Jetpack2,
+	SFX_LandingOnShip,
+	SFX_StepInsideShip,
 	SFX_VolumeTick
 }
 
@@ -27,6 +29,8 @@ enum All {
 	UI_VolumeTick,
 	SFX_Jetpack1,
 	SFX_Jetpack2,
+	SFX_LandingOnShip,
+	SFX_StepInsideShip,
 	SFX_VolumeTick,
 	BGM_PixelSpace,
 	BGM_VolumeTick,
