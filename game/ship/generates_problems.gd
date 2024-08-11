@@ -24,8 +24,8 @@ func generate_problem():
 func _process(delta: float) -> void:
 	if not logic : logic = OrbitalDecayLogic.first()
 	var adjusted_every_n_seconds : float = every_n_seconds
-	if logic: adjusted_every_n_seconds -= (adjusted_every_n_seconds * 0.75 * logic.percentage)
-	print(adjusted_every_n_seconds)
+	if logic: adjusted_every_n_seconds -= (adjusted_every_n_seconds * 0.8 * logic.percentage)
+	adjusted_every_n_seconds = clampf(adjusted_every_n_seconds, 1.0, 10.0)
 	elapsed += delta
 	if elapsed >= adjusted_every_n_seconds:
 		elapsed = 0.0
