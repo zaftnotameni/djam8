@@ -1,0 +1,10 @@
+[gd_resource type="Environment" format=3 uid="uid://dbh50pjbc1702"]
+
+[resource]
+background_mode = 3
+background_canvas_max_layer = 5
+tonemap_mode = 3
+glow_enabled = true
+glow_intensity = 0.7
+glow_bloom = 0.6
+glow_hdr_threshold = 0.7

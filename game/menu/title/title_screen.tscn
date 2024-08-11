@@ -1,24 +1,44 @@
 [gd_scene load_steps=13 format=3 uid="uid://bmv0fypbncfvm"]
 
-[ext_resource type="Texture2D" uid="uid://b72q6cyu2slvx" path="res://assets/logos/djam8.png" id="1_aobc3"]
 [ext_resource type="Script" path="res://game/behaviors/beeps_on_focus.gd" id="1_fxii2"]
+[ext_resource type="PackedScene" uid="uid://nn5fi105o1xv" path="res://game/space/BlackHole/BlackHole.tscn" id="1_otccm"]
 [ext_resource type="Script" path="res://game/behaviors/game_state_title.gd" id="1_wkty3"]
 [ext_resource type="Script" path="res://game/layers/shows_background.gd" id="2_7x73l"]
 [ext_resource type="Script" path="res://game/behaviors/beeps_on_press.gd" id="2_gyghh"]
 [ext_resource type="Script" path="res://game/behaviors/opens_submenu.gd" id="3_5ws1a"]
 [ext_resource type="Theme" uid="uid://p0nwmwqm8l0" path="res://resources/theme/default_theme.tres" id="4_ev47b"]
-[ext_resource type="Script" path="res://game/behaviors/grabs_focus.gd" id="4_sgtl8"]
+[ext_resource type="Script" path="res://game/menu/title/buttons.gd" id="4_jv1f7"]
 [ext_resource type="PackedScene" uid="uid://btsv0sx8x2e12" path="res://game/menu/options/options_screen.tscn" id="4_t7mtx"]
-[ext_resource type="Script" path="res://game/behaviors/starts_game.gd" id="6_o6n8p"]
-[ext_resource type="PackedScene" uid="uid://cgfkysxujq0q3" path="res://game/level/level_001.tscn" id="7_gwsac"]
 [ext_resource type="PackedScene" uid="uid://cqgte28l5b8a1" path="res://game/menu/about/about_screen.tscn" id="7_onjai"]
+[ext_resource type="PackedScene" uid="uid://bi8jwk4bgw3mv" path="res://game/menu/title/logo.tscn" id="12_6bo7p"]
+[ext_resource type="Script" path="res://game/menu/title/title_animation.gd" id="14_5u2qo"]
 
 [node name="TitleScreen" type="PanelContainer"]
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Planet" parent="Control" instance=ExtResource("1_otccm")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -198.0
+offset_top = -180.0
+offset_right = -198.0
+offset_bottom = -180.0
+scale = Vector2(4, 4)
 
 [node name="GameStateTitle" type="Node" parent="."]
 script = ExtResource("1_wkty3")
@@ -29,76 +49,86 @@ script = ExtResource("2_7x73l")
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="ParentContainer" type="VBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+[node name="Title" type="TextureRect" parent="MarginContainer/ParentContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("1_aobc3")
 stretch_mode = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Buttons" type="VBoxContainer" parent="MarginContainer/ParentContainer"]
+unique_name_in_owner = true
+visible = false
+z_index = -1000
+z_as_relative = false
 layout_mode = 2
+size_flags_horizontal = 4
+script = ExtResource("4_jv1f7")
 
-[node name="Start" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("4_ev47b")
-theme_override_font_sizes/font_size = 48
-text = "Start"
-
-[node name="BeepsOnFocus" type="Node" parent="MarginContainer/VBoxContainer/VBoxContainer/Start" node_paths=PackedStringArray("button")]
-script = ExtResource("1_fxii2")
-button = NodePath("..")
-
-[node name="BeepsOnPress" type="Node" parent="MarginContainer/VBoxContainer/VBoxContainer/Start" node_paths=PackedStringArray("button")]
-script = ExtResource("2_gyghh")
-button = NodePath("..")
-
-[node name="GrabsFocus" type="Node" parent="MarginContainer/VBoxContainer/VBoxContainer/Start" node_paths=PackedStringArray("button")]
-script = ExtResource("4_sgtl8")
-button = NodePath("..")
-
-[node name="StartsGame" type="Node" parent="MarginContainer/VBoxContainer/VBoxContainer/Start" node_paths=PackedStringArray("menu", "button")]
-script = ExtResource("6_o6n8p")
-menu = NodePath("../../../../..")
-scene = ExtResource("7_gwsac")
-button = NodePath("..")
-
-[node name="Options" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="Start" type="Button" parent="MarginContainer/ParentContainer/Buttons"]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme = ExtResource("4_ev47b")
 theme_override_font_sizes/font_size = 48
-text = "Options"
+text = "  Start  "
 
-[node name="BeepsOnFocus" type="Node" parent="MarginContainer/VBoxContainer/VBoxContainer/Options" node_paths=PackedStringArray("button")]
+[node name="BeepsOnFocus" type="Node" parent="MarginContainer/ParentContainer/Buttons/Start" node_paths=PackedStringArray("button")]
 script = ExtResource("1_fxii2")
 button = NodePath("..")
 
-[node name="BeepsOnPress" type="Node" parent="MarginContainer/VBoxContainer/VBoxContainer/Options" node_paths=PackedStringArray("button")]
+[node name="BeepsOnPress" type="Node" parent="MarginContainer/ParentContainer/Buttons/Start" node_paths=PackedStringArray("button")]
 script = ExtResource("2_gyghh")
 button = NodePath("..")
 
-[node name="OpensSubMenu" type="Node" parent="MarginContainer/VBoxContainer/VBoxContainer/Options" node_paths=PackedStringArray("button")]
+[node name="Options" type="Button" parent="MarginContainer/ParentContainer/Buttons"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme = ExtResource("4_ev47b")
+theme_override_font_sizes/font_size = 48
+text = "  Options  "
+
+[node name="BeepsOnFocus" type="Node" parent="MarginContainer/ParentContainer/Buttons/Options" node_paths=PackedStringArray("button")]
+script = ExtResource("1_fxii2")
+button = NodePath("..")
+
+[node name="BeepsOnPress" type="Node" parent="MarginContainer/ParentContainer/Buttons/Options" node_paths=PackedStringArray("button")]
+script = ExtResource("2_gyghh")
+button = NodePath("..")
+
+[node name="OpensSubMenu" type="Node" parent="MarginContainer/ParentContainer/Buttons/Options" node_paths=PackedStringArray("button")]
 script = ExtResource("3_5ws1a")
 scene = ExtResource("4_t7mtx")
 button = NodePath("..")
 
-[node name="About" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="About" type="Button" parent="MarginContainer/ParentContainer/Buttons"]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme = ExtResource("4_ev47b")
 theme_override_font_sizes/font_size = 48
 text = "About"
 
-[node name="BeepsOnFocus" type="Node" parent="MarginContainer/VBoxContainer/VBoxContainer/About" node_paths=PackedStringArray("button")]
+[node name="BeepsOnFocus" type="Node" parent="MarginContainer/ParentContainer/Buttons/About" node_paths=PackedStringArray("button")]
 script = ExtResource("1_fxii2")
 button = NodePath("..")
 
-[node name="BeepsOnPress" type="Node" parent="MarginContainer/VBoxContainer/VBoxContainer/About" node_paths=PackedStringArray("button")]
+[node name="BeepsOnPress" type="Node" parent="MarginContainer/ParentContainer/Buttons/About" node_paths=PackedStringArray("button")]
 script = ExtResource("2_gyghh")
 button = NodePath("..")
 
-[node name="OpensSubMenu" type="Node" parent="MarginContainer/VBoxContainer/VBoxContainer/About" node_paths=PackedStringArray("button")]
+[node name="OpensSubMenu" type="Node" parent="MarginContainer/ParentContainer/Buttons/About" node_paths=PackedStringArray("button")]
 script = ExtResource("3_5ws1a")
 scene = ExtResource("7_onjai")
 button = NodePath("..")
+
+[node name="Logo" parent="." instance=ExtResource("12_6bo7p")]
+unique_name_in_owner = true
+position = Vector2(0, -100)
+
+[node name="TitleAnimation" type="Node" parent="."]
+script = ExtResource("14_5u2qo")

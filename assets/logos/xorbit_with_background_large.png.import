@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c52e62uyo0xdp"
-path="res://.godot/imported/ship.png-ad4646fd22be99a038100e6cb69e9a92.ctex"
+uid="uid://dagkg1d1ebgk1"
+path="res://.godot/imported/xorbit_with_background_large.png-97f2e2a2b81ea250dff494124406aa35.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/character/ship.png"
-dest_files=["res://.godot/imported/ship.png-ad4646fd22be99a038100e6cb69e9a92.ctex"]
+source_file="res://assets/logos/xorbit_with_background_large.png"
+dest_files=["res://.godot/imported/xorbit_with_background_large.png-97f2e2a2b81ea250dff494124406aa35.ctex"]
 
 [params]
 

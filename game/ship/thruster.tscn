@@ -1,17 +1,70 @@
-[gd_scene load_steps=7 format=3 uid="uid://b202isct7vjpd"]
+[gd_scene load_steps=16 format=3 uid="uid://b202isct7vjpd"]
 
+[ext_resource type="PackedScene" uid="uid://cky72nj0yqcjc" path="res://game/ship/thruster_particles_going_left.tscn" id="1_2qckj"]
 [ext_resource type="Script" path="res://game/ship/highlights_problems.gd" id="1_t5iwk"]
 [ext_resource type="Script" path="res://game/ship/highlights_interactions.gd" id="2_cbiyj"]
-[ext_resource type="Texture2D" uid="uid://brrtu81ueyx68" path="res://assets/textures/ship/ship.png" id="3_2lv3r"]
-[ext_resource type="Texture2D" uid="uid://c52e62uyo0xdp" path="res://assets/textures/character/ship.png" id="4_m3krc"]
+[ext_resource type="Script" path="res://game/ship/thruster_sounds.gd" id="4_kpiki"]
+[ext_resource type="Texture2D" uid="uid://c52e62uyo0xdp" path="res://assets/textures/ship/ship.png" id="4_m3krc"]
+[ext_resource type="AudioStream" uid="uid://bxrqwqy074b22" path="res://assets/audio/SFX/thrusterFire_000.ogg" id="5_g0h6a"]
+[ext_resource type="AudioStream" uid="uid://dlkto2dmjrc08" path="res://assets/audio/SFX/thrusterFire_001.ogg" id="6_pglhe"]
+[ext_resource type="AudioStream" uid="uid://ddf2n2px6pcqq" path="res://assets/audio/SFX/thrusterFire_002.ogg" id="7_5f0md"]
+[ext_resource type="AudioStream" uid="uid://dhglndvisri73" path="res://assets/audio/SFX/thrusterFire_003.ogg" id="8_1n56o"]
+[ext_resource type="AudioStream" uid="uid://bljxn6dgpe5p3" path="res://assets/audio/SFX/thrusterFire_004.ogg" id="9_87h4o"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tsy60"]
-blend_mode = 3
+[sub_resource type="Animation" id="Animation_yrp67"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_m8hgr"]
+resource_name = "hover"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1.5, 1.5), Vector2(1.5, 1.5), Vector2(1, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_28234"]
+_data = {
+"RESET": SubResource("Animation_yrp67"),
+"hover": SubResource("Animation_m8hgr")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfiap"]
 size = Vector2(16, 16)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bj45p"]
+streams_count = 5
+stream_0/stream = ExtResource("5_g0h6a")
+stream_1/stream = ExtResource("6_pglhe")
+stream_2/stream = ExtResource("7_5f0md")
+stream_3/stream = ExtResource("8_1n56o")
+stream_4/stream = ExtResource("9_87h4o")
+
 [node name="Thruster" type="Node2D"]
+
+[node name="PartyThrusterLeft" parent="." instance=ExtResource("1_2qckj")]
+unique_name_in_owner = true
+position = Vector2(-8, 0)
 
 [node name="HighlightsProblems" type="Node" parent="." node_paths=PackedStringArray("canvas_item")]
 script = ExtResource("1_t5iwk")
@@ -20,33 +73,46 @@ canvas_item = NodePath("../BrokenSprite")
 [node name="HighlightsInteractions" type="Node" parent="." node_paths=PackedStringArray("area", "canvas_item")]
 script = ExtResource("2_cbiyj")
 area = NodePath("../InteractionZone")
-canvas_item = NodePath("../InteractionHighlight")
+canvas_item = NodePath("../InteractSprite")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("3_2lv3r")
+texture = ExtResource("4_m3krc")
 hframes = 4
-vframes = 4
+vframes = 5
 frame = 9
 
 [node name="BrokenSprite" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("4_m3krc")
 hframes = 4
-vframes = 4
+vframes = 5
 frame = 13
 
-[node name="InteractionHighlight" type="ColorRect" parent="."]
+[node name="InteractSprite" type="Sprite2D" parent="."]
 visible = false
-material = SubResource("CanvasItemMaterial_tsy60")
-offset_left = -32.0
-offset_top = -16.0
-offset_right = 32.0
-offset_bottom = 16.0
-color = Color(0.0150757, 0.898063, 0.964844, 0.592157)
-metadata/interaction_highlight = true
+z_index = 1
+texture = ExtResource("4_m3krc")
+hframes = 4
+vframes = 5
+frame = 16
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="InteractSprite"]
+libraries = {
+"": SubResource("AnimationLibrary_28234")
+}
+autoplay = "hover"
 
 [node name="InteractionZone" type="Area2D" parent="."]
 metadata/object_interaction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionZone"]
 shape = SubResource("RectangleShape2D_qfiap")
+
+[node name="ThrusterSounds" type="Node" parent="."]
+script = ExtResource("4_kpiki")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_bj45p")
+max_distance = 100.0
+bus = &"SFX"

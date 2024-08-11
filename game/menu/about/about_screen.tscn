@@ -32,30 +32,31 @@ size_flags_vertical = 3
 theme_override_colors/default_color = Color(1, 0.247059, 0.584314, 1)
 theme_override_font_sizes/bold_italics_font_size = 32
 theme_override_font_sizes/italics_font_size = 32
-theme_override_font_sizes/mono_font_size = 24
-theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_font_sizes/normal_font_size = 48
 theme_override_font_sizes/bold_font_size = 32
 bbcode_enabled = true
 text = "[u]Team members:[/u]
 
-- HotNoggin - https://github.com/HotNoggin
-- TheNetherPug - https://github.com/TheNetherPug
-- ZAFT - https://github.com/zaftnotameni
+- ZAFT - Programming/Build/UI/SFX/VFX - [code]https://zafteer.itch.io/[/code]
+- HotNoggin - Art - [code]https://www.hotnogginstudios.com/[/code]
+- TheNetherPug - Music/Art/VFX - [code]https://github.com/TheNetherPug[/code]
 
 [u]Using:[/u]
 
-- Godot 4.3-rc3 - [code]https://github.com/godotengine/godot-builds/releases/download/4.3-rc3/Godot_v4.3-rc3_win64.exe.zip[/code]
-- neovim - https://neovim.io/
-- butler - https://itch.io/docs/butler/pushing.html
-- bfxr - https://www.bfxr.net/
+- Godot 4.3-rc3 - [code]https://github.com/godotengine[/code]
+- neovim - [code]https://neovim.io[/code]
+- butler - [code]https://itch.io/docs/butler/pushing.html[/code]
+- bfxr - [code]https://www.bfxr.net[/code]
 
 [u]Credits:[/u]
 
-- Kenney Input Prompts - https://kenney.nl/assets/input-prompts
-- Kenney UI Audio - https://kenney.nl/assets/ui-audio
-- Font Monogram - https://datagoblin.itch.io/monogram
+- Kenney Input Prompts - [code]https://kenney.nl/assets/input-prompts[/code]
+- Kenney UI Audio - [code]https://kenney.nl/assets/ui-audio[/code]
+- Kenney Sci-Fi Sounds - [code]https://kenney.nl/assets/sci-fi-sounds[/code]
+- Font Monogram - [code]https://datagoblin.itch.io/monogram[/code]
+- Black Hole - Pixel Planets [code]https://github.com/Deep-Fold/PixelPlanets[/code]
 "
-fit_content = true
 tab_size = 2
 
 [node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]

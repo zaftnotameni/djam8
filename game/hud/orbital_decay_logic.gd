@@ -6,15 +6,16 @@ const ORBITAL_DECAY_LOGIC_GROUP := 'orbital_decay_logic'
 @onready var orbit_height_bar: Control = %OrbitHeightBar
 @onready var black_hole_marker : Control = %BlackHole
 @onready var ship_indicator : Node2D = %ShipHudIndicator
+@onready var marker_top : Marker2D = %Top
+@onready var marker_bottom : Marker2D = %Bottom
 
 @export var orbit_height : float = 11000.0 # in km
+@export var multiplier: float = 50.0
 
 var max_orbital_height : float = 21000.0 # in km
 var min_orbital_height : float = 1000.0 # in km
 var orbital_velocity : float = 8.0 # in km/s
 
-var marker_top : Vector2
-var marker_bottom : Vector2
 var bar_height : float
 var bar_center_x : float
 var bonus: float = 0.0
@@ -51,18 +52,16 @@ func _process(delta: float) -> void:
 		if not hi.owner.has_meta('has_problems') or not hi.owner.get_meta('has_problems'):
 			step_bonus += hi.owner.get_meta('orbital_bonus') if hi.owner.has_meta('orbital_bonus') else 0.0
 
-	bonus = step_bonus
-	decay = step_decay
+	bonus = step_bonus * multiplier
+	decay = step_decay * multiplier
 	saldo = (bonus - decay)
 	orbit_height += saldo * delta
 
-	marker_top = orbit_height_bar.get_rect().position
-	marker_bottom = marker_top + orbit_height_bar.get_rect().size
-	bar_height = marker_top.y - marker_bottom.y
-	bar_center_x = (marker_top.x + orbit_height_bar.get_rect().size.x) + 24
+	bar_height = abs(marker_top.global_position.y - marker_bottom.global_position.y)
+	bar_center_x = marker_top.global_position.x
 	orbital_velocity = sqrt(640000.0 / orbit_height)
 
-	var visual_height := remap(orbit_height, min_orbital_height, max_orbital_height, marker_bottom.y, marker_top.y)
+	var visual_height := remap(orbit_height, min_orbital_height, max_orbital_height, marker_bottom.global_position.y, marker_top.global_position.y)
 	ship_indicator.global_position = ship_indicator.global_position.move_toward(Vector2(bar_center_x, visual_height), delta * 1000)
 
 # escape velocity formula: v = sqrt(2GM/R)

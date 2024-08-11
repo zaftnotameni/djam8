@@ -10,10 +10,10 @@
 [ext_resource type="Script" path="res://game/behaviors/game_state_game.gd" id="5_wqluw"]
 [ext_resource type="Script" path="res://game/player/spawns_player.gd" id="6_52awo"]
 [ext_resource type="PackedScene" uid="uid://dhktbsl2jh0iv" path="res://game/level/kill_planes.tscn" id="8_lhel8"]
-[ext_resource type="Script" path="res://game/hud/problem_indicators.gd" id="9_dkua2"]
 [ext_resource type="Script" path="res://game/player/ropes_to_ship.gd" id="10_sm7ex"]
 [ext_resource type="Script" path="res://game/layers/at_hud.gd" id="11_imudc"]
 [ext_resource type="PackedScene" uid="uid://dmr5ge227mtk5" path="res://game/hud/orbit_level_hud.tscn" id="12_0va4y"]
+[ext_resource type="PackedScene" uid="uid://nn5fi105o1xv" path="res://game/space/BlackHole/BlackHole.tscn" id="14_d3u2w"]
 
 [node name="Level001" type="Node2D"]
 
@@ -47,9 +47,6 @@ spawns_on_ready = true
 
 [node name="KillPlanes" parent="." instance=ExtResource("8_lhel8")]
 
-[node name="ProblemIndicators" type="Node2D" parent="."]
-script = ExtResource("9_dkua2")
-
 [node name="Rope" type="Line2D" parent="."]
 width = 2.0
 default_color = Color(1, 0.247059, 0.584314, 1)
@@ -57,12 +54,25 @@ joint_mode = 2
 
 [node name="RopesToShip" type="Node" parent="." node_paths=PackedStringArray("line", "attachment_point")]
 script = ExtResource("10_sm7ex")
+rope_length = 300.0
 line = NodePath("../Rope")
 attachment_point = NodePath("../RopeAttachement")
 
 [node name="RopeAttachement" type="Marker2D" parent="."]
-position = Vector2(67, -119)
+position = Vector2(144, 32)
 
 [node name="AtHUD" type="Node" parent="."]
 script = ExtResource("11_imudc")
 scene = ExtResource("12_0va4y")
+
+[node name="Planet" parent="." instance=ExtResource("14_d3u2w")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 30.0
+offset_top = 739.0
+offset_right = 30.0
+offset_bottom = 739.0
+scale = Vector2(4, 4)
