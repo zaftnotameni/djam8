@@ -25,13 +25,13 @@
 stream_count = 5
 stream_0/stream = ExtResource("15_j6113")
 stream_0/volume = 0.0
-stream_1/stream = ExtResource("16_tmxrs")
-stream_1/volume = 0.0
-stream_2/stream = ExtResource("17_3nn7g")
+stream_1/stream = ExtResource("19_d2xsj")
+stream_1/volume = -60.0
+stream_2/stream = ExtResource("18_er7g2")
 stream_2/volume = -60.0
-stream_3/stream = ExtResource("18_er7g2")
+stream_3/stream = ExtResource("17_3nn7g")
 stream_3/volume = -60.0
-stream_4/stream = ExtResource("19_d2xsj")
+stream_4/stream = ExtResource("16_tmxrs")
 stream_4/volume = -60.0
 
 [node name="Level001" type="Node2D"]
@@ -102,3 +102,9 @@ autoplay = true
 bus = &"BGM"
 playback_type = 1
 script = ExtResource("20_syuwf")
+
+[node name="Timer" type="Timer" parent="AudioStreamPlayer"]
+wait_time = 6.4
+autostart = true
+
+[connection signal="timeout" from="AudioStreamPlayer/Timer" to="AudioStreamPlayer" method="_on_timer_timeout"]
