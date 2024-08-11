@@ -34,12 +34,12 @@ func on_start():
 	var tween := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.set_pause_mode(Tween.TweenPauseMode.TWEEN_PAUSE_PROCESS)
 	tween.tween_property(btn_start, 'position:x', 2000, 0.4).from(0)
-	tween.parallel().tween_property(btn_options, 'position:x', 2000, 0.8).from(0)
-	tween.parallel().tween_property(btn_about, 'position:x', 2000, 1.2).from(0)
-	tween.parallel().tween_property(logo, 'position:y', -2000, 1.6).from(-100)
-	tween.tween_property(black_hole, 'position:y', 2000, 0.8).from(-180)
-	tween.parallel().tween_property(owner, 'modulate:a', 0.0, 0.8).from(1.0)
-	tween.parallel().tween_callback(Layers.game.add_child.bind(game)).set_delay(0.6)
+	tween.parallel().tween_property(btn_options, 'position:x', 2000, 0.2).from(0)
+	tween.parallel().tween_property(btn_about, 'position:x', 2000, 0.4).from(0)
+	tween.parallel().tween_property(logo, 'position:y', -2000, 0.6).from(-100)
+	tween.tween_property(black_hole, 'scale', Vector2(64, 64), 0.4).from(Vector2(4, 4))
+	tween.parallel().tween_property(owner, 'modulate:a', 0.0, 0.3).from(1.0)
+	tween.parallel().tween_callback(Layers.game.add_child.bind(game)).set_delay(0.35)
 	tween.tween_callback(owner.queue_free).set_delay(0.1)
 
 func animate():
