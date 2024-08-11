@@ -5,6 +5,7 @@ class_name TitleAnimation extends Node
 @onready var btn_options : Control = %Options
 @onready var btn_about : Control = %About
 @onready var buttons : Control = %Buttons
+@onready var parent_container : Control = %ParentContainer
 @onready var logo : Node2D = %Logo
 
 const LEVEL01 := preload('res://game/level/level_001.tscn')
@@ -18,6 +19,7 @@ func _ready() -> void:
 	btn_about.hide()
 	logo.hide()
 	buttons.hide()
+	parent_container.hide()
 	btn_start.pressed.connect(on_start)
 	if owner.has_meta('delay_animation'): get_tree().create_timer(0.5).timeout.connect(animate, CONNECT_ONE_SHOT)
 	else: animate()
@@ -45,18 +47,26 @@ func animate():
 	btn_options.hide()
 	btn_about.hide()
 	logo.hide()
+	parent_container.hide()
 	buttons.hide()
+	buttons.z_index = -1000
+	buttons.z_as_relative = false
 	buttons.modulate.a = 0
+
 	var tween := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.set_pause_mode(Tween.TweenPauseMode.TWEEN_PAUSE_PROCESS)
 	tween.tween_property(logo, 'position:y', -100, 1.0).from(-2000)
 	tween.parallel().tween_callback(logo.show).set_delay(0.1)
+	tween.parallel().tween_property(owner, 'modulate:a', 1.0, 0.1).from(0.0)
 	tween.tween_property(btn_start, 'position:x', 0.0, 0.5).from(2000)
 	tween.parallel().tween_property(btn_options, 'position:x', 0.0, 1.0).from(2000)
 	tween.parallel().tween_property(btn_about, 'position:x', 0.0, 1.5).from(2000)
 	tween.parallel().tween_callback(btn_start.show).set_delay(0.1)
 	tween.parallel().tween_callback(btn_options.show).set_delay(0.1)
 	tween.parallel().tween_callback(btn_about.show).set_delay(0.1)
+	tween.parallel().tween_callback(parent_container.show).set_delay(0.1)
 	tween.parallel().tween_callback(buttons.show).set_delay(0.1)
+	tween.parallel().tween_property(buttons, 'z_index', 0, 0.1).from(-1000)
+	tween.parallel().tween_property(buttons, 'z_as_relative', true, 0.1).from(false)
 	tween.parallel().tween_property(buttons, 'modulate:a', 1.0, 0.1).from(0.0)
 	tween.tween_callback(btn_start.grab_focus)
