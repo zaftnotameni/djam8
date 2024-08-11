@@ -9,6 +9,8 @@ func wipe_all(children:Array=[]):
 		child.queue_free()
 
 func on_defeat():
+	Audio.play_named_sfx(NamedAudio.SFX.SFX_ExplosionCrunch003)
+	Audio.play_named_sfx(NamedAudio.SFX.SFX_ExplosionCrunch004)
 	var children_to_wipe := []
 	children_to_wipe.append_array(Layers.game.get_children())
 	children_to_wipe.append_array(Layers.hud.get_children())

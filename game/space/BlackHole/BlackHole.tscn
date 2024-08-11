@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://nn5fi105o1xv"]
+[gd_scene load_steps=7 format=3 uid="uid://nn5fi105o1xv"]
 
 [ext_resource type="PackedScene" path="res://game/space/Planet.tscn" id="1"]
 [ext_resource type="Script" path="res://game/space/BlackHole/BlackHole.gd" id="2"]
 [ext_resource type="Shader" path="res://game/space/BlackHole/BlackHoleRing.gdshader" id="3"]
 [ext_resource type="Shader" path="res://game/space/BlackHole/BlackHole.gdshader" id="4"]
-[ext_resource type="Script" path="res://game/space/BlackHole/black_hole_approaches.gd" id="5_xssdl"]
 
 [sub_resource type="ShaderMaterial" id="3"]
 shader = ExtResource("4")
@@ -57,6 +56,3 @@ offset_top = -100.0
 offset_right = 200.0
 offset_bottom = 200.0
 mouse_filter = 2
-
-[node name="BlackHoleApproaches" type="Node" parent="." index="2"]
-script = ExtResource("5_xssdl")

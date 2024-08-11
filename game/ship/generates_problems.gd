@@ -1,6 +1,10 @@
 class_name GeneratesProblems extends Node
 
 @export var every_n_seconds : float = 10
+var logic : OrbitalDecayLogic
+
+func _ready() -> void:
+	if not logic : logic = OrbitalDecayLogic.first()
 
 var elapsed : float = 0.0
 
@@ -18,7 +22,11 @@ func generate_problem():
 		problem_highlighter.owner.set_meta('has_problems', true)
 
 func _process(delta: float) -> void:
+	if not logic : logic = OrbitalDecayLogic.first()
+	var adjusted_every_n_seconds : float = every_n_seconds
+	if logic: adjusted_every_n_seconds -= (adjusted_every_n_seconds * 0.8 * logic.percentage)
+	adjusted_every_n_seconds = clampf(adjusted_every_n_seconds, 1.0, 10.0)
 	elapsed += delta
-	if elapsed >= every_n_seconds:
+	if elapsed >= adjusted_every_n_seconds:
 		elapsed = 0.0
 		generate_problem()

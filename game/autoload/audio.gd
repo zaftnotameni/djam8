@@ -13,7 +13,7 @@ var audio_to_ignore = {}
 # Main functions to be used to play audio
 func play_named_ui(audio_id_from_enum:NamedAudio.UI): play_named(get_name_ui(audio_id_from_enum))
 func play_named_bgm(audio_id_from_enum:NamedAudio.BGM): play_named(get_name_bgm(audio_id_from_enum))
-func play_named_sfx(audio_id_from_enum:NamedAudio.SFX): play_named(get_name_sfx(audio_id_from_enum))
+func play_named_sfx(audio_id_from_enum:NamedAudio.SFX, only_if_not_playing:bool=true): play_named(get_name_sfx(audio_id_from_enum), only_if_not_playing)
 func play_named_master(audio_id_from_enum:NamedAudio.Master): play_named(get_name_master(audio_id_from_enum))
 func play_named_all(audio_id_from_enum:NamedAudio.All): play_named(get_name_all(audio_id_from_enum))
 
@@ -34,7 +34,7 @@ func get_named(audio_name:String) -> AudioStreamPlayer: return get_node(audio_na
 func stop_named(audio_name:String):
 	get_named(audio_name).stop()
 
-func play_named(audio_name:String):
+func play_named(audio_name:String, only_if_not_playing:=true):
 	if audio_to_ignore.has(audio_name) and audio_to_ignore[audio_name] > 0:
 		audio_to_ignore[audio_name] = audio_to_ignore.get_or_add(audio_name, 0) - 1
 	else:
@@ -42,7 +42,7 @@ func play_named(audio_name:String):
 		if not audio:
 			push_error('could not resolve audio %s at %s' % [audio_name, get_path()])
 		else:
-			if not audio.playing:
+			if not audio.playing or not only_if_not_playing:
 				print_verbose('play: ',audio_name)
 				audio.play()
 			# if audio.name.begins_with('BGM') and not audio.name.contains('VolumeTick'):
@@ -85,15 +85,9 @@ func read_volume_from_config():
 
 func _enter_tree() -> void:
 	read_volume_from_config()
-
-### on saving the audio scene, automatically populates the audio stream players and generate the named audio enum
-func _notification(what: int) -> void:
-	if what == NOTIFICATION_EDITOR_POST_SAVE:
-		if Engine.is_editor_hint():
-			if get_tree().edited_scene_root == self:
-				pass
-			# setup_local_files()
-
+	if Engine.is_editor_hint():
+		if get_tree().edited_scene_root == self:
+			setup_local_files()
 
 func setup_local_files():
 	for child in get_children():
