@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://dy663kuitecyv"]
+[gd_scene load_steps=11 format=4 uid="uid://dy663kuitecyv"]
 
 [ext_resource type="TileSet" uid="uid://ordc1sflf0kt" path="res://game/ship/ship.tres" id="1_8kv3h"]
 [ext_resource type="PackedScene" uid="uid://b0ll30uq8b5c7" path="res://game/ship/computer.tscn" id="1_qmqw2"]
 [ext_resource type="PackedScene" uid="uid://b202isct7vjpd" path="res://game/ship/thruster.tscn" id="2_x6rwn"]
 [ext_resource type="Script" path="res://game/ship/controls_onboard_display.gd" id="4_rehk4"]
 [ext_resource type="PackedScene" uid="uid://6d02j5m4pm4c" path="res://game/ship/solar_panel.tscn" id="5_y062f"]
+[ext_resource type="Script" path="res://game/ship/label.gd" id="6_k5ce1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e22gr"]
 bg_color = Color(0.0823529, 0, 0.121569, 1)
@@ -97,3 +98,28 @@ position = Vector2(56, -72)
 metadata/orbital_bonus = 2.0
 metadata/orbital_decay = 4.0
 metadata/has_problems = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 150.0
+offset_top = 17.0
+offset_right = 156.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(1, 0.247059, 0.584314, 1)
+theme_override_font_sizes/font_size = 16
+text = "5.0"
+clip_text = true
+ellipsis_char = ""
+script = ExtResource("6_k5ce1")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 198.0
+offset_top = 17.0
+offset_right = 204.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(1, 0.247059, 0.584314, 1)
+theme_override_font_sizes/font_size = 16
+text = "5.0"
+horizontal_alignment = 2
+clip_text = true
+ellipsis_char = ""
+script = ExtResource("6_k5ce1")
