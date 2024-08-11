@@ -1,14 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://btdgb8rj8rrml"]
+[gd_scene load_steps=15 format=3 uid="uid://btdgb8rj8rrml"]
 
 [ext_resource type="Script" path="res://game/autoload/audio.gd" id="1_25wme"]
 [ext_resource type="AudioStream" uid="uid://hxa1muiv66x6" path="res://assets/audio/UI/button_focus.ogg" id="2_oteo4"]
 [ext_resource type="AudioStream" uid="uid://c1an0sjyqkjxf" path="res://assets/audio/UI/button_press.ogg" id="3_8v42w"]
 [ext_resource type="AudioStream" uid="uid://g5itcdf8hvfy" path="res://assets/audio/UI/volume_tick.ogg" id="4_st5n4"]
 [ext_resource type="AudioStream" uid="uid://oli2o8kktjfa" path="res://assets/audio/BGM/volume_tick.ogg" id="5_7k6w4"]
+[ext_resource type="AudioStream" uid="uid://b6qf0bca0p0fu" path="res://assets/audio/SFX/go_inside.ogg" id="5_7wsmn"]
 [ext_resource type="AudioStream" uid="uid://bopn3qvu6017l" path="res://assets/audio/SFX/jetpack_1.wav" id="5_g6ipr"]
 [ext_resource type="AudioStream" uid="uid://ce4n6v5thexvg" path="res://assets/audio/BGM/pixel_space.mp3" id="5_va70x"]
 [ext_resource type="AudioStream" uid="uid://blgidyuft5tx0" path="res://assets/audio/SFX/jetpack_2.wav" id="6_4gfys"]
 [ext_resource type="AudioStream" uid="uid://d0m5glomakv66" path="res://assets/audio/SFX/volume_tick.ogg" id="6_opb5q"]
+[ext_resource type="AudioStream" uid="uid://lx5wdpyybow1" path="res://assets/audio/SFX/go_outside.ogg" id="6_s86f3"]
 [ext_resource type="AudioStream" uid="uid://be8skmepdwywx" path="res://assets/audio/Master/volume_tick.ogg" id="7_kopr4"]
 [ext_resource type="AudioStream" uid="uid://cwuljo0sbobt4" path="res://assets/audio/SFX/landing_on_ship.ogg" id="7_oi6bn"]
 [ext_resource type="AudioStream" uid="uid://be5ln2qc4smhx" path="res://assets/audio/SFX/step_inside_ship.ogg" id="8_bsmxk"]
@@ -30,6 +32,16 @@ metadata/created_via_automation = true
 [node name="UI_VolumeTick" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_st5n4")
 bus = &"UI"
+metadata/created_via_automation = true
+
+[node name="SFX_GoInside" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_7wsmn")
+bus = &"SFX"
+metadata/created_via_automation = true
+
+[node name="SFX_GoOutside" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_s86f3")
+bus = &"SFX"
 metadata/created_via_automation = true
 
 [node name="SFX_Jetpack1" type="AudioStreamPlayer" parent="."]

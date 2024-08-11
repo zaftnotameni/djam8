@@ -12,6 +12,8 @@ enum BGM {
 }
 
 enum SFX {
+	SFX_GoInside,
+	SFX_GoOutside,
 	SFX_Jetpack1,
 	SFX_Jetpack2,
 	SFX_LandingOnShip,
@@ -27,6 +29,8 @@ enum All {
 	UI_ButtonFocus,
 	UI_ButtonPress,
 	UI_VolumeTick,
+	SFX_GoInside,
+	SFX_GoOutside,
 	SFX_Jetpack1,
 	SFX_Jetpack2,
 	SFX_LandingOnShip,
