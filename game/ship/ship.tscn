@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=4 uid="uid://dy663kuitecyv"]
 
-[ext_resource type="Texture2D" uid="uid://brrtu81ueyx68" path="res://assets/textures/ship/ship.png" id="1_ghfsk"]
+[ext_resource type="Texture2D" uid="uid://c52e62uyo0xdp" path="res://assets/textures/ship/ship.png" id="1_ghfsk"]
 [ext_resource type="PackedScene" uid="uid://b0ll30uq8b5c7" path="res://game/ship/computer.tscn" id="1_qmqw2"]
 [ext_resource type="PackedScene" uid="uid://b202isct7vjpd" path="res://game/ship/thruster.tscn" id="2_x6rwn"]
 [ext_resource type="Script" path="res://game/ship/controls_onboard_display.gd" id="4_rehk4"]
