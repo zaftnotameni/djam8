@@ -4,6 +4,8 @@ var logic : OrbitalDecayLogic
 
 func _ready() -> void:
 	if not logic : logic = OrbitalDecayLogic.first()
+	var tween : Tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(self, "zoom", Vector2.ONE * 3.0, 1.5)
 
 func _process(delta: float) -> void:
 	if not logic : logic = OrbitalDecayLogic.first()
