@@ -1,12 +1,46 @@
-[gd_scene load_steps=7 format=3 uid="uid://b202isct7vjpd"]
+[gd_scene load_steps=8 format=3 uid="uid://b202isct7vjpd"]
 
 [ext_resource type="Script" path="res://game/ship/highlights_problems.gd" id="1_t5iwk"]
 [ext_resource type="Script" path="res://game/ship/highlights_interactions.gd" id="2_cbiyj"]
-[ext_resource type="Texture2D" uid="uid://brrtu81ueyx68" path="res://assets/textures/ship/ship.png" id="3_2lv3r"]
-[ext_resource type="Texture2D" uid="uid://c52e62uyo0xdp" path="res://assets/textures/character/ship.png" id="4_m3krc"]
+[ext_resource type="Texture2D" uid="uid://c52e62uyo0xdp" path="res://assets/textures/ship/ship.png" id="4_m3krc"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tsy60"]
-blend_mode = 3
+[sub_resource type="Animation" id="Animation_m8hgr"]
+resource_name = "hover"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1.5, 1.5), Vector2(1.5, 1.5), Vector2(1, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yrp67"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_28234"]
+_data = {
+"RESET": SubResource("Animation_yrp67"),
+"hover": SubResource("Animation_m8hgr")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfiap"]
 size = Vector2(16, 16)
@@ -20,30 +54,34 @@ canvas_item = NodePath("../BrokenSprite")
 [node name="HighlightsInteractions" type="Node" parent="." node_paths=PackedStringArray("area", "canvas_item")]
 script = ExtResource("2_cbiyj")
 area = NodePath("../InteractionZone")
-canvas_item = NodePath("../InteractionHighlight")
+canvas_item = NodePath("../InteractSprite")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("3_2lv3r")
+texture = ExtResource("4_m3krc")
 hframes = 4
-vframes = 4
+vframes = 5
 frame = 9
 
 [node name="BrokenSprite" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("4_m3krc")
 hframes = 4
-vframes = 4
+vframes = 5
 frame = 13
 
-[node name="InteractionHighlight" type="ColorRect" parent="."]
+[node name="InteractSprite" type="Sprite2D" parent="."]
 visible = false
-material = SubResource("CanvasItemMaterial_tsy60")
-offset_left = -32.0
-offset_top = -16.0
-offset_right = 32.0
-offset_bottom = 16.0
-color = Color(0.0150757, 0.898063, 0.964844, 0.592157)
-metadata/interaction_highlight = true
+z_index = 1
+texture = ExtResource("4_m3krc")
+hframes = 4
+vframes = 5
+frame = 16
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="InteractSprite"]
+libraries = {
+"": SubResource("AnimationLibrary_28234")
+}
+autoplay = "hover"
 
 [node name="InteractionZone" type="Area2D" parent="."]
 metadata/object_interaction = true
