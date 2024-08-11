@@ -14,7 +14,7 @@ func _enter_tree() -> void:
 	static_body = StaticBody2D.new()
 	static_body.collision_mask = 0
 	static_body.collision_layer = 0
-	var point_count := 6
+	var point_count := 12
 	var angle := deg_to_rad(360.0 / point_count)
 	for i in point_count:
 		var col := CollisionShape2D.new()

@@ -53,3 +53,11 @@ texture = ExtResource("3_npiqg")
 
 [node name="OrbitalDecayLogic" type="Node" parent="."]
 script = ExtResource("2_bv15l")
+
+[node name="Top" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(40, 48)
+
+[node name="Bottom" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(40, 728)

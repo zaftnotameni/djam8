@@ -24,12 +24,14 @@ func on_area_exited(other:Area2D):
 	if other.has_meta('ship_interior'):
 		print_verbose('player exited ship')
 		update_where(InteriorExterior.EXTERIOR)
+		Audio.play_named_sfx(NamedAudio.SFX.SFX_GoOutside)
 
 func on_area_entered(other:Area2D):
 	# for the sake of simplicity for the jam, using a meta tag instead of layers
 	if other.has_meta('ship_interior'):
 		print_verbose('player entered ship')
 		update_where(InteriorExterior.INTERIOR)
+		Audio.play_named_sfx(NamedAudio.SFX.SFX_GoInside)
 
 func _enter_tree() -> void:
 	add_to_group(INTERIOR_EXTERIOR_TRACKER_GROUP_NAME)
