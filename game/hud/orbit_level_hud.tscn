@@ -1,26 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmr5ge227mtk5"]
+[gd_scene load_steps=7 format=3 uid="uid://dmr5ge227mtk5"]
 
-[ext_resource type="Texture2D" uid="uid://ollt30qweswp" path="res://assets/textures/ship/ship_hud_indicator.png" id="1_qybsx"]
+[ext_resource type="Texture2D" uid="uid://djjgjv0kymjgb" path="res://assets/textures/icons/moon_icon.png" id="1_p3gpb"]
+[ext_resource type="Texture2D" uid="uid://cd668rrip4rba" path="res://assets/textures/icons/black_hole_icon.png" id="2_20g54"]
 [ext_resource type="Script" path="res://game/hud/orbital_decay_logic.gd" id="2_bv15l"]
-
-[sub_resource type="Gradient" id="Gradient_ly2ey"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_0wjja"]
-gradient = SubResource("Gradient_ly2ey")
+[ext_resource type="Texture2D" uid="uid://ds01brc0hw0g0" path="res://assets/textures/icons/ship_icon.png" id="3_npiqg"]
 
 [sub_resource type="Gradient" id="Gradient_mieub"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 0.247059, 0.584314, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_uvlcb"]
 gradient = SubResource("Gradient_mieub")
 width = 16
 fill_from = Vector2(1, 1)
-
-[sub_resource type="Gradient" id="Gradient_5e4jj"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_s4ehq"]
-gradient = SubResource("Gradient_5e4jj")
-fill_from = Vector2(1, 0)
-fill_to = Vector2(0, 0)
 
 [node name="OribtLevelBarHud" type="MarginContainer"]
 anchors_preset = 9
@@ -29,13 +21,15 @@ offset_right = 64.0
 grow_vertical = 2
 
 [node name="VBOX" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 theme_override_constants/separation = 0
 
 [node name="EscapeVelocity" type="TextureRect" parent="VBOX"]
 unique_name_in_owner = true
 layout_mode = 2
-texture = SubResource("GradientTexture2D_0wjja")
+texture = ExtResource("1_p3gpb")
+stretch_mode = 5
 
 [node name="OrbitHeightBar" type="TextureRect" parent="VBOX"]
 unique_name_in_owner = true
@@ -43,16 +37,19 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 texture = SubResource("GradientTexture2D_uvlcb")
+expand_mode = 2
+stretch_mode = 4
 
 [node name="BlackHole" type="TextureRect" parent="VBOX"]
 unique_name_in_owner = true
 layout_mode = 2
-texture = SubResource("GradientTexture2D_s4ehq")
+texture = ExtResource("2_20g54")
+stretch_mode = 5
 
 [node name="ShipHudIndicator" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(32, 480)
-texture = ExtResource("1_qybsx")
+texture = ExtResource("3_npiqg")
 
 [node name="OrbitalDecayLogic" type="Node" parent="."]
 script = ExtResource("2_bv15l")

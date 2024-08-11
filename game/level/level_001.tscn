@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cgfkysxujq0q3"]
+[gd_scene load_steps=14 format=3 uid="uid://cgfkysxujq0q3"]
 
 [ext_resource type="Script" path="res://game/level/triggers_victory.gd" id="1_o2mak"]
 [ext_resource type="PackedScene" uid="uid://dy663kuitecyv" path="res://game/ship/ship.tscn" id="1_qnvrk"]
@@ -10,7 +10,6 @@
 [ext_resource type="Script" path="res://game/behaviors/game_state_game.gd" id="5_wqluw"]
 [ext_resource type="Script" path="res://game/player/spawns_player.gd" id="6_52awo"]
 [ext_resource type="PackedScene" uid="uid://dhktbsl2jh0iv" path="res://game/level/kill_planes.tscn" id="8_lhel8"]
-[ext_resource type="Script" path="res://game/hud/problem_indicators.gd" id="9_dkua2"]
 [ext_resource type="Script" path="res://game/player/ropes_to_ship.gd" id="10_sm7ex"]
 [ext_resource type="Script" path="res://game/layers/at_hud.gd" id="11_imudc"]
 [ext_resource type="PackedScene" uid="uid://dmr5ge227mtk5" path="res://game/hud/orbit_level_hud.tscn" id="12_0va4y"]
@@ -47,9 +46,6 @@ spawns_on_ready = true
 
 [node name="KillPlanes" parent="." instance=ExtResource("8_lhel8")]
 
-[node name="ProblemIndicators" type="Node2D" parent="."]
-script = ExtResource("9_dkua2")
-
 [node name="Rope" type="Line2D" parent="."]
 width = 2.0
 default_color = Color(1, 0.247059, 0.584314, 1)
@@ -61,7 +57,7 @@ line = NodePath("../Rope")
 attachment_point = NodePath("../RopeAttachement")
 
 [node name="RopeAttachement" type="Marker2D" parent="."]
-position = Vector2(67, -119)
+position = Vector2(144, 32)
 
 [node name="AtHUD" type="Node" parent="."]
 script = ExtResource("11_imudc")
